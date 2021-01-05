@@ -148,8 +148,17 @@ router.post('/logout', (req, res)=>{
 })
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond ith a resource');
-});
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
+      include: {
+        model: db.Movie,
+      },
+    });
+    res.render("profile", users);
+  })
+);
 
 module.exports = router;
