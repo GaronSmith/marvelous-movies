@@ -1,0 +1,10 @@
+link(rel='stylesheet' href='/stylesheets/profile.css')
+h1 Welcome #{users.username}
+h3 #{users.username} Blockbuster Shelves
+ul
+ each movie in users.Movies
+    li= movie.BlockbusterShelf.status
+
+    
+  
+
