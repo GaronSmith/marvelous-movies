@@ -1,13 +1,7 @@
-div.leftContainer {
-    float: left;
-    width: 625px;
-    padding-right: 10px;
-    padding-left: 8px;
-}
 
 div.moviePoster {
-    width: 150px;
-    text-align: center;
+    width: 20 px;
+    height: 60 px;
     float: left;
     margin: 0 20px 10px 0;
 }
@@ -25,7 +19,7 @@ div.title {
 }
 
 div.genre {
-
+    
 }
 
 div.releaseDate {

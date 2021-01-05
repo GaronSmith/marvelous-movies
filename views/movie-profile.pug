@@ -1,17 +1,22 @@
-extends layout.pug
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Movie-Profile
+    body
 
-append head
-    //-add page specific styles by appending to the head
-    link(rel="stylesheet", href="/stylesheets/movie-profile.css")
-block content
-    div.leftContainer
+    append head
+        //-add page specific styles by appending to the head
+        link(rel="stylesheet", href="/stylesheets/movie-profile.css")
+
         div.moviePoster
             img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
         div.movieDetail
             div.title= movie.title
-            div.genre= movie.genre
-            div.releaseDate= movie.releaseDate
-            div.voteRating= movie.voteRoting
+                div.genre= movie.genre
+                div.releaseDate= movie.releaseDate
+                div.voteRating= movie.voteRating
 
             div.desc
                 p= movie.description

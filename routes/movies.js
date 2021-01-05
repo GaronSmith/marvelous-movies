@@ -14,7 +14,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     // Do we need csrfProtection on this GET route?
     // single movie info pulled from database
     const movieId = parseInt(req.params.id, 10);
-    console.log(movieId);
+    
     // include Ratings, Reviews
     const movie = await db.Movie.findByPk(movieId);
     res.render('movie-profile', { title: 'Movie Profile', movie });
