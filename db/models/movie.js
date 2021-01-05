@@ -16,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       through: "BlockbusterShelf",
     };
   Movie.belongsToMany(models.User, columnMapping);
-  };
   Movie.hasMany(models.Review, { foreignKey: "movieId"});
-  Movie.hasMany(models.BlockBusterShelf, { foreignKey: "movieId" });
-
+  Movie.hasMany(models.BlockbusterShelf, { foreignKey: "movieId" });
+  
+};
   return Movie;
 };

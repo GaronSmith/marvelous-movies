@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey:'movieId',
       through:'BlockbusterShelf'}
     User.belongsToMany(models.Movie,columnMapping)
-    User.hasMany(models.BlockBusterShelf,{foreignKey:'userId'})
+    User.hasMany(models.BlockbusterShelf,{foreignKey:'userId'})
     User.hasMany(models.Review, { foreignKey: 'userId' });
   
   User.belongsToMany(models.User,{as: 'Followers',
