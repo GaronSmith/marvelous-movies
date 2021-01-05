@@ -17,6 +17,7 @@
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "node-fetch": "^2.6.1",
     "per-env": "^1.0.2",
     "pg": "^8.4.2",
     "pug": "2.0.4",
