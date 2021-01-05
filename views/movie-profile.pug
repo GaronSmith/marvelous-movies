@@ -1,19 +1,24 @@
 extends layout.pug
 
+append head
+    //-add page specific styles by appending to the head
+    link(rel="stylesheet", href="/stylesheets/movie-profile.css")
 block content
-    h3= movie.title
-    div.container
-        img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-    div
-        ul
-            li= `Genre: ${movie.genre}` 
-            li= `Release Date: ${movie.releaseDate}`
-            li= `Rating: ${movie.voteRating}`
+    div.leftContainer
+        div.moviePoster
+            img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
+        div.movieDetail
+            div.title= movie.title
+            div.genre= movie.genre
+            div.releaseDate= movie.releaseDate
+            div.voteRating= movie.voteRoting
 
-    div
-        p= movie.description
-    //- div
-    //-     ul
-    //-         li= `User Reviews: ${movie.rating}`
+            div.desc
+                p= movie.description
+
+
+            //- div
+            //-     ul
+            //-         li= `User Reviews: ${movie.rating}`
 
 
