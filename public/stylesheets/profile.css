@@ -1,0 +1,15 @@
+#userProfileName{
+   border-bottom: 1px solid black;
+   float:right;
+   font-size:20px;
+   line-height: 1;
+   margin-bottom: 8px;
+   width:440px;
+}
+.shelves{
+    border-bottom: 1px solid black;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase
+}   
+

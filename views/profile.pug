@@ -1,9 +1,14 @@
 link(rel='stylesheet' href='/stylesheets/profile.css')
-h1 Welcome #{users.username}
-h3 #{users.username} Blockbuster Shelves
+div
+  h1#userProfileName Welcome #{users.username}
+  h3.shelves #{users.username} Blockbuster Shelves
+    div
+      img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")    
 ul
  each movie in users.Movies
     li= movie.BlockbusterShelf.status
+    li=movie.title
+
 
     
   

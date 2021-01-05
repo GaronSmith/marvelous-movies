@@ -12,7 +12,7 @@ const users = await db.User.findByPk(currentUser,{
     model:db.Movie
   }
 })
-res.json()
+//res.json()
 res.render('profile',users)
 }))
 
