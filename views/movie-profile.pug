@@ -1,0 +1,20 @@
+extends layout.pug
+
+block content
+    h3= movie.title
+    //- Image Path
+    //- div
+    //-     a(href="")
+    div
+        ul
+            li= `Genre: ${movie.genre}` 
+            li= `Release Date: ${movie.releaseDate}`
+            li= `Rating: ${movie.voteRating}`
+
+    div
+        p= movie.description
+    //- div
+    //-     ul
+    //-         li= `User Reviews: ${movie.rating}`
+
+
