@@ -116,7 +116,7 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send('respond ith a resource');
 });
 
 module.exports = router;

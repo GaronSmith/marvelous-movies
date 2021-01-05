@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   BlockbusterShelf.associate = function(models) {
    BlockbusterShelf.belongsTo(models.User, { foreignKey: 'userId' });
+   BlockbusterShelf.belongsTo(models.Movie, { foreignKey: "movieId" });
+   
   };
-  BlockBusterShelf.belongsTo(models.Movie, { foreignKey: "movieId" });
-  
   
   return BlockbusterShelf;
 };
