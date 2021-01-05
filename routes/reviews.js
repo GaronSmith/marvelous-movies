@@ -3,9 +3,11 @@ const express = require('express');
 const {asyncHandler, csrfProtection} = require('./utils')
 const db = require('../db/models')
 const router = express.Router();
+// const { requireAuth } = require("../auth");
 
+// router.use(requrieAuth)
 
-router.get('/create/:id', csrfProtection, asyncHandler( async (req, res, next) => {
+router.get('/create/:id(\\d+)', csrfProtection, asyncHandler( async (req, res, next) => {
     const movieId = req.params.id;
     const userId = req.session.auth ? req.session.auth.userId : null
 
@@ -18,6 +20,18 @@ router.get('/create/:id', csrfProtection, asyncHandler( async (req, res, next) =
     })
 }));
 
-router.post('create')
+router.post('/create', csrfProtection, asyncHandler(async (req,res,next) =>{
+    await db.Review.create(req.body)
+    res.redirect(`/movies/${req.body.movieId}`)
+}))
+
+router.get('/rating/:uid(\\d+)/:mid(\\d+)', asyncHandler( async (req,res)=> {
+    const rating = await db.Review.findOne({
+        where:{
+            userId: req.params.uid,
+            movieId: req.params.mid,
+    }})
+    res.json({rating})
+}))
 
 module.exports = router;

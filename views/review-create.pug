@@ -3,15 +3,22 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/review.css")
+  script(src='/javascripts/rating.js')
 
 block content
+    
+    h1(id='test') 
 
+    div
+        img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
+    
+    
     form(action="/reviews/create", method="post")
         input(type="hidden", name="_csrf" value=token)
         input(type="hidden", name="movieId" value=movie.id)
-        //- input(type="hidden", name="userId" value=userId)
-        div
-            img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
+        //- change the hard coded user id value
+        input(type="hidden", name="userId" value=1)
+        
         div
             select(name="rating")
                 option(value= 1) 1 Stars
@@ -22,3 +29,6 @@ block content
         div
             label(for='comment') Comment
             textarea(name='comment' placeholder='Write a review')
+        button(type="submit") Submit
+
+    
