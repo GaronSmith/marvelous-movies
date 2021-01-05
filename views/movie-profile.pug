@@ -2,9 +2,8 @@ extends layout.pug
 
 block content
     h3= movie.title
-    //- Image Path
-    //- div
-    //-     a(href="")
+    div.container
+        img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
     div
         ul
             li= `Genre: ${movie.genre}` 
