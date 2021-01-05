@@ -13,6 +13,7 @@ const moviesRouter = require('./routes/movies');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
+const { restoreUser } = require('./auth')
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -32,19 +33,21 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
+    name: 'marvelous-movie.sid',
     secret: 'superSecret',
     store,
     saveUninitialized: false,
     resave: false,
   })
-);
-
-// create Session table if it doesn't already exist
-store.sync();
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/movies', moviesRouter);
+  );
+  
+  // create Session table if it doesn't already exist
+  store.sync();
+  
+  app.use(restoreUser)
+  app.use('/', indexRouter);
+  app.use('/users', usersRouter);
+  app.use('/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
