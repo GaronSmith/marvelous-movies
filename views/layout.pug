@@ -6,4 +6,13 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
+    if locals.authenticated
+      div Welcome, #{user.userName}!
+      form(action='/users/logout' method='post')
+        button(type='submit', id="logout-button") logout
+    else
+      div
+        a(href='/users/sign_up') register
+      div
+        a(href='/users/login') login
     block content
