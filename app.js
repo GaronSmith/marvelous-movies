@@ -8,6 +8,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const reviewsRouter = require('./routes/reviews');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
@@ -42,6 +43,7 @@ store.sync();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/reviews',reviewsRouter);
 
 app.get('/signup', csrfProtection, asyncHandler(async(req, res)=>{
   res.render('signup', { token: req.csrfToken() })
