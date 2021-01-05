@@ -23,7 +23,8 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING(100),
-        allowNull: false
+        allowNull: false,
+        unique:true
       },
       bio: {
         type: Sequelize.STRING(255)

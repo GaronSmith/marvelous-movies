@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     voteCount: DataTypes.INTEGER
   }, {});
   Movie.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      foreignKey: "movieId",
+      otherKey: "userId",
+      through: "BlockbusterShelf",
+    };
+  Movie.belongsToMany(models.User, columnMapping);
   };
   return Movie;
 };

@@ -9,7 +9,16 @@ module.exports = (sequelize, DataTypes) => {
     hashedPassword: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      foreignKey:'userId',
+      otherKey:'movieId',
+      through:'BlockbusterShelf'}
+    User.belongsToMany(models.Movie,columnMapping
+      
+    )
+    User.hasMany(models.BlockBusterShelf,{foreignKey:userId})
+
+    User.hasMany(models.Review, { foreignKey: userId });
   };
   return User;
 };
