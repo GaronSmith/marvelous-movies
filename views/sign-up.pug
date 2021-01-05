@@ -1,0 +1,40 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    form.form(action='/users/sign_up' method='post')
+        h2 Sign up for Marvelous Movies
+        p Sign up to see what your friends are watching, get movie recommendations and start rating your favorite movies!
+        h3 Sign up with Email
+        +validationErrorSummary(errors)
+        input(type='hidden' name='_csrf' value=token)
+        div.inputs
+            label(for='userName') Username
+            input(type="text" name='userName'  value=user.userName)
+        div.inputs 
+            label(for='firstName') First Name
+            input(type="text" name='firstName' value=user.firstName) 
+        div.inputs 
+            label(for='lastName') Last Name
+            input(type="text" name='lastName' value=user.lastName)
+        div.inputs  
+            label(for='email') Email
+            input(type="email" name='email' value=user.email)
+        div.inputs  
+            label(for='bio') Biography
+            textarea(name='bio') #{user.bio}
+        div.inputs 
+            label(for='password') Password
+            input(type="password" name="password")
+        div.inputs 
+            label(for='confirmPassword') Confirm Password
+            input(type="password" name="confirmPassword")
+        div
+            button.submit(type='submit') Signup!
+        div 
+            p Already a member?
+            a(href='/users/login') Log in 
+        p By clicking "Sign up" I agree that I love movies and want to share my love for movies with my friends!
+
+

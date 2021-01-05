@@ -1,0 +1,8 @@
+mixin validationErrorSummary(errors)
+  if errors
+    div#alert(role='alert')
+      ul
+        each error in errors
+          li= error
+
+
