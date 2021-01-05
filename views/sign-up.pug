@@ -6,20 +6,28 @@ block content
     +validationErrorSummary(errors)
     form(action='/users/sign_up' method='post')
         input(type='hidden' name='_csrf' value=token)
-        label(for='userName') Username
-        input(type="text" name='userName') 
-        label(for='firstName') First Name
-        input(type="text" name='firstName') 
-        label(for='lastName') Last Name
-        input(type="text" name='lastName') 
-        label(for='email') Email
-        input(type="email" name='email') 
-        label(for='bio') Biography
-        textarea(name='bio')
-        label(for='password') Password
-        input(type="password" name="password")
-        label(for='confirmPassword') Confirm Password
-        input(type="password" name="confirmPassword")
-        button(type='submit') Signup!
+        div
+            label(for='userName') Username
+            input(type="text" name='userName'  value=user.userName)
+        div 
+            label(for='firstName') First Name
+            input(type="text" name='firstName' value=user.firstName) 
+        div
+            label(for='lastName') Last Name
+            input(type="text" name='lastName' value=user.lastName)
+        div 
+            label(for='email') Email
+            input(type="email" name='email' value=user.email)
+        div 
+            label(for='bio') Biography
+            textarea(name='bio') #{user.bio}
+        div
+            label(for='password') Password
+            input(type="password" name="password")
+        div
+            label(for='confirmPassword') Confirm Password
+            input(type="password" name="confirmPassword")
+        div
+            button(type='submit') Signup!
 
 

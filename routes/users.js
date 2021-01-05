@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const {check, validationResult} = require('express-validator'); 
 
 const {User} = require('../db/models')
+const {loginUser, logoutUser} = require('../auth')
 
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
@@ -46,7 +47,13 @@ const userValidators = [
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Confirm Password')
     .isLength({ max: 50 })
-    .withMessage('Confirm Password must not be more than 50 characters long'),
+    .withMessage('Confirm Password must not be more than 50 characters long')
+    .custom((value, {req}) => {
+      if(value !== req.body.password) {
+        throw new Error('Passwords do not match ');
+      }
+      return true;
+    }),
 ];
 
 router.get('/sign_up', csrfProtection, asyncHandler(async (req, res) => {
@@ -57,7 +64,7 @@ router.get('/login', csrfProtection, asyncHandler(async (req, res) => {
   res.render('login', { token: req.csrfToken() });
 }));
 
-router.post('/sign_up', userValidators, asyncHandler(async (req, res) => {
+router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
   const { userName, firstName, lastName, email, bio, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -67,8 +74,15 @@ router.post('/sign_up', userValidators, asyncHandler(async (req, res) => {
 
   if (validatorErrors.isEmpty()) {
     await user.save();
-    req.session.user = { id: user.id, userName: user.userName };
-    res.redirect('/');
+    loginUser(req, res, user)
+    return req.session.save(err =>{
+      if (err){
+        next(err)
+      } else {
+        return res.redirect('/')
+      }
+    })
+    
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render('sign-up', {
@@ -86,9 +100,14 @@ router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
   const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
 
   if (isPassword) {
-    req.session.user = { id: user.id, userName: user.userName }
-    console.log('Logged in.', req.session.user);
-    res.redirect('/');
+    loginUser(req,res,user)
+    return req.session.save(err => {
+      if (err) {
+        next(err)
+      } else {
+        return res.redirect('/')
+      }
+    })
   } else {
     console.log('Log in failure.');
   }
