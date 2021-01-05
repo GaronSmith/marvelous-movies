@@ -75,6 +75,7 @@ router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
   if (validatorErrors.isEmpty()) {
     await user.save();
     loginUser(req, res, user)
+    res.redirect('/')
     return req.session.save(err =>{
       if (err){
         next(err)
