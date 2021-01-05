@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.STRING
   }, {});
   BlockbusterShelf.associate = function(models) {
-   BlockbusterShelf.belongsTo(models.User, { foreignKey: userId });
+   BlockbusterShelf.belongsTo(models.User, { foreignKey: 'userId' });
   };
+  BlockBusterShelf.belongsTo(models.Movie, { foreignKey: "movieId" });
+  
+  
   return BlockbusterShelf;
 };

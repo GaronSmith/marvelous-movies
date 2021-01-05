@@ -13,12 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:'userId',
       otherKey:'movieId',
       through:'BlockbusterShelf'}
-    User.belongsToMany(models.Movie,columnMapping
-      
-    )
-    User.hasMany(models.BlockBusterShelf,{foreignKey:userId})
-
-    User.hasMany(models.Review, { foreignKey: userId });
+    User.belongsToMany(models.Movie,columnMapping)
+    User.hasMany(models.BlockBusterShelf,{foreignKey:'userId'})
+    User.hasMany(models.Review, { foreignKey: 'userId' });
+  
+  User.belongsToMany(models.User,{as: 'Followers',
+  foreignKey:'userId',
+  otherKey:'followId',
+  through:'Follow'
+})
+  User.belongsToMany(models.User, {
+    as: "Followings",
+    foreignKey: "followId",
+    otherKey: "userId",
+    through: "Follow",
+  });
   };
   return User;
 };
