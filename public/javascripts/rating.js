@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         child.addEventListener('click', rateMovie)
     })
 })
-module.exports = {
+export {
     checkRating,
     rateMovie
 }
