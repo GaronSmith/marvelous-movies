@@ -1,3 +1,4 @@
+include utils.pug
 doctype html
 html
   head
@@ -11,8 +12,13 @@ html
       form(action='/users/logout' method='post')
         button(type='submit', id="logout-button") logout
     else
-      div
-        a(href='/users/sign_up') register
-      div
-        a(href='/users/login') login
+      +validationErrorSummary(errors)
+      form(action='/users/login' method='post')
+        input(type='hidden' name='_csrf' value=token)
+        input(name='email' type='email' placeholder='Email Address')
+        input(name='password' type='password' placeholder='Password')
+        button(type='submit') Login
+      div New here?  
+        a(href='/users/sign_up') Sign up now!
+  
     block content

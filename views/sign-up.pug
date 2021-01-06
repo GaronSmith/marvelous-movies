@@ -1,7 +1,4 @@
-extends layout.pug
-
-include utils.pug
-
+extends auth-layout.pug
 block content
     form.form(action='/users/sign_up' method='post')
         h2 Sign up for Marvelous Movies
@@ -33,8 +30,7 @@ block content
         div
             button.submit(type='submit') Signup!
         div 
-            p Already a member?
-            a(href='/users/login') Log in 
+            a(href='/users/login') Already a member? 
         p By clicking "Sign up" I agree that I love movies and want to share my love for movies with my friends!
 
 
