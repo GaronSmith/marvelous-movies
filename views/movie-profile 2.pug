@@ -8,17 +8,17 @@ html
     body
         div.profile
             div.leftContainer
-                div.image-column
+                div.image
                     img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-                    button(type="submit") Update Status
-            
+                    
+            div.rightContainer
                 div.movieDetails
-                    h1 #{movie.title}
-                        h2 #{movie.genre}
-                        h2 #{movie.releaseDate}
-                        h2 #{movie.voteRating}
+                    div.title= movie.title
+                        div.genre= movie.genre
+                        div.releaseDate= movie.releaseDate
+                        div.voteRating= movie.voteRating
 
-                    h3
+                    div.desc
                         p= movie.description
 
 
