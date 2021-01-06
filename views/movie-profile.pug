@@ -3,27 +3,22 @@ html
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/stylesheets/movie-profile.css")
         title Movie-Profile
     body
+        div.profile
+            div.leftContainer
+                div.image-column
+                    img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
 
-    append head
-        //-add page specific styles by appending to the head
-        link(rel="stylesheet", href="/stylesheets/movie-profile.css")
+            div.rightContainer
+                div.movieDetails
+                    div.title= movie.title
+                        div.genre= movie.genre
+                        div.releaseDate= movie.releaseDate
+                        div.voteRating= movie.voteRating
 
-        div.moviePoster
-            img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-        div.movieDetail
-            div.title= movie.title
-                div.genre= movie.genre
-                div.releaseDate= movie.releaseDate
-                div.voteRating= movie.voteRating
-
-            div.desc
-                p= movie.description
-
-
-            //- div
-            //-     ul
-            //-         li= `User Reviews: ${movie.rating}`
+                    div.desc
+                        p= movie.description
 
 
