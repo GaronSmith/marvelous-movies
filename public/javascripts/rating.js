@@ -19,7 +19,7 @@ const checkRating = async () => {
         }
     }
 }
-
+// need a put route in /movies routes to update the score - to discuss with courtney 
 const rateMovie = async (event) => {
     const movieId = parseInt(event.target.parentElement.id);
     const rating = parseInt(event.target.id.split('_')[1]);
