@@ -1,10 +1,11 @@
 link(rel='stylesheet' href='/stylesheets/profile.css')
 div
   h1#userProfileName Welcome #{users.username}
-  h3.shelves #{users.username} Blockbuster Shelves
+  h3.shelves #{users.userName} Blockbuster Shelves
     div
-      img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")    
-ul
- each movie in users.Movies
-    li= movie.BlockbusterShelf.status
-    li=movie.title
+    img#movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="") 
+select(name="status")
+    each user in users.Movies.BlockbusterShelf.status
+      option(value=user.status)
+
+   

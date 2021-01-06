@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const {check, validationResult} = require('express-validator'); 
 
 const {User} = require('../db/models')
-const {loginUser, logoutUser } = require('../auth')
+const {loginUser, logoutUser } = require('../auth');
+const db = require('../db/models');
 
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
@@ -148,11 +149,24 @@ router.post('/logout', (req, res)=>{
 })
 
 /* GET users listing. */
+// router.get(
+//   "/:id",
+//   asyncHandler(async (req, res) => {
+//     const currentUser = req.session.auth.userId;
+//     const users = await db.User.findByPk(currentUser, {
+//       include: {
+//         model: db.Movie,
+//       },
+//     });
+//     res.render("profile", users);
+//   })
+// );
+
 router.get(
-  "/:id",
+  "/id",
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
+    //const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(id, {
       include: {
         model: db.Movie,
       },
@@ -160,5 +174,8 @@ router.get(
     res.render("profile", users);
   })
 );
+
+
+
 
 module.exports = router;
