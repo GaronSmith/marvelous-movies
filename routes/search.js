@@ -10,14 +10,18 @@ const csrfProtection = csrf({ cookie: true });
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 router.get('/', asyncHandler( async (req,res,next) => {
+    res.render('search')
+}))
+
+router.get('/results', asyncHandler( async (req,res,next) => {
     const moviesTop = await Movie.findAll({
         where:{
             title:{
                 [Op.startsWith]: 'T'
             }
         },
-        offset:10,
-        limit:2,
+        limit:10,
+        offset:0
     })
     res.json({moviesTop})
 }))
