@@ -10,13 +10,9 @@ append head
 
 block content
     div.review__container
-        
         h1= movie.title
-        
         div.title__container
             img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-        
-        
         div
         p(class='stars' id=movie.id) Review
             span(class="far fa-star" id='star-rating_1')     

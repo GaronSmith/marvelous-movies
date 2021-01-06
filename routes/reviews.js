@@ -14,8 +14,8 @@ router.get('/create/:id(\\d+)', csrfProtection, asyncHandler( async (req, res, n
     const movie = await db.Movie.findByPk(movieId);
     const review = await db.Review.findOne({
         where:{
-            userId:req.session.auth.userId,
-            movieId:req.params.id
+            userId: req.session.auth.userId,
+            movieId: req.params.id
         }
     })
     res.render('review-create', {
@@ -36,7 +36,6 @@ router.post('/create', csrfProtection, asyncHandler(async (req,res,next) =>{
 
     if (currentRating) {
         await currentRating.update({ comment: req.body.comment })
-        // res.json({ currentRating })
     }
     res.redirect(`/movies/${req.body.movieId}`)
 }))
