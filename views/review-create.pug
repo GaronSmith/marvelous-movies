@@ -10,7 +10,10 @@ append head
 
 block content
     div.review__container
-        div
+        
+        h1= movie.title
+        
+        div.title__container
             img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
         
         
@@ -28,12 +31,12 @@ block content
             //- change the hard coded user id value
             input(type="hidden", name="userId" value=userId)
             
-            div.comment
-                label(for='comment') Comment
+            div.comment__container
+                label(id='comment__label' for='comment') What did you think?
                 if review
-                    textarea(name='comment') #{review.comment} 
+                    textarea(id='text_area' name='comment') #{review.comment} 
                 else
-                    textarea(name='comment' placeholder='Please write a review')
+                    textarea(id='text_area' name='comment' placeholder='Enter your review (optional)')
             button.submit(type="submit") Submit
 
     
