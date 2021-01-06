@@ -163,17 +163,22 @@ router.post('/logout', (req, res)=>{
 // );
 
 router.get(
-  "/id",
+  "/:id(\\d+)",
   asyncHandler(async (req, res) => {
+    const id = req.params.id
     //const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(id, {
+    const users = await db.User.findByPk(id,{
       include: {
         model: db.Movie,
       },
     });
-    res.render("profile", users);
+    res.render("profile", {users});
+    // res.json({users})
   })
 );
+
+
+
 
 
 
