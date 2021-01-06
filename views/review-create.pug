@@ -1,0 +1,38 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/review.css")
+  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+  script(src="https://kit.fontawesome.com/e16810bf81.js" crossorigin="anonymous")
+  script(src='/javascripts/rating.js')
+  
+
+block content
+    div.review__container
+        h1= movie.title
+        div.title__container
+            img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
+        div
+        p(class='stars' id=movie.id) Review
+            span(class="far fa-star" id='star-rating_1')     
+            span(class="far fa-star" id='star-rating_2')    
+            span(class="far fa-star" id='star-rating_3')    
+            span(class="far fa-star" id='star-rating_4')    
+            span(class="far fa-star" id='star-rating_5')    
+
+        form(action="/reviews/create", method="post")
+            input(type="hidden", name="_csrf" value=token)
+            input(type="hidden", name="movieId" value=movie.id)
+            //- change the hard coded user id value
+            input(type="hidden", name="userId" value=userId)
+            
+            div.comment__container
+                label(id='comment__label' for='comment') What did you think?
+                if review
+                    textarea(id='text_area' name='comment') #{review.comment} 
+                else
+                    textarea(id='text_area' name='comment' placeholder='Enter your review (optional)')
+            button.submit(type="submit") Submit
+
+    
