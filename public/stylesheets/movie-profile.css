@@ -35,13 +35,15 @@ body {
     border: 0;
 }
 
-button {
+.status {
     border-width: 0px;
     padding: 4px;
-    width: 110px;
+    width: fit-content;
     background-color: #162f65;
     color: #FFF;
-    font-size: 13px;
+    font-size: 12px;
+    white-space: normal;
+    word-wrap: break-word;
     border-radius: 3px;
     border-style: solid;
 }

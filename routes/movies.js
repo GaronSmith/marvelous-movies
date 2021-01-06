@@ -11,9 +11,9 @@ const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).ca
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(movieId);
-    // const movieReleaseDate = Movie.split(' ');
-    // console.log(movieReleaseDate);
-    res.render('movie-profile', { title: 'Movie Profile', movie });
+    // const year = movie.releaseDate.toString().split(' ')[3];
+    const year = movie.releaseDate.getFullYear();
+    res.render('movie-profile', { title: 'Movie Profile', movie, year });
 }));
 
 // TODO: Status Route
