@@ -12,16 +12,32 @@ router.get('/create/:id(\\d+)', csrfProtection, asyncHandler( async (req, res, n
     const userId = req.session.auth.userId
 
     const movie = await db.Movie.findByPk(movieId);
-    
+    const review = await db.Review.findOne({
+        where:{
+            userId:req.session.auth.userId,
+            movieId:req.params.id
+        }
+    })
     res.render('review-create', {
         token: req.csrfToken(),
         movie,
-        userId
+        userId,
+        review
     })
 }));
 
 router.post('/create', csrfProtection, asyncHandler(async (req,res,next) =>{
-    await db.Review.create(req.body)
+    const currentRating = await db.Review.findOne({
+        where: {
+            userId: req.session.auth.userId,
+            movieId: req.body.movieId,
+        }
+    })
+
+    if (currentRating) {
+        await currentRating.update({ comment: req.body.comment })
+        // res.json({ currentRating })
+    }
     res.redirect(`/movies/${req.body.movieId}`)
 }))
 
@@ -35,7 +51,7 @@ router.get('/rating/:mid(\\d+)', asyncHandler( async (req,res)=> {
 }))
 
 router.post('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
-    const {movieId, rating} = req.body
+    const {movieId,rating} = req.body
     const review = await db.Review.create({
         userId:req.session.auth.userId,
         movieId,

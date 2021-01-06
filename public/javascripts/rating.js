@@ -9,7 +9,7 @@ const checkRating = async () => {
             el.classList.remove('far')
             el.classList.add('fas')
         }
-        for(let i = rating + 1; i <= 5; i++){
+        for(let i = rating.rating + 1; i <= 5; i++){
             const el = document.getElementById(`star-rating_${i}`)
             if(el.classList.contains('fas')){
                 el.classList.remove('fas')
@@ -51,9 +51,6 @@ const rateMovie = async (event) => {
             console.log(err)
         }
     }
-    
-    
-    
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
