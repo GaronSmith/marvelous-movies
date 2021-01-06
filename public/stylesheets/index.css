@@ -39,21 +39,26 @@ label{
     padding: 4px;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
+    text-align: center;
     font-weight: bold;
 }
-#alert,
-#alert li {
+#alert{
     width: 100%;
-    /*border: 2px solid red;*/
+    border: 2px solid red;
     background-color: #fdb7ad;
-    font-size: 14px;
     color: black;
     text-align: center;
-    list-style-type: none;
-    padding: 6px;
+    padding: 3px;
     margin: 16px 0px;
 }
+#alert li {
+    width: 100%;
+    list-style-type: none;
+    text-justify: center;
+    font-size: 14px;
+   
+}
+
 .submit{
    padding: 1em;
     margin-top: 4px;
@@ -61,6 +66,6 @@ label{
 .inputs {
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
-    width: 300px;
+    justify-content: center;
+    width: 100%;
 }
