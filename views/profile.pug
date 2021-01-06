@@ -9,19 +9,20 @@ html(lang="en")
     div
       a(class='button' href='/') Marvelous Movies
     div
-      h1.userProfileName Welcome #{users.username}
+      h1.userProfileName Welcome,  #{users.userName}!
       h3.shelves #{users.userName} Blockbuster Shelves
     div.movieInfo
       each movie in users.Movies
         img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-        h1 #{movie.title}
-        h2 #{movie.releaseDate.getFullYear()}
-        label Status
-          select(name="Status")
-            option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
-            option(value="watched")='Want to watch'
-            option(value="previously watched")='Watched'
-            option(value="not interested")='Currently Watching'
+        div    
+          h1 #{movie.title}
+          h2 #{movie.releaseDate.getFullYear()}
+          label Status
+            select(class="status")
+              option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+              option(value="watched")='Want to watch'
+              option(value="previously watched")='Watched'
+              option(value="not interested")='Currently Watching'
             //- h2 #{movie.description}
     
 

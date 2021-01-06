@@ -8,16 +8,14 @@ body{
    line-height: 24px;
    text-align:left;
    letter-spacing: normal;
-   border-bottom: 1px solid aliceblue; 
+   border-bottom: 1px solid ; 
 }
 .movieImage{
    max-width:150px;
-   float:left
+   float:left;
 }
-.movieInfo{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid red;
+label.status{
+   float:left 
+}
 
-}
 
