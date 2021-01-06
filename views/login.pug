@@ -1,9 +1,18 @@
-extends layout.pug
-block content
-    form(action="/login", method="post")
-        input(type="hidden", name="_csrf", value=token)
-        label(for="email") Email
-        input(type="email", name="email")
-        label(for="password") Password
-        input(type="password", name="password") 
-        button(type="submit") Login
+include utils.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='/stylesheets/index.css')
+        title Login
+    body
+        form.form(action="/users/login", method="post")
+            h2 Login and see your movies! <br> (They miss you!)
+                +validationErrorSummary(errors)
+                input.inputs(type="hidden", name="_csrf", value=token)
+                label(for="email") Email
+                input.inputs(type="email", name="email")
+                label(for="password") Password
+                input.inputs(type="password", name="password") 
+                button.submit(type="submit") Login
