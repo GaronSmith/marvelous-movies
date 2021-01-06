@@ -2,3 +2,9 @@ img {
     height: 100px;
     width: 100px;
 }
+
+#ratings {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}

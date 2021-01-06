@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/create/:id(\\d+)', csrfProtection, asyncHandler( async (req, res, next) => {
     const movieId = req.params.id;
-    const userId = req.session.auth ? req.session.auth.userId : null
+    const userId = req.session.auth.userId
 
     const movie = await db.Movie.findByPk(movieId);
     
@@ -25,10 +25,10 @@ router.post('/create', csrfProtection, asyncHandler(async (req,res,next) =>{
     res.redirect(`/movies/${req.body.movieId}`)
 }))
 
-router.get('/rating/:uid(\\d+)/:mid(\\d+)', asyncHandler( async (req,res)=> {
+router.get('/rating/:mid(\\d+)', asyncHandler( async (req,res)=> {
     const rating = await db.Review.findOne({
         where:{
-            userId: req.params.uid,
+            userId: req.session.auth.userId,
             movieId: req.params.mid,
     }})
     res.json({rating})
