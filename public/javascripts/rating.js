@@ -53,7 +53,31 @@ const rateMovie = async (event) => {
     }
 }
 
+// const hoverStar = async (event) => {
+//     id = event.target.id.split('_')[1]
+//     console.log(id)
+//     for (let i = 1; i <= id; i++) {
+//         const el = document.getElementById(`star-rating_${i}`)
+//         el.classList.remove('far')
+//         el.classList.add('fas')
+//     }
+//     // for (let j = id + 1; j <= 5; j++) {
+//     //    console.log('hit')
+//     //     const el = document.getElementById(`star-rating_${j}`)
+//     //     if (el.classList.contains('fas')) {
+//     //         el.classList.remove('fas')
+//     //         el.classList.add('far')
+//     //     } 
+//     // }
+// }
+
 document.addEventListener('DOMContentLoaded', async () => {
     checkRating()
-    document.getElementsByClassName('stars')[0].addEventListener('click', rateMovie)
+    // document.getElementsByClassName('stars')[0]
+    document.getElementsByClassName('stars')[0].childNodes.forEach(child =>{
+        // child.addEventListener('mouseover', hoverStar)
+        // child.addEventListener('mouseout', checkRating)
+        child.addEventListener('click', rateMovie)
+    })
 })
+

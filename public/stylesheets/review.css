@@ -3,8 +3,24 @@ img {
     width: 100px;
 }
 
-#ratings {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
+.stars .comment {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
 }
+.submit{
+   padding: 1em;
+    margin-top: 4px;
+}
+.fa-star{
+    color:blue;
+    cursor: pointer;
+}
+.container {
+    display:flex;
+    width: 60%;
+    margin: auto;
+    padding: 1rem;
+}
+

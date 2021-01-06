@@ -3,9 +3,9 @@ const express = require('express');
 const {asyncHandler, csrfProtection} = require('./utils')
 const db = require('../db/models')
 const router = express.Router();
-// const { requireAuth } = require("../auth");
+const { requireAuth } = require("../auth");
 
-// router.use(requrieAuth)
+router.use(requireAuth)
 
 router.get('/create/:id(\\d+)', csrfProtection, asyncHandler( async (req, res, next) => {
     const movieId = req.params.id;
