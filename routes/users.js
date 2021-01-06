@@ -171,11 +171,13 @@ router.get(
       include: {
         model: db.Movie,
       },
+      
     });
     res.render("profile", {users});
-    // res.json({users})
   })
 );
+
+
 
 
 

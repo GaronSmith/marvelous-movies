@@ -3,8 +3,11 @@ body{
 }
 
 #movieImage{
-   max-width:220px;
+   max-width:150px;
 }
-h1{
-margin:auto;
+#userProfileName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
