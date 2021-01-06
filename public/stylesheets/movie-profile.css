@@ -6,14 +6,14 @@ body {
     display: flex;
     width: 100%;
     padding-bottom: 25px;
-    padding-top: 150px;
+    padding-top: 110px;
 }
 
 .leftContainer {
     float: left;
-    width: 970px;
+    width: 470px;
     padding: 40px 40px;
-    margin: 0px auto;
+    margin: auto;
     text-align: left;
     background-color: #FFF;
 }
@@ -23,7 +23,7 @@ body {
     height: 100%;
     text-align: center;
     float: left;
-    margin: 0 20px 10px 0
+    margin: 5.5px 20px 10px 0
 }
 
 .movie-poster {
@@ -45,12 +45,13 @@ button {
 }
 
 .movieDetails {
-    width: 455px;
+    float: right;
+    max-width: 300px;
     margin-right: 0px;
 }
 
 h1 {
-    margin-bottom: 0;
+    margin: 0 auto 10px;
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
