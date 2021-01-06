@@ -7,10 +7,13 @@ html(lang="en")
     link(rel='stylesheet' href='/stylesheets/profile.css')
   body
     div
-      a(class='button' href='/') Marvelous Movies
+      a.navBar(href='/') Marvelous Movies
     div
       h1.userProfileName Welcome,  #{users.userName}!
       h3.shelves #{users.userName} Blockbuster Shelves
+         each movie in users.Movies
+           ul
+             li=movie.BlockbusterShelf.status
     div.movieInfo
       each movie in users.Movies
         img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
