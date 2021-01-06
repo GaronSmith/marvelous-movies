@@ -8,4 +8,20 @@ append head
 
 block content
   h1= title
-  p Welcome to your Project Skeleton
+  p Welcome to Marvelous Movies
+    if !locals.authenticated
+      h2 Top 25 movies
+        p.descriptor Check out the top movies!
+          div.topMovies
+            each movie in topMovies
+              div
+                img(src=movie.imgPath)
+                a(href='/movies/' + movie.id)
+      h2 Most recently rated
+        p.descriptor These films have people talking! Check them out.
+          div.topMovies
+            each review in recentReviews
+              a(href='/movies/' + review.movie.id)= review.movie.title
+                <br>
+
+

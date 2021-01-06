@@ -64,3 +64,16 @@ label{
     justify-content: space-around;
     width: 300px;
 }
+.topMovies{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-sizing: border-box;
+    border: 1px solid #162f65;
+    background-color: white;
+    width: 300px;
+}
+.descriptor{
+    font-size: 14px;
+    text-align: start;
+}
