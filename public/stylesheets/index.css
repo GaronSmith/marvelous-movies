@@ -42,19 +42,23 @@ label{
     text-align: center;
     font-weight: bold;
 }
-#alert,
-#alert li {
-  
+#alert{
     width: 100%;
-    /* border: 2px; */
+    border: 2px solid red;
     background-color: #fdb7ad;
-    font-size: 12px;
     color: black;
     text-align: center;
-    list-style-type: none;
     padding: 3px;
     margin: 16px 0px;
 }
+#alert li {
+    width: 100%;
+    list-style-type: none;
+    text-justify: center;
+    font-size: 14px;
+   
+}
+
 .submit{
    padding: 1em;
     margin-top: 4px;

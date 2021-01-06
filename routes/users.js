@@ -178,16 +178,6 @@ router.post('/logout', (req, res)=>{
   
 });
 
-// router.post('/login', csrfProtection, (req, res) => {
-//   loginUser(req, res, user)
-//   return req.session.save(err => {
-//     if (err) {
-//       next(err)
-//     } else {
-//       return res.redirect('/')
-//     }
-//   })
-// })
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
