@@ -80,9 +80,6 @@ router.get('/sign_up', csrfProtection, asyncHandler(async (req, res) => {
   res.render('sign-up', { user, token: req.csrfToken() })
 }));
 
-router.get('/login', csrfProtection, asyncHandler(async (req, res) => {
-  res.render('login', { token: req.csrfToken() });
-}));
 
 router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
   const { userName, firstName, lastName, email, bio, password } = req.body;
@@ -96,7 +93,7 @@ router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
     user.hashedPassword = hashedPassword;
     await user.save();
     loginUser(req, res, user)
-   
+    
     return req.session.save(err =>{
       if (err){
         next(err)
@@ -116,24 +113,58 @@ router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
   }
 }));
 
-router.post('/login', csrfProtection, asyncHandler(async (req, res) => {
+const loginValidators = [
+  csrfProtection,
+  check('email')
+  .exists({ checkFalsy: true })
+  .withMessage('Please provide a value for Email Address'),
+  check('password')
+  .exists({ checkFalsy: true })
+  .withMessage('Please provide a value for Password'),
+];
+
+router.get('/login', csrfProtection, asyncHandler(async (req, res) => {
+  res.render('login', { token: req.csrfToken() });
+}));
+
+router.post('/login', loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ where: { email } });
-  const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
+  
+  let errors = [];
+  const validatorErrors = validationResult(req);
 
-  if (isPassword) {
-    loginUser(req,res,user)
-    return req.session.save(err => {
-      if (err) {
-        next(err)
-      } else {
-        return res.redirect('/')
-      }
-    })
-  } else {
-    console.log('Log in failure.');
+  if(validatorErrors.isEmpty()){
+    const user = await User.findOne({ where: { email } });
+
+    if(user !== null) {
+      const isPassword = await bcrypt.compare(password, user.hashedPassword.toString());
+
+      
+      if (isPassword) {
+        loginUser(req,res,user)
+        return req.session.save(err => {
+          if (err) {
+            next(err)
+          } else {
+            return res.redirect('/')
+          }
+        })
+      } 
+    } 
+    errors.push('Login failed for the provided email address and password');
   }
+    else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
 
+    res.render('login', {
+      title: 'Login',
+      email,
+      errors,
+      token: req.csrfToken(),
+    });
+    
+      
 }));
 
 router.post('/logout', (req, res)=>{
@@ -146,7 +177,8 @@ router.post('/logout', (req, res)=>{
     }
   })
   
-})
+});
+
 
 /* GET users listing. */
 // router.get(
