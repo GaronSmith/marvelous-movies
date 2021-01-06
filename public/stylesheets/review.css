@@ -1,0 +1,67 @@
+.stars .comment {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+}
+.submit{
+   padding: 1rem;
+    margin-top: 4px;
+}
+.fa-star{
+    color:blue;
+    cursor: pointer;
+}
+.review__container {
+    background-color: white;
+    padding: 5%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title__container{
+    background-color: white;
+    padding: 5%;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.comment__container{
+    background-color: white;
+    padding: 5%;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+#comment__label{
+    align-self:flex-start;
+    margin: 0px 0px 0px -17px
+}
+img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 5px 5px 5px rgb(58, 55, 55);
+}
+
+#text_area{
+    width: 300px;
+    height: 150px;
+}
+
