@@ -114,7 +114,7 @@ router.post('/sign_up', userValidators, asyncHandler(async (req, res, next) => {
 
 const loginValidators = [
   csrfProtection,
-  check('emailAddress')
+  check('email')
   .exists({ checkFalsy: true })
   .withMessage('Please provide a value for Email Address'),
   check('password')
@@ -128,7 +128,7 @@ router.get('/login', csrfProtection, asyncHandler(async (req, res) => {
 
 router.post('/login', loginValidators, asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-
+  
   let errors = [];
   const validatorErrors = validationResult(req);
 
