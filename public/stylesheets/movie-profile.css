@@ -16,6 +16,7 @@ body {
     margin: auto;
     text-align: left;
     background-color: #FFF;
+    border-radius: 5px;
 }
 
 .image-column {
@@ -36,6 +37,7 @@ body {
 
 button {
     border-width: 0px;
+    padding: 4px;
     width: 110px;
     background-color: #162f65;
     color: #FFF;

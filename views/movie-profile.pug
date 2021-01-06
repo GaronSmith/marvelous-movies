@@ -6,11 +6,18 @@ html
         link(rel="stylesheet", href="/stylesheets/movie-profile.css")
         title Movie-Profile
     body
+        mixin option(value, text)
+            option(value=value selected=(value === movie.blockbustershelf.status)) #{text}
+
         div.profile
             div.leftContainer
                 div.image-column
                     img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-                    button(type="submit") Update Status
+                    select(name="status")
+                        +option("", "--Add to Blockbuster Shelf--")
+                        +option("Want to Watch", "Want to Watch")
+                        +option("Currently Watching", "Currently Watching")
+                        +option("Watched", "Watched")
             
                 div.movieDetails
                     h1 #{movie.title}
