@@ -2,12 +2,22 @@ body{
     background-color:#e8c766
 }
 
-#movieImage{
-   max-width:150px;
+.shelves{
+   font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 18px;
+   line-height: 24px;
+   text-align:left;
+   letter-spacing: normal;
+   border-bottom: 1px solid aliceblue; 
 }
-#userProfileName{
+.movieImage{
+   max-width:150px;
+   float:left
+}
+.movieInfo{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    
+    border: 1px solid red;
+
 }
+

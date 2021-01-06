@@ -180,19 +180,7 @@ router.post('/logout', (req, res)=>{
 });
 
 
-/* GET users listing. */
-// router.get(
-//   "/:id",
-//   asyncHandler(async (req, res) => {
-//     const currentUser = req.session.auth.userId;
-//     const users = await db.User.findByPk(currentUser, {
-//       include: {
-//         model: db.Movie,
-//       },
-//     });
-//     res.render("profile", users);
-//   })
-// );
+
 
 router.get(
   "/:id(\\d+)",

@@ -4,26 +4,25 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title User Profile
-  body
     link(rel='stylesheet' href='/stylesheets/profile.css')
-        a.header_title(href='/')
-  div
-    h1#userProfileName Welcome #{users.username}
-    h3.shelves #{users.userName} Blockbuster Shelves
-      div
-    each movie in users.Movies
-      div=movie.title
-      img#movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-      div=movie.releaseDate.getFullYear()
-      div=movie.BlockbusterShelf.status
-      label Status
-      select(name="Status")
-        option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
-        option(value="watched")='Want to watch'
-        option(value="previously watched")='Watched'
-        option(value="not interested")='Currently Watching'
-
-      div=movie.description
+  body
+    div
+      a(class='button' href='/') Marvelous Movies
+    div
+      h1.userProfileName Welcome #{users.username}
+      h3.shelves #{users.userName} Blockbuster Shelves
+    div.movieInfo
+      each movie in users.Movies
+        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+        h1 #{movie.title}
+        h2 #{movie.releaseDate.getFullYear()}
+        label Status
+          select(name="Status")
+            option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+            option(value="watched")='Want to watch'
+            option(value="previously watched")='Watched'
+            option(value="not interested")='Currently Watching'
+            //- h2 #{movie.description}
     
 
 
