@@ -34,4 +34,29 @@ router.get('/rating/:mid(\\d+)', asyncHandler( async (req,res)=> {
     res.json({rating})
 }))
 
+router.post('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
+    const {movieId, rating} = req.body
+    const review = await db.Review.create({
+        userId:req.session.auth.userId,
+        movieId,
+        rating,
+    })
+
+    res.json({review})
+}))
+
+router.put('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
+    const currentRating = await db.Review.findOne({
+        where:{
+            userId: req.session.auth.userId,
+            movieId: req.params.mid,
+        }
+    })
+    if(currentRating){
+        await currentRating.update({rating:req.body.rating})
+        res.json({currentRating})
+    }
+    
+}))
+
 module.exports = router;
