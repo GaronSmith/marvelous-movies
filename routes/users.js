@@ -180,7 +180,7 @@ router.post('/logout', (req, res)=>{
 router.post(
   "/demo",
   asyncHandler(async (req, res) => {
-    const users = await db.findOne({
+    const users = await User.findOne({
       where:{email:"demoUser@demoUser.com"}
      
     })
