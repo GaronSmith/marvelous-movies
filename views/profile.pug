@@ -9,7 +9,7 @@ html(lang="en")
     div.container
       nav.navbar
         a(class="navBar-links home" href="/") Marvelous Movies
-        a(class="navBar-links" href='/users/logout') logout
+        a(class="navBar-links" href="/logout") logout
             
 
 
@@ -25,6 +25,7 @@ html(lang="en")
         div    
           h1 #{movie.title}
           h2 #{movie.releaseDate.getFullYear()}
+          h2 #{movie.voteRating}
           label Status
             select(class="status")
               option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
