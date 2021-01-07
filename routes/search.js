@@ -18,11 +18,10 @@ router.post('/results', asyncHandler( async (req,res,next) => {
     const moviesTop = await Movie.findAll({
         where:{
             title:{
-                [Op.startsWith]: search.value
+                [Op.iLike]: `%${search.value}%`
             }
         },
         limit:10,
-        offset:0
     })
     res.json({moviesTop, search})
 }))

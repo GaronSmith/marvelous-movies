@@ -43,12 +43,32 @@ const renderResults = (json) => {
     while(searchResultsAnchor.firstChild){
         searchResultsAnchor.removeChild(searchResultsAnchor.firstChild)
     }
-    
+    console.log(json.moviesTop)
     for(movie of json.moviesTop){
-        const res = document.createElement('li')
-        res.innerHTML=movie.title
+        const res = document.createElement('li');
         res.setAttribute('class', 'search-results')
+        const title = document.createElement('h2');
+        title.setAttribute('id', 'movie-title')
+        title.innerHTML = movie.title
+        const poster = document.createElement('img')
+        poster.setAttribute('src', `https://image.tmdb.org/t/p/original${movie.imgPath}`)
+        poster.setAttribute('id', 'movie-poster')
+        const rating = document.createElement('p');
+        rating.setAttribute('class', 'stars')
+        const overview = document.createElement('p')
+        overview.setAttribute('class', 'overview')
+        overview.innerHTML = movie.description
+        for(let i = 1; i <=5; i++){
+            const span = document.createElement('span')
+            span.setAttribute('class', 'far fa-star')
+            span.setAttribute('id', `star-rating_${i}`)
+            rating.appendChild(span)
+        }
         searchResultsAnchor.appendChild(res)
+        res.appendChild(title)
+        res.appendChild(poster)
+        res.appendChild(rating)
+        res.appendChild(overview)
         
     }
 }
