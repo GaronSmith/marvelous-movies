@@ -175,7 +175,30 @@ router.post('/logout', (req, res)=>{
     } else {
       return res.redirect('/')
     }
-  })  
+  })
+  
+});
+router.post(
+  "/demo",
+  asyncHandler(async (req, res) => {
+    const users = await User.findOne({
+      where:{email:"demouser@demoUser.com"}
+     
+    })
+    loginUser(req,res,users)
+    return req.session.save((err) => {
+      if (err) {
+        next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  })
+);
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond ith a resource');
 });
 router.get(
   "/:id(\\d+)",

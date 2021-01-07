@@ -4,6 +4,16 @@ const bcrypt = require('bcryptjs')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const users = []
+    const demoUser = {
+      userName: "demoUser",
+      firstName: "Demo",
+      lastName: "User",
+      email: "demouser@demoUser.com",
+      hashedPassword: await bcrypt.hash("demoUser123", 10),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    users.push(demoUser)
     for (let i = 0; i < 50; i++) {
       const newUser = {
         userName: faker.internet.userName(),
@@ -16,6 +26,7 @@ module.exports = {
         updatedAt: new Date()
       }
       users.push(newUser)
+
     }
     return queryInterface.bulkInsert('Users', users, {});
   },
