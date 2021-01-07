@@ -5,9 +5,11 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const users = []
     const demoUser = {
-      userName: 'Demo User',
-      email: 'demouser@demoUser.com',
-      hashedPassword: await bcrypt.hash('demoUser123', 10),
+      userName: "Demo User",
+      firstName: "Demo",
+      lastName: "User",
+      email: "demouser@demoUser.com",
+      hashedPassword: await bcrypt.hash("demoUser123", 10),
       createdAt: new Date(),
       updatedAt: new Date(),
     };
