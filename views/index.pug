@@ -1,11 +1,4 @@
 extends layout
-
-//- append head
-  //- add page specific styles by appending to the head
-  //- link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  //- script(src="/javascripts/index.js" type="module" defer)
-
 block content
   h1.title= title
     p.descriptor See what your friends are watching and rate movies you watch!
@@ -54,7 +47,7 @@ block content
                 div
                   img.filmTag(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
                   a(href='/movies/' + review.Movie.id)= review.Movie.title
-                  p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating}
+                  p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating / 2}
                  
 
 

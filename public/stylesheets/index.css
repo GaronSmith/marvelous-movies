@@ -1,6 +1,7 @@
 h1 {
     color: #162f65;
     font-size: 60px;
+    text-align: center;
 }
 body {
     background-color: #e8c766;
@@ -35,7 +36,6 @@ h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 label{
     color:#162f65;
@@ -59,9 +59,7 @@ label{
     list-style-type: none;
     text-justify: center;
     font-size: 14px;
-   
 }
-
 .submit{
    padding: 1em;
     margin-top: 4px;
@@ -77,10 +75,8 @@ label{
     flex-direction: column;
     box-sizing: border-box;
     width: auto;
-    
 }
 .topMovies > div {
-
     align-self: flex-start;
 }
 .descriptor{
@@ -103,9 +99,12 @@ label{
     color: red
 }
 .filmTag {
-    width: 50px;
-    box-shadow: 2px 2px #162f65;
-    justify-content: left;
+    display: flex;
+    width: 120px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin-left: 2px;
 }
 .bookshelfBox{
     box-sizing: border-box;
@@ -136,6 +135,12 @@ label{
     height: 135px;
 
 }
+.bestOfBox3{
+    display:flex;
+    flex-flow: column;
+    height: auto;
+    width: 600px;
+}
 .c1{
     align-items: left;
     order: 1;
@@ -150,4 +155,20 @@ label{
 }
 .title{
     text-align:center;
+}
+.movieInfo{
+    flex-direction: column;
+    margin-left: 200px;
+    position: absolute;
+    color:#162f65
+}
+.movieDesc{
+    position: relative;
+    font-size: 14px;
+    text-align: left;
+    color: #162f65;
+    left: -50px;
+    max-width: 440px;
+    max-height: 80px;
+    overflow: scroll;
 }

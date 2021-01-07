@@ -15,8 +15,8 @@ function toProperCase(word) {
 
 router.get('/genre/:id', asyncHandler(async(req, res)=>{
     const genre = toProperCase(req.params.id)
-    const topMovies = await Movie.findAll({ where: {genre}, limit: 25, order: [['voteRating', 'ASC']] })
-    res.render('top-movies', { topMovies, title: 'welcome to the top movies page' })
+    const topMovies = await Movie.findAll({ where: {genre}, limit: 25, order: [['voteRating', 'DESC']] })
+    res.render('top-movies', { topMovies, genre })
 }))
 
 module.exports = router;
