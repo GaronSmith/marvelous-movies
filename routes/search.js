@@ -1,7 +1,7 @@
 const express = require('express');
 const csrf = require('csurf');
 const {Op} = require('sequelize')
-
+// const { search } = require("../../routes/search");
 const { Movie, Review } = require('../db/models')
 
 const router = express.Router();
@@ -13,16 +13,17 @@ router.get('/', asyncHandler( async (req,res,next) => {
     res.render('search')
 }))
 
-router.get('/results', asyncHandler( async (req,res,next) => {
+router.post('/results', asyncHandler( async (req,res,next) => {
+    const search = req.body
     const moviesTop = await Movie.findAll({
         where:{
             title:{
-                [Op.startsWith]: 'T'
+                [Op.startsWith]: search.value
             }
         },
         limit:10,
         offset:0
     })
-    res.json({moviesTop})
+    res.json({moviesTop, search})
 }))
 module.exports = router;
