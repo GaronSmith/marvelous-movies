@@ -6,13 +6,12 @@ html(lang="en")
     title User Profile
     link(rel='stylesheet' href='/stylesheets/profile.css')
   body
-    div
+    div.container
       nav.navbar
-        a(class="navBar_links" href="/") Marvelous Movies
-        div
-          if authenticated
-             a(class="navBar_links" href="/logout") logout
-             
+        a(class="navBar-links home" href="/") Marvelous Movies
+        a(class="navBar-links" href="/users/logout") logout
+            
+
 
     div
       h1.userProfileName Welcome,  #{users.userName}!
