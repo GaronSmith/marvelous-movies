@@ -9,10 +9,12 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const reviewsRouter = require('./routes/reviews');
+const moviesRouter = require('./routes/movies');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
-const { restoreUser } = require('./auth')
+const { restoreUser } = require('./auth');
+const { secret } = require('./config/index');
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -33,7 +35,7 @@ const store = new SequelizeStore({ db: sequelize });
 app.use(
   session({
     name: 'marvelous-movie.sid',
-    secret: 'superSecret',
+    secret,
     store,
     saveUninitialized: false,
     resave: false,
@@ -47,6 +49,9 @@ app.use(
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
   app.use('/reviews', reviewsRouter);
+  app.use('/movies', moviesRouter);
+  
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

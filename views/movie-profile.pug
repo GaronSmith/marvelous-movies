@@ -1,0 +1,29 @@
+extends layout
+
+append head
+
+    link(rel="stylesheet", href="/stylesheets/movie-profile.css")
+    title Movie-Profile
+
+block content
+    div.profile
+        div.leftContainer
+            div.image-column
+                img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
+                select(class="status")
+                    option(value="")= "Add to Shelf"
+                    option(value="Want to Watch")= "Want to Watch"
+                    option(value="Currently Watching")= "Currently Watching"
+                    option(value="Watched")= "Watched"
+                    
+        
+            div.movieDetails
+                h1 #{movie.title}
+                    h2(class="genre") #{movie.genre}
+                    h2 #{year}
+                    h2 #{movie.voteRating}
+
+                h3
+                    p= movie.description
+
+
