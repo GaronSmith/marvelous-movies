@@ -7,26 +7,25 @@ body{
     width: 60%;
     margin: auto;
     align-items: center;
-background-color:#f4f1ea;
+   background-color:#f4f1ea;
 
 }
 .navBar-links{
-   font-family:Lato, "Helvetica Neue", Helvetica, sans-serif;
-   font-size:20px;
-   text-decoration:none;
-   padding:1rem;
-   color:blue
+   font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
+   font-size: 20px;
+   text-decoration: none;
+   padding: 1rem;
+   color: blue;
 }
 .navBar-links:hover{
 background-color: #e8c766;
-
 }
 .home{
-   flex-grow:1
+   flex-grow: 1
 }
 .container{
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-   width: 60%;
+    width: 60%;
     margin: auto;
     padding: 1rem;
     background-color: #f4f1ea

@@ -178,10 +178,6 @@ router.post('/logout', (req, res)=>{
   })
   
 });
-
-
-
-
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
@@ -196,13 +192,4 @@ router.get(
     
   })
 );
-
-
-
-
-
-
-
-
-
 module.exports = router;
