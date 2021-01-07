@@ -1,5 +1,5 @@
 body{
-    background-color:#e8c766
+    background-color:#e8c766;
 }
  .navbar{
    display: flex;
@@ -21,14 +21,14 @@ body{
 background-color: #e8c766;
 }
 .home{
-   flex-grow: 1
+   flex-grow: 1;
 }
 .container{
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     width: 60%;
     margin: auto;
     padding: 1rem;
-    background-color: #f4f1ea
+    background-color: #f4f1ea;
 
 }
 .shelves{
@@ -45,7 +45,5 @@ background-color: #e8c766;
    box-shadow: blueviolet;
 }
 label.status{
-   float:left 
+   float:left; 
 }
-
-

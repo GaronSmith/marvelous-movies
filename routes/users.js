@@ -175,8 +175,7 @@ router.post('/logout', (req, res)=>{
     } else {
       return res.redirect('/')
     }
-  })
-  
+  })  
 });
 router.get(
   "/:id(\\d+)",
@@ -185,11 +184,9 @@ router.get(
     const users = await db.User.findByPk(currentUser,{
       include: {
         model: db.Movie,
-      },
-      
+      },   
     });
-     res.render("profile", {users});
-    
+     res.render("profile", {users});   
   })
 );
 module.exports = router;
