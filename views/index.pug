@@ -4,50 +4,48 @@ block content
     p.descriptor See what your friends are watching and rate movies you watch!
     if !locals.authenticated
       div.bestOfBox
-        h2 1st Annual Marvelous Movies Choice Awards
-          p.descriptor See the winner of the Top Movie presented by the watchers of Marvelous Movies
-            button.submit(href=bestFilm) See the Winner!
-            p.descriptor2 See other top Movies by category
-              div.bestOfBox2
-                a.c1(href='/movies/genre/Action') Best Action
-                a.c1(href='/movies/genre/Adventure') Best Adventure
-                a.c1(href='/movies/genre/Animation') Best Animation
-                a.c1(href='/movies/genre/Comedy') Best Comedy
-                a.c1(href='/movies/genre/Crime') Best Crime
-                a.c1(href='/movies/genre/Documentary') Best Documentary
-                a.c1(href='/movies/genre/Drama') Best Drama
-                a.c2(href='/movies/genre/Family') Best Family
-                a.c2(href='/movies/genre/Fantasy') Best Fantasy
-                a.c2(href='/movies/genre/History') Best History
-                a.c2(href='/movies/genre/Horror') Best Horror
-                a.c2(href='/movies/genre/Music') Best Music
-                a.c2(href='/movies/genre/Mystery') Best Mystery
-                a.c3(href='/movies/genre/Romance') Best Romance
-                a.c3(href='/movies/genre/ScienceFiction') Best Science Fiction
-                a.c3(href='/movies/genre/TV') Best TV
-                a.c3(href='/movies/genre/Thriller') Best Thriller
-                a.c3(href='/movies/genre/War') Best War
-                a.c3(href='/movies/genre/Western') Best Western
+        h2 1st Annual Marvelous Movies Random Movie Generator
+        a.submit(href=bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
+        h2 See top Movies by category
+        div.bestOfBox2
+          a(href='/movies/genre/Action') Best Action
+          a(href='/movies/genre/Adventure') Best Adventure
+          a(href='/movies/genre/Animation') Best Animation
+          a(href='/movies/genre/Comedy') Best Comedy
+          a(href='/movies/genre/Crime') Best Crime
+          a(href='/movies/genre/Documentary') Best Documentary
+          a(href='/movies/genre/Drama') Best Drama
+          a(href='/movies/genre/Family') Best Family
+          a(href='/movies/genre/Fantasy') Best Fantasy
+          a(href='/movies/genre/History') Best History
+          a(href='/movies/genre/Horror') Best Horror
+          a(href='/movies/genre/Music') Best Music
+          a(href='/movies/genre/Mystery') Best Mystery
+          a(href='/movies/genre/Romance') Best Romance
+          a(href='/movies/genre/ScienceFiction') Best Science Fiction
+          a(href='/movies/genre/TV') Best TV
+          a(href='/movies/genre/Thriller') Best Thriller
+          a(href='/movies/genre/War') Best War
+          a(href='/movies/genre/Western') Best Western
       div.bookshelfBox
         h2 Top 5 movies
           p.descriptor Check out the top movies!
-            div.topMovies
-              each movie in topMovies
-                div
-                  img.filmTag(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
-                  div.movieInfo
-                    a(href='/movies/' + movie.id)= movie.title
-                    p Rating: #{movie.voteRating / 2}
-                    p Total Votes: #{movie.voteCount} 
+            each movie in topMovies
+              div.topMovies
+                img.filmTag2(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
+                div.movieInfo2
+                  a(href='/movies/' + movie.id)= movie.title
+                  p Rating: #{movie.voteRating / 2}
+                  p Total Votes: #{movie.voteCount} 
       div.bookshelfBox
         h2 Most recently rated
           p.descriptor These films have people talking! Check them out.
-            div.topMovies
-              each review in recentReviews
-                div
-                  img.filmTag(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
+            each review in recentReviews
+              div.topMovies
+                img.filmTag2(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
+                div.movieInfo2
                   a(href='/movies/' + review.Movie.id)= review.Movie.title
                   p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating / 2}
-                 
+                  
 
 

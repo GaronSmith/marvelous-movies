@@ -1,11 +1,11 @@
+body {
+    background-color: #e8c766;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 h1 {
     color: #162f65;
     font-size: 60px;
     text-align: center;
-}
-body {
-    background-color: #e8c766;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h2 {
     color: #162f65;
@@ -13,18 +13,19 @@ h2 {
     font-weight: bold;
     text-align: center;
 }
-form > p {
-    color:#3361ac;
-    font-size: 14px;
-}
 h3 {
     color: #162f65;
     font-size: 16px;
     font-weight:bold;
-    padding-bottom: 1em;
+    padding-bottom: 5px;
     text-align: center;
+    margin-bottom: 5px;
 }
-.form{
+form > p {
+    color:#3361ac;
+    font-size: 14px;
+}
+.form {
     background-color: white;
     padding: 5%;
     margin: auto;
@@ -72,31 +73,25 @@ label{
 }
 .topMovies{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     box-sizing: border-box;
     width: auto;
+    padding: 5px;
 }
-.topMovies > div {
-    align-self: flex-start;
-}
-.descriptor{
+.descriptor {
     font-size: 14px;
     text-align: center;
     justify-content: center;
     width: 100%;
     color: #162f65;
 }
-.navbar1{
+.navbar1 {
     box-sizing: border-box;
     display: flex;
     flex-direction: row-reverse;
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
-}
-.navForm{
-    justify-content: right;
-    color: red
 }
 .filmTag {
     display: flex;
@@ -106,11 +101,19 @@ label{
     justify-content: flex-start;
     margin-left: 2px;
 }
-.bookshelfBox{
+.filmTag2 {
+    display: flex;
+    position: relative;
+    width: 70px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin-left: 2px;
+}
+.bookshelfBox {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     width: 625px;
     background-color: white;
     padding: 15px;
@@ -141,26 +144,12 @@ label{
     height: auto;
     width: 600px;
 }
-.c1{
-    align-items: left;
-    order: 1;
-}
-.c2{
-    align-items: center;
-    order: 2;
-}
-.c3{
-    align-items: right;
-    order: 3;
-}
-.title{
-    text-align:center;
-}
 .movieInfo{
     flex-direction: column;
     margin-left: 200px;
     position: absolute;
-    color:#162f65
+    color:#162f65;
+    text-align:left;
 }
 .movieDesc{
     position: relative;
@@ -171,4 +160,11 @@ label{
     max-width: 440px;
     max-height: 80px;
     overflow: scroll;
+}
+.movieInfo2{
+    flex-direction: column;
+    margin-left: 25px;
+    position: relative;
+    color:#162f65;
+    text-align:left;
 }
