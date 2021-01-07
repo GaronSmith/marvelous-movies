@@ -1,5 +1,3 @@
-
-
 const searchInput = async (value) => {
     if(value.length){
         const body = { value };
@@ -38,8 +36,7 @@ const searchInput = async (value) => {
 
 const renderResults = (json) => {
     const searchResultsAnchor = document.getElementById('search-results');
-    
-    // searchResultsAnchor.querySelectorAll('.search-results').forEach(n => n.remove)
+
     while(searchResultsAnchor.firstChild){
         searchResultsAnchor.removeChild(searchResultsAnchor.firstChild)
     }
@@ -53,8 +50,13 @@ const renderResults = (json) => {
         const poster = document.createElement('img')
         poster.setAttribute('src', `https://image.tmdb.org/t/p/original${movie.imgPath}`)
         poster.setAttribute('id', 'movie-poster')
+        const avgRating = document.createElement('p')
+        avgRating.setAttribute('id', 'avg-rating')
+        avgRating.innerHTML = `Average rating: ${Math.round(parseFloat(movie.voteRating)/2)}`
         const rating = document.createElement('p');
         rating.setAttribute('class', 'stars')
+        rating.setAttribute('id', movie.id)
+        rating.innerHTML = 'Your rating:'
         const overview = document.createElement('p')
         overview.setAttribute('class', 'overview')
         overview.innerHTML = movie.description
@@ -67,13 +69,12 @@ const renderResults = (json) => {
         searchResultsAnchor.appendChild(res)
         res.appendChild(title)
         res.appendChild(poster)
+        res.appendChild(avgRating)
         res.appendChild(rating)
         res.appendChild(overview)
         
     }
 }
-
-
 
 document.addEventListener('DOMContentLoaded', async () => {
    document.getElementById('searchBar').addEventListener('keyup', (event) => {
