@@ -12,7 +12,8 @@ const reviewsRouter = require('./routes/reviews');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
-const { restoreUser } = require('./auth')
+const { restoreUser } = require('./auth');
+const { secret } = require('./config/index');
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
@@ -33,7 +34,7 @@ const store = new SequelizeStore({ db: sequelize });
 app.use(
   session({
     name: 'marvelous-movie.sid',
-    secret: 'superSecret',
+    secret,
     store,
     saveUninitialized: false,
     resave: false,
