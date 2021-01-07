@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const reviewsRouter = require('./routes/reviews');
 const moviesRouter = require('./routes/movies');
+const searchRouter = require('./routes/search');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
@@ -50,6 +51,7 @@ app.use(
   app.use('/users', usersRouter);
   app.use('/reviews', reviewsRouter);
   app.use('/movies', moviesRouter);
+  app.use('/search', searchRouter);
   
 
 
