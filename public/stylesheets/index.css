@@ -25,7 +25,8 @@ form > p {
     color:#3361ac;
     font-size: 14px;
 }
-.form {
+.form, 
+.container{
     background-color: white;
     padding: 5%;
     margin: auto;
