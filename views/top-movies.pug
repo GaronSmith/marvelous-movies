@@ -1,5 +1,10 @@
 extends layout.pug
 block content
-    h2 hello
+    h2 Best #{movie.genre} movies!
     each movie in topMovies
-        li= movie.title
+       div
+            img.filmTag(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
+            div.movieInfo
+            a(href='/movies/' + movie.id)= movie.title
+            p Rating: #{movie.voteRating / 2}
+            p Total Votes: #{movie.voteCount} 

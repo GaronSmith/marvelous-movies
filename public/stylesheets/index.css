@@ -1,14 +1,16 @@
 h1 {
-    color: #555555;
+    color: #162f65;
+    font-size: 60px;
 }
 body {
     background-color: #e8c766;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h2 {
     color: #162f65;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 form > p {
     color:#3361ac;
@@ -19,11 +21,12 @@ h3 {
     font-size: 16px;
     font-weight:bold;
     padding-bottom: 1em;
+    text-align: center;
 }
 .form{
     background-color: white;
     padding: 5%;
-    margin: 5% 10%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -71,23 +74,26 @@ label{
 }
 .topMovies{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
     box-sizing: border-box;
-    border: 1px solid #162f65;
-    background-color: white;
-    width: 300px;
+    width: auto;
+    
+}
+.topMovies > div {
+
+    align-self: flex-start;
 }
 .descriptor{
     font-size: 14px;
-    text-align: start;
+    text-align: center;
     justify-content: center;
     width: 100%;
+    color: #162f65;
 }
 .navbar1{
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
@@ -95,4 +101,53 @@ label{
 .navForm{
     justify-content: right;
     color: red
+}
+.filmTag {
+    width: 50px;
+    box-shadow: 2px 2px #162f65;
+    justify-content: left;
+}
+.bookshelfBox{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 625px;
+    background-color: white;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+}
+.bestOfBox{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 625px;
+    background-color: white;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+}
+.bestOfBox2{
+    display:flex;
+    flex-flow: column wrap;
+    height: 135px;
+
+}
+.c1{
+    align-items: left;
+    order: 1;
+}
+.c2{
+    align-items: center;
+    order: 2;
+}
+.c3{
+    align-items: right;
+    order: 3;
+}
+.title{
+    text-align:center;
 }

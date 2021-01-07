@@ -10,11 +10,11 @@ const asyncHandler = handler => (req, res, next) => handler(req, res, next).catc
 
 /* GET home page. */
 
-router.get('/', asyncHandler(async(req, res, next) => {
-  const topMovies = await Movie.findAll({where: { voteRating:{ [Op.gt]: 8 } }, order: Movie.voteRating, limit: 5});
-  const recentReviews = await Review.findAll({ include: Movie, order: Review.updatedAt, limit: 5})
+router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
+  const topMovies = await Movie.findAll({where: { voteRating:{ [Op.gt]: 8 }, voteCount: { [Op.gt]: 2000 } }, order: [['voteRating', 'DESC']], limit: 5});
+  const recentReviews = await Review.findAll({ include: [Movie, User], order: [['updatedAt', 'DESC']], limit: 5})
   
-  res.render('index', {topMovies, recentReviews, title: 'Welcome to Marvelous Movies!' });
+  res.render('index', { token: req.csrfToken(), topMovies, recentReviews, title: 'Welcome to Marvelous Movies!' });
 }));
 
 

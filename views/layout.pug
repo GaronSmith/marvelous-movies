@@ -8,7 +8,7 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
     nav.navbar1 
-      img.logo(src='../images/marvelous-movies-logo.png')
+      img.logo(src='../images/marvelous-movies-logo')
       if locals.authenticated
         div Welcome, #{user.userName}!
         form(action='/users/logout' method='post')
