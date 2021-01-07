@@ -15,6 +15,11 @@ background-color:#f4f1ea;
    font-size:20px;
    text-decoration:none;
    padding:1rem;
+   color:blue
+}
+.navBar-links:hover{
+background-color: #e8c766;
+
 }
 .home{
    flex-grow:1
