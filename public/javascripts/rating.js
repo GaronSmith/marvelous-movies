@@ -59,7 +59,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         child.addEventListener('click', rateMovie)
     })
 })
-exports= {
-    checkRating,
-    rateMovie
-}
+
+

@@ -23,6 +23,6 @@ router.post('/results', asyncHandler( async (req,res,next) => {
         },
         limit:10,
     })
-    res.json({moviesTop, search})
+    res.json({moviesTop})
 }))
 module.exports = router;
