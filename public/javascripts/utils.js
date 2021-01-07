@@ -26,7 +26,6 @@ const rateMovie = async (event) => {
     const movieId = parseInt(event.target.parentElement.id);
     const rating = parseInt(event.target.id.split('_')[1]);
     const body = { movieId, rating }
-    console.log(rating, movieId)
     if (document.getElementById(`movie-${movieId}-star-rating_1`).classList.contains('fas')) {
         try {
             const res = await fetch(`http://localhost:8080/reviews/rating/${movieId}`, {
