@@ -16,11 +16,11 @@ block content
             img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
         div
         p(class='stars' id=movie.id) Review
-            span(class="far fa-star" id='star-rating_1')     
-            span(class="far fa-star" id='star-rating_2')    
-            span(class="far fa-star" id='star-rating_3')    
-            span(class="far fa-star" id='star-rating_4')    
-            span(class="far fa-star" id='star-rating_5')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_1')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_2')     
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_3')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_4')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_5')    
 
         form(action="/reviews/create", method="post")
             input(type="hidden", name="_csrf" value=token)

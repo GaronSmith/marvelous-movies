@@ -1,3 +1,4 @@
+import {checkRating,rateMovie} from './utils.js'
 
 const searchInput = async (value) => {
     if(value.length){
@@ -11,28 +12,11 @@ const searchInput = async (value) => {
                 }
             })
             const json = await res.json()
-            console.log(json.moviesTop)
             renderResults(json)
         } catch (err) {
             console.log(err)
         } 
-    }
-    const body = {value};
-    try{
-        const res = await fetch('http://localhost:8080/search/results', {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: {
-                "Content-Type": "application/json"
-                }     
-            })
-        const json = await res.json()
-        console.log(json.moviesTop)
-        renderResults(json)
-    }catch(err){
-        console.log(err)
-    }
-    
+    }    
 }
 
 const renderResults = (json) => {
@@ -64,21 +48,33 @@ const renderResults = (json) => {
         for(let i = 1; i <=5; i++){
             const span = document.createElement('span')
             span.setAttribute('class', 'far fa-star')
-            span.setAttribute('id', `star-rating_${i}`)
+            span.setAttribute('id', `movie-${movie.id}-star-rating_${i}`)
             rating.appendChild(span)
         }
+        checkRating()
         searchResultsAnchor.appendChild(res)
         res.appendChild(title)
         res.appendChild(poster)
         res.appendChild(avgRating)
         res.appendChild(rating)
         res.appendChild(overview)
-        
     }
+    
+    
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-   document.getElementById('searchBar').addEventListener('keyup', (event) => {
-       searchInput(event.target.value)
+   document.getElementById('searchBar').addEventListener('keyup', async (event) => {
+       await searchInput(event.target.value)
+       
+       const ratings = document.getElementsByClassName('stars')
+       
+       Array.from(ratings).forEach(rating => {
+           rating.childNodes.forEach(star => {
+               star.addEventListener('click', rateMovie)
+           })
+       })
+    
    })
+    
 })
