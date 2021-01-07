@@ -27,11 +27,16 @@ const renderResults = (json) => {
     }
     for(let i = 0; i < json.moviesTop.length; i++){
         const movie = json.moviesTop[i]
+        const div = document.createElement('div');
+        div.setAttribute('class','movie-container')
         const res = document.createElement('li');
         res.setAttribute('class', 'search-results')
         const title = document.createElement('h2');
         title.setAttribute('id', 'movie-title')
         title.innerHTML = movie.title
+        const genre = document.createElement('h3');
+        genre.setAttribute('id', 'movie-genre')
+        genre.innerHTML = movie.genre
         const poster = document.createElement('img')
         poster.setAttribute('src', `https://image.tmdb.org/t/p/original${movie.imgPath}`)
         poster.setAttribute('id', 'movie-poster')
@@ -53,10 +58,12 @@ const renderResults = (json) => {
         }
         checkRating()
         searchResultsAnchor.appendChild(res)
-        res.appendChild(title)
+        res.append(div)
         res.appendChild(poster)
         res.appendChild(avgRating)
         res.appendChild(rating)
+        res.appendChild(title)
+        res.appendChild(genre)
         res.appendChild(overview)
     }
     
