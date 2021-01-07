@@ -36,8 +36,9 @@ const renderResults = (json) => {
         divOverview.setAttribute('class', 'details-container')
         const res = document.createElement('li');
         res.setAttribute('class', 'search-results')
-        const title = document.createElement('h2');
-        title.setAttribute('id', 'movie-title')
+        const title = document.createElement('a');
+        title.setAttribute('class', 'movie-title')
+        title.setAttribute('href', `/movies/${movie.id}`)
         title.innerHTML = movie.title
         const genre = document.createElement('h3');
         genre.setAttribute('class', 'movie-genre')
