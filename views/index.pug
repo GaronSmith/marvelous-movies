@@ -5,7 +5,7 @@ block content
     if !locals.authenticated
       div.bestOfBox
         h2 1st Annual Marvelous Movies Random Movie Generator
-        a.submit(href=bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
+        a.submit(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
         h2 See top Movies by category
         div.bestOfBox2
           a(href='/movies/genre/Action') Best Action
