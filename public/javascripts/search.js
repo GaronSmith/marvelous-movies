@@ -27,29 +27,34 @@ const renderResults = (json) => {
     }
     for(let i = 0; i < json.moviesTop.length; i++){
         const movie = json.moviesTop[i]
-        const div = document.createElement('div');
-        div.setAttribute('class','movie-container')
+
+        const divResult = document.createElement('div');
+        divResult.setAttribute('class','result-container')
+        const divPoster = document.createElement('div');
+        divPoster.setAttribute('class','image-container')
+        const divOverview = document.createElement('div')
+        divOverview.setAttribute('class', 'details-container')
         const res = document.createElement('li');
         res.setAttribute('class', 'search-results')
         const title = document.createElement('h2');
         title.setAttribute('id', 'movie-title')
         title.innerHTML = movie.title
         const genre = document.createElement('h3');
-        genre.setAttribute('id', 'movie-genre')
+        genre.setAttribute('class', 'movie-genre')
         genre.innerHTML = movie.genre
         const poster = document.createElement('img')
         poster.setAttribute('src', `https://image.tmdb.org/t/p/original${movie.imgPath}`)
-        poster.setAttribute('id', 'movie-poster')
+        poster.setAttribute('class', 'movie-poster')
         const avgRating = document.createElement('p')
         avgRating.setAttribute('id', 'avg-rating')
-        avgRating.innerHTML = `Average rating: ${Math.round(parseFloat(movie.voteRating)/2)}`
+        avgRating.innerHTML = `<b>Average rating:</b> ${parseFloat(movie.voteRating)/2}`
         const rating = document.createElement('p');
         rating.setAttribute('class', 'stars')
         rating.setAttribute('id', movie.id)
-        rating.innerHTML = 'Your rating:'
+        rating.innerHTML = '<b>Your rating:</b>'
         const overview = document.createElement('p')
         overview.setAttribute('class', 'overview')
-        overview.innerHTML = movie.description
+        overview.innerHTML = `<b>Overview:</b> <br> ${movie.description}`
         for(let i = 1; i <=5; i++){
             const span = document.createElement('span')
             span.setAttribute('class', 'far fa-star')
@@ -58,13 +63,15 @@ const renderResults = (json) => {
         }
         checkRating()
         searchResultsAnchor.appendChild(res)
-        res.append(div)
-        res.appendChild(poster)
-        res.appendChild(avgRating)
-        res.appendChild(rating)
-        res.appendChild(title)
-        res.appendChild(genre)
-        res.appendChild(overview)
+        res.append(divResult)
+        divResult.append(divPoster)
+        divResult.append(divOverview)
+        divPoster.appendChild(poster)
+        divOverview.appendChild(title)
+        divOverview.appendChild(genre)
+        divOverview.appendChild(avgRating)
+        divOverview.appendChild(rating)
+        divOverview.appendChild(overview)
     }
     
     

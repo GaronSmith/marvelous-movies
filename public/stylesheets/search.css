@@ -25,21 +25,40 @@ img{
     font-size: 12px;
     margin-top: 10px;
 }
-/*
+
 #search-results{
-    display: flex;
-    flex-direction: column;
     list-style-type: none;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
 }
 
-.overview{
+.result-container{
     display: flex;
+    flex-direction: row;
+}
+
+.image-container{
     flex-direction: column;
-    list-style-type: none;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: left;
+    width: 60%;
+    height: 80%;
     text-align: center;
-} */
+    margin: 5.5px 20px 10px 0
+}
+
+.movie-poster {
+    text-align: center;
+    max-width: 60%;
+    max-height: 100%;
+    margin: 0 auto 10px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    border: 0;
+}
+
+.details-container{
+    max-width: 40%;
+    margin-right: 0px; 
+    text-align: start;
+}
+.movie-genre{
+    margin-top: 10px;
+}
