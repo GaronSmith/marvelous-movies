@@ -1,52 +1,41 @@
-body{
-    background-color:#e8c766
-}
- .navbar{
-   display: flex;
-    flex-direction: row;
-    width: 60%;
-    margin: auto;
-    align-items: center;
-background-color:#f4f1ea;
 
+.main{
+    margin: 0px auto;
+    text-align:left;
+    width:970px;
+    background:#e8c766;
 }
-.navBar-links{
-   font-family:Lato, "Helvetica Neue", Helvetica, sans-serif;
-   font-size:20px;
-   text-decoration:none;
-   padding:1rem;
-   color:blue
-}
-.navBar-links:hover{
-background-color: #e8c766;
-
-}
-.home{
-   flex-grow:1
-}
-.container{
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-   width: 60%;
-    margin: auto;
-    padding: 1rem;
-    background-color: #f4f1ea
-
-}
-.shelves{
-   font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 14px;
-   line-height: 24px;
-   text-align:left;
-   letter-spacing: normal;
-   border-bottom: 1px solid red; 
-}
-.movieImage{
-   max-width:150px;
+.main-position{
    float:left;
-   box-shadow: blueviolet;
+   width:960px;
+   margin-top:15px;
+   margin-left:5px;
+   min-height:400px;
+   background:#e8c766
 }
-label.status{
-   float:left 
+.leftContainer{
+   float:left;
+   width:625px;
+   padding-right:10px;
+   padding-left:8px;
 }
+.userInfo{
+   width:480px;
+   float:right;
+}
+.userProfileName{
+   border-bottom:1px solid #d8d8d8;
+   float:left;
+   font-style:normal;
+   line-height:1.3;
+   margin:0;
+   margin-bottom:5px;
+   padding: 4px 0 4px 0;
+   top:0;
+   width:445px; 
+}
+
+
+
 
 

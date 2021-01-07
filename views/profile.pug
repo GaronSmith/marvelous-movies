@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+extends layout
+
+append head
     title User Profile
     link(rel='stylesheet' href='/stylesheets/profile.css')
-  body
-    div.container
-      nav.navbar
-        a(class="navBar-links home" href="/") Marvelous Movies
-        a(class="navBar-links" href="/logout") logout
-            
-
-
-    div
-      h1.userProfileName Welcome,  #{users.userName}!
-      h3.shelves #{users.userName} Blockbuster Shelves
-         each movie in users.Movies
-           ul
-             li=movie.BlockbusterShelf.status
-    div.movieInfo
-      each movie in users.Movies
-        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-        div    
-          h1 #{movie.title}
-          h2 #{movie.releaseDate.getFullYear()}
-          h2 #{movie.voteRating}
-          label Status
-            select(class="status")
-              option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
-              option(value="watched")='Want to watch'
-              option(value="previously watched")='Watched'
-              option(value="not interested")='Currently Watching'
-            //- h2 #{movie.description}
+block content
+    div.main
+      div.main-position
+        div.leftContainer
+          div.userInfo
+            h1.userProfileName #{users.userName}
+              div Activity
+                  div.details Hello
+                    each movie in users.Movies
+                    ul
+                      li=movie.BlockbusterShelf.status
+                    div.movieInfo
+                      each movie in users.Movies
+                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        div    
+                          h1 #{movie.title}
+                          h2 #{movie.releaseDate.getFullYear()}
+                          h2 #{movie.voteRating}
+                          label Status
+                          select(class="status")
+                          option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+                          option(value="watched")='Want to watch'
+                          option(value="previously watched")='Watched'
+                          option(value="not interested")='Currently Watching'
+              
     
 
 
