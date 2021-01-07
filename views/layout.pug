@@ -7,23 +7,20 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
-<<<<<<< HEAD
-    nav.navbar1
-      block content
-=======
-    if locals.authenticated
-      div Welcome, #{user.userName}!
-      form(action='/users/logout' method='post')
-        button(type='submit', id="logout-button") logout
-    else
-      +validationErrorSummary(errors)
-      form(action='/users/login' method='post')
-        input(type='hidden' name='_csrf' value=token)
-        input(name='email' type='email' placeholder='Email Address')
-        input(name='password' type='password' placeholder='Password')
-        button(type='submit') Login
-      div New here?  
-        a(href='/users/sign_up') Sign up now!
-  
+    nav.navbar1 
+      img.logo(src='../images/marvelous-movies-logo.png')
+      if locals.authenticated
+        div Welcome, #{user.userName}!
+        form(action='/users/logout' method='post')
+          button(type='submit', id="logout-button") logout
+      else
+        +validationErrorSummary(errors)
+        form.navForm(action='/users/login' method='post')
+          input(type='hidden' name='_csrf' value=token)
+          input(name='email' type='email' placeholder='Email Address')
+          input(name='password' type='password' placeholder='Password')
+          button(type='submit') Login
+          div New here?  
+            a(href='/users/sign_up') Sign up now!
+    
     block content
->>>>>>> main

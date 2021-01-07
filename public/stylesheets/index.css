@@ -66,7 +66,6 @@ label{
 .inputs {
     display:flex;
     flex-direction: column;
-<<<<<<< HEAD
     justify-content: space-around;
     width: 300px;
 }
@@ -82,8 +81,18 @@ label{
 .descriptor{
     font-size: 14px;
     text-align: start;
-=======
     justify-content: center;
     width: 100%;
->>>>>>> main
+}
+.navbar1{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #162f65;
+    background-color: white;
+    align-items: right;
+}
+.navForm{
+    justify-content: right;
+    color: red
 }

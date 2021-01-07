@@ -1,22 +1,47 @@
 extends layout
 
-append head
+//- append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- link(rel="stylesheet" href="/stylesheets/index.css")
   //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+  //- script(src="/javascripts/index.js" type="module" defer)
 
 block content
   h1= title
   p Welcome to Marvelous Movies
     if !locals.authenticated
+      div:h2 1st Annual Marvelous Movies Choice Awards
+        p.descriptor See the winner of the Top Movie presented by the watchers of Marvelous Movies
+          button(href=bestFilm) See the Winner!
+          p.descriptor2 See other top Movies by category
+            div
+              a.c1(href='/movies/genre/Action') Best Action
+              a.c1(href='/movies/genre/Adventure') Best Adventure
+              a.c1(href='/movies/genre/Animation') Best Animation
+              a.c1(href='/movies/genre/Comedy') Best Comedy
+              a.c1(href='/movies/genre/Crime') Best Crime
+              a.c1(href='/movies/genre/Documentary') Best Documentary
+              a.c1(href='/movies/genre/Drama') Best Drama
+              a.c2(href='/movies/genre/Family') Best Family
+              a.c2(href='/movies/genre/Fantasy') Best Fantasy
+              a.c2(href='/movies/genre/History') Best History
+              a.c2(href='/movies/genre/Horror') Best Horror
+              a.c2(href='/movies/genre/Music') Best Music
+              a.c2(href='/movies/genre/Mystery') Best Mystery
+              a(href='/movies/genre/Romance') Best Romance
+              a(href='/movies/genre/ScienceFiction') Best Science Fiction
+              a(href='/movies/genre/TV') Best TV
+              a(href='/movies/genre/Thriller') Best Thriller
+              a(href='/movies/genre/War') Best War
+              a(href='/movies/genre/Western') Best Western
+
       h2 Top 25 movies
         p.descriptor Check out the top movies!
           div.topMovies
             each movie in topMovies
               div
                 img(src=movie.imgPath)
-                a(href='/movies/' + movie.id)
+                a(href='/movies/' + movie.id)= movie.title
       h2 Most recently rated
         p.descriptor These films have people talking! Check them out.
           div.topMovies
