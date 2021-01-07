@@ -4,12 +4,12 @@ body{
 .navbar{
 display:flex;
 flex-direction:row;
-width:80%;
-margin:auto;
-align-items:center;
+align-self: center;
+width:100%;
+margin:auto;;
 background-color:white;
 }
-.navbar_links{
+.navbar-links{
    font-family:Lato, "Helvetica Neue", Helvetica, sans-serif;
    font-size:14px;
    text-decoration:none;
