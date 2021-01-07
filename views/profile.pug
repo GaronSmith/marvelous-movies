@@ -7,7 +7,12 @@ html(lang="en")
     link(rel='stylesheet' href='/stylesheets/profile.css')
   body
     div
-      a.navBar(href='/') Marvelous Movies
+      nav.navbar
+        a(class="navBar_links" href="/") Marvelous Movies
+        div
+          if authenticated
+             
+
     div
       h1.userProfileName Welcome,  #{users.userName}!
       h3.shelves #{users.userName} Blockbuster Shelves

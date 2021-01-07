@@ -2,7 +2,18 @@ body{
     background-color:#e8c766
 }
 .navbar{
-background-color: white;
+display:flex;
+flex-direction:row;
+width:80%;
+margin:auto;
+align-items:center;
+background-color:white;
+}
+.navbar_links{
+   font-family:Lato, "Helvetica Neue", Helvetica, sans-serif;
+   font-size:14px;
+   text-decoration:none;
+   color:red;
 }
 .shelves{
    font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
