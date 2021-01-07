@@ -3,14 +3,13 @@ body {
 }
 
 .profile {
-    display: flex;
     width: 100%;
     padding-bottom: 25px;
     padding-top: 110px;
 }
 
 .leftContainer {
-    float: left;
+    display: flex;
     width: 470px;
     padding: 40px 40px;
     margin: auto;
@@ -20,10 +19,11 @@ body {
 }
 
 .image-column {
-    width: 150px;
+    flex-direction: column;
+    justify-content: left;
+    width: 180px;
     height: 100%;
     text-align: center;
-    float: left;
     margin: 5.5px 20px 10px 0
 }
 
@@ -32,13 +32,15 @@ body {
     max-width: 150px;
     max-height: 300px;
     margin: 0 auto 10px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
     border: 0;
 }
 
 .status {
     border-width: 0px;
     padding: 4px;
-    width: fit-content;
+    width: 85%;
     background-color: #162f65;
     color: #FFF;
     font-size: 12px;
@@ -49,7 +51,6 @@ body {
 }
 
 .movieDetails {
-    float: right;
     max-width: 300px;
     margin-right: 0px;
 }
@@ -59,7 +60,7 @@ h1 {
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    color: #333
+    color: #333;
     font-size: 24px;
     line-height: 1.25;
 }
