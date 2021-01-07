@@ -177,7 +177,23 @@ router.post('/logout', (req, res)=>{
   })
   
 });
-
+router.post(
+  "/demo",
+  asyncHandler(async (req, res) => {
+    const users = await db.findOne({
+      where:{email:"demoUser@demoUser.com"}
+     
+    })
+    loginUser(req,res,users)
+    return req.session.save((err) => {
+      if (err) {
+        next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  })
+);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
