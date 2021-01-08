@@ -62,7 +62,7 @@ label{
     text-justify: center;
     font-size: 14px;
 }
-.submit{
+.submit {
    padding: 1em;
     margin-top: 4px;
 }
@@ -87,32 +87,26 @@ label{
     color: #162f65;
 }
 .navbar1 {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
+    height: 60px;
+    overflow: hidden;
 }
-.navbar2 {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #162f65;
-    background-color: white;
-    border-radius: 5px;
-    align-items: right;
-    margin:0px auto 20px auto;
-    width:700px;
-    padding: 2px;
+.navbar1 a {
+    float: left;
+    text-align: center;
+    padding: 20px;
 }
-.navForm{
-    position: absolute;
-    right: 0px;
-    display: flex;
-    flex-direction: column;
-    align-self: felx-end;
-    justify-content: flex-end;
+.navbar1 form {
+    float:right;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+.navbar1 a:hover {
+    color: white;
+    background-color: #162f65;
+
 }
 .filmTag {
     display: flex;
@@ -187,4 +181,27 @@ label{
     position: relative;
     color:#162f65;
     text-align:left;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    max-width: 120px;
+}
+.logo2{
+    max-width: 50px;
+}
+.home {
+    position: absolute;
+    top: 90px;
+    width: 120px;
+    font-size: 10px;
+    text-align: center;
+}
+.signUp{
+    position: relative;
+    top: -10px;
+    padding: 2px;
+    margin: 2px;
+    font-size: 14px;
 }

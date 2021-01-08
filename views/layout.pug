@@ -8,17 +8,21 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
     nav.navbar1
-      a(href='/') Marvelous Movies
+      a(href='/')
+        img.logo2(src='../images/marvelous-movies-logo.png')
+      a(href='/search') Search
       if locals.authenticated
-        div Welcome, #{user.userName}!
-        form(action='/users/logout' method='post')
+        a(href='/user/' + user.id) Profile
+        div.navForm Welcome, #{user.userName}!
+        form.navForm(action='/users/logout' method='post')
           button(type='submit', id="logout-button") logout
       else
         +validationErrorSummary(errors)
-        form.navForm(action='/users/login' method='post')
+        a.signUp(href='/users/sign_up') New Here? <br> Sign up today!
+        form(action='/users/login' method='post') 
+          h3 Not new? Hurry Sign in to see your friends!
           input(type='hidden' name='_csrf' value=token)
           input(name='email' type='email' placeholder='Email Address')
           input(name='password' type='password' placeholder='Password')
           button(type='submit') Login
-          a(href='/users/sign_up') New Here? Sign up now!
     block content
