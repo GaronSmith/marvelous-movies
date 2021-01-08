@@ -9,7 +9,8 @@ html(lang="en")
     div.container
       nav.navbar
         a(class="navBar-links home" href="/") Marvelous Movies
-        a(class="navBar-links" href="/logout") logout           
+        form(action='/users/logout' method='post')
+          button(type='submit') logout           
     div
       h1.userProfileName Welcome,  #{users.userName}!
       h3.shelves #{users.userName} Blockbuster Shelves

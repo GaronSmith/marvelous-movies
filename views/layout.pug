@@ -12,10 +12,10 @@ html
         img.logo2(src='../images/marvelous-movies-logo.png')
       a(href='/search') Search
       if locals.authenticated
-        a(href='/user/' + user.id) Profile
+        a(href='/users/' + user.id) Profile
         div.navForm Welcome, #{user.userName}!
-        form.navForm(action='/users/logout' method='post')
-          button(type='submit', id="logout-button") logout
+          form(action='/users/logout' method='post')
+            button(type='submit') logout
       else
         +validationErrorSummary(errors)
         a.signUp(href='/users/sign_up') New Here? <br> Sign up today!

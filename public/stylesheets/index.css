@@ -98,6 +98,12 @@ label{
     text-align: center;
     padding: 20px;
 }
+.navForm,
+.navForm form {
+    float: right;
+    text-align: center;
+    padding: 15px;
+}
 .navbar1 form {
     float:right;
     padding-top: 3px;
