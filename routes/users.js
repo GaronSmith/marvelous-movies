@@ -213,5 +213,5 @@ router.get(
      res.render("profile", {users,joined});   
   })
 );
-router.get("/:id")
+
 module.exports = router;
