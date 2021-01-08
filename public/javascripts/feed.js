@@ -22,9 +22,9 @@ const renderFeed = (json) => {
         userName.setAttribute('class', 'user-name');
         userName.setAttribute('href', `/users/${status.User.id}`)
         userName.innerHTML = status.User.firstName + ' ' + makeSentence(status.status)
-        // const action = document.createElement('p');
-        // action.setAttribute('class', 'action');
-        // action.innerHTML = makeSentence(status.status)
+        const time = document.createElement('p');
+        time.setAttribute('class', 'time-delta');
+        time.innerHTML = makeTime(Math.abs(new Date() - new Date(status.updatedAt)))
         const title = document.createElement('a');
         title.setAttribute('class', 'movie-title');
         title.setAttribute('href', `/movies/${status.Movie.id}`);
@@ -44,7 +44,7 @@ const renderFeed = (json) => {
         divContainer.appendChild(divUser);
         divContainer.appendChild(divResult);
         divUser.appendChild(userName)
-        // divUser.appendChild(action);
+        divUser.appendChild(time)
         divResult.appendChild(divPoster);
         divResult.appendChild(divOverview);
         divPoster.appendChild(poster);
@@ -66,6 +66,19 @@ const getFeed = async () => {
     const json = await res.json();
     
     renderFeed(json)
+}
+
+const makeTime = milliseconds => {
+    
+    if(1000 < milliseconds && milliseconds <= 60000){
+        return `${Math.round(milliseconds / 1000)} s`
+    } else if (60000 < milliseconds && milliseconds <= 3600000) {
+        return `${Math.round(milliseconds / 60000)} m`
+    } else if (3600000 < milliseconds && milliseconds <= 86400000) {
+        return `${Math.round(milliseconds / 3600000)} h`
+    } else if (86400000 < milliseconds){
+        return `${Math.round(milliseconds / 86400000)} d`
+    }
 }
 
 
