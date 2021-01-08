@@ -57,7 +57,11 @@ router.post('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
         rating,
     })
 
-    res.json({review})
+    const movieAvg = await db.Movie.findByPk(movieId)
+    const newAvg = (movieAvg.voteRating - (rating*2)/(movieAvg.voteCount + 1))
+    await movieAvg.update({voteRating: newAvg.toFixed(2), voteCount: movieAvg.voteCount + 1})
+
+    res.json({review, movieAvg})
 }))
 
 router.put('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
@@ -69,7 +73,7 @@ router.put('/rating/:mid(\\d+)', asyncHandler( async (req,res,next) => {
     })
     if(currentRating){
         await currentRating.update({rating:req.body.rating})
-        res.json({currentRating})
+        res.json({ currentRating })
     }
     
 }))
