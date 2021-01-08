@@ -26,7 +26,18 @@
    border-bottom: 1px solid #d8d8d8; 
    width:445px;
 }
+/* .Main{
+    padding-bottom: 25px;
+    padding-top: 110px;
+} */
 .movieImage{
     height:150px;
     width:auto;
 }
+.Content{
+    display: flex;
+    background-color:#d8d8d8;
+    box-shadow:3px 3px 3px #d8d8d8;
+    width:470px;
+}
+
