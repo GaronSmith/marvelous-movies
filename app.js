@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 const reviewsRouter = require('./routes/reviews');
 const moviesRouter = require('./routes/movies');
 const searchRouter = require('./routes/search');
+const feedRouter = require('./routes/feed')
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
 const bcrypt = require('bcryptjs');
@@ -51,10 +52,8 @@ app.use(
   app.use('/users', usersRouter);
   app.use('/reviews', reviewsRouter);
   app.use('/movies', moviesRouter);
-<<<<<<< HEAD
-=======
   app.use('/search', searchRouter);
->>>>>>> main
+  app.use('/feed', feedRouter)
 
   
 
