@@ -196,6 +196,7 @@ label{
 }
 .logo2{
     max-width: 50px;
+    box-shadow: none;
 }
 .home {
     position: absolute;
