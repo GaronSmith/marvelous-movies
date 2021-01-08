@@ -8,6 +8,7 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
   body
     nav.navbar1
+      a(href='/') Marvelous Movies
       if locals.authenticated
         div Welcome, #{user.userName}!
         form(action='/users/logout' method='post')
@@ -19,6 +20,5 @@ html
           input(name='email' type='email' placeholder='Email Address')
           input(name='password' type='password' placeholder='Password')
           button(type='submit') Login
-          div New here?  
-            a(href='/users/sign_up') Sign up now!
+          a(href='/users/sign_up') New Here? Sign up now!
     block content

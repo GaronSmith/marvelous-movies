@@ -1,5 +1,5 @@
 body {
-    background-color: #e8c766;
+    background-color:  #e8c766;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h1 {
@@ -89,10 +89,30 @@ label{
 .navbar1 {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
+}
+.navbar2 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #162f65;
+    background-color: white;
+    border-radius: 5px;
+    align-items: right;
+    margin:0px auto 20px auto;
+    width:700px;
+    padding: 2px;
+}
+.navForm{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-self: felx-end;
+    justify-content: flex-end;
 }
 .filmTag {
     display: flex;
