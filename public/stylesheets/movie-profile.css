@@ -17,7 +17,6 @@ body {
     background-color: #FFF;
     border-radius: 5px;
 }
-
 .image-column {
     flex-direction: column;
     justify-content: left;

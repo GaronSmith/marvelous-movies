@@ -1,49 +1,84 @@
-body{
-    background-color:#e8c766;
-}
- .navbar{
-   display: flex;
-    flex-direction: row;
-    width: 60%;
-    margin: auto;
-    align-items: center;
-   background-color:#f4f1ea;
+body  {
+    color:black
+    font-size: 15px;
 
 }
-.navBar-links{
-   font-family: Lato, "Helvetica Neue", Helvetica, sans-serif;
-   font-size: 20px;
-   text-decoration: none;
-   padding: 1rem;
-   color: blue;
-}
-.navBar-links:hover{
-   background-color: #e8c766;
-}
-.home{
-   flex-grow: 1;
-}
-.container{
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    width: 60%;
-    margin: auto;
-    padding: 1rem;
-    background-color: #f4f1ea;
+.infoTitle{
+    font-size: 18px;;
 
 }
-.shelves{
-   font-family:Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 14px;
-   line-height: 24px;
-   text-align:left;
-   letter-spacing: normal;
-   border-bottom: 1px solid red; 
+.main-content{
+    margin: 10px auto;
+    text-align:left;
+    width:970px;
+    display: flex;
+    flex-direction: column;
+    align-content:center
 }
+.profileName{
+    color:black;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: center;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.3;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 2px 0 2px 0; 
+    top: 0;
+    width: 445px;
+}
+.space{
+   border-bottom: 1px solid #d8d8d8; 
+   width:445px;
+}
+
 .movieImage{
-   max-width:150px;
-   float:left;
-   box-shadow: blueviolet;
+    height:150px;
+    width:auto;
 }
-label.status{
-float:left; 
+.Content{
+    display: flex;
+    background-color:#d8d8d8;
+    box-shadow:3px 3px 3px #d8d8d8;
+    width:fit-content;
+}
+.status{
+    padding: 2px;
+    width: auto;
+    color:black;
+    font-size: 12px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.genre {
+    color:black;
+    font-size: 25px;
+    padding-bottom: 8px;
+}
+
+h2 {
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 4px 0px;
+    font-weight: normal;
+}
+
+h3 {
+   border-bottom: 1px solid #ddd; 
+   font-size: 14px;
+   font-weight: normal;
+   line-height: 21px;
+}
+
+p {
+    text-align: left;
+    word-wrap: normal;
+    content: normal;
+}
+
+.rating{
+    color:black;
+    font-size:22px;
 }
