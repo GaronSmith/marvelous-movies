@@ -15,4 +15,9 @@ block content
             .Main
                 .Content
                     .moviePic
-                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")    
+                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        select(class="status")
+                            option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+                            option(value="watched")='Want to watch'
+                            option(value="previously watched")='Watched'
+                            option(value="not interested")='Currently Watching'

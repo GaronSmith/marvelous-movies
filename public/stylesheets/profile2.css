@@ -40,4 +40,13 @@
     box-shadow:3px 3px 3px #d8d8d8;
     width:470px;
 }
-
+.status{
+    padding: 4px;
+    width: 85%;
+    color:yellow;
+    font-size: 12px;
+    white-space: normal;
+    word-wrap: break-word;
+    border-radius: 3px;
+    border-style: solid;
+}
