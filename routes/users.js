@@ -209,7 +209,8 @@ router.get(
         model: db.Movie,
       },   
     });
-     res.render("profile", {users});   
+    const joined = users.createdAt.getFullYear()
+     res.render("again", {users,joined});   
   })
 );
 module.exports = router;

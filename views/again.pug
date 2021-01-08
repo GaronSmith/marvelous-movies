@@ -1,0 +1,16 @@
+extends layout
+
+append head
+    link(rel="stylesheet", href="/stylesheets/profile2.css")
+    title User-Profile
+block content
+    .main-content
+        each movie in users.Movies
+            h1.profileName #{users.userName}
+            .infoTitle Joined: #{joined}
+            .space
+            h1.profileName #{users.userName} 's Blockbuster Shelves
+            
+   
+
+
