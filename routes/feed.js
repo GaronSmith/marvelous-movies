@@ -15,7 +15,8 @@ router.get('/content', asyncHandler( async (req,res,next) => {
     const following = await db.BlockbusterShelf.findAll({
         include: [db.User, db.Movie],
         through: {where: {userId: req.session.auth.userId}},
-        limit: 1,
+        order:[['updatedAt', 'DESC']],
+        limit: 2,
         offset:1
     })
     res.json(following)
