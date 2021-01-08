@@ -200,6 +200,7 @@ router.post(
 router.get('/', function(req, res, next) {
   res.send('respond ith a resource');
 });
+
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
@@ -213,5 +214,5 @@ router.get(
      res.render("profile", {users,joined});   
   })
 );
-router.get("/:id")
+// router.get("/:id")
 module.exports = router;
