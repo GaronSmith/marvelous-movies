@@ -210,7 +210,7 @@ router.get(
       },   
     });
     const joined = users.createdAt.getFullYear()
-     res.render("again", {users,joined});   
+     res.render("profile", {users,joined});   
   })
 );
 router.get("/:id")
