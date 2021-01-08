@@ -37,4 +37,18 @@ router.post('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
    res.json({review});
 }));
 
+// router.get('/blockbustershelves', asyncHandler(async(req, res) => {
+//     const currentUser = req.session.auth.userId;
+//     const users = await db.User.findByPk(currentUser, {
+//         include: {
+//             model: db.Movie,
+//         },
+//     });
+//     const status = [];
+//     const currentStatus = 
+// }))
+
+//--post reviews/ratings
+// router.post()
+
 module.exports = router;
