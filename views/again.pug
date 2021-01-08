@@ -12,4 +12,8 @@ block content
             h1.profileName #{users.userName} 's Blockbuster Shelves
             a(href = "/bookshelves") #{movie.BlockbusterShelf.status}
             h1.profileName Recent Updates
-            .    
+            .statusMain
+                .statusContent
+                    .moviePic
+                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                            
