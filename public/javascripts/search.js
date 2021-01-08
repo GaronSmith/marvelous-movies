@@ -47,7 +47,7 @@ const renderResults = (json) => {
         poster.setAttribute('src', `https://image.tmdb.org/t/p/original${movie.imgPath}`)
         poster.setAttribute('class', 'movie-poster')
         const avgRating = document.createElement('p')
-        avgRating.setAttribute('id', 'avg-rating')
+        avgRating.setAttribute('class', 'avg-rating')
         avgRating.innerHTML = `<b>Average rating:</b> ${parseFloat(movie.voteRating)/2}`
         const rating = document.createElement('p');
         rating.setAttribute('class', 'stars')

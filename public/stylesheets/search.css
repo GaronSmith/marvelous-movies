@@ -70,3 +70,11 @@ img{
     font-weight: bold;
     text-decoration: none;
 }
+
+.avg-rating{
+    margin-top: -5px;
+}
+
+.stars{
+    margin-top: -3px;
+}
