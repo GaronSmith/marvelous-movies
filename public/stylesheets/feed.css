@@ -1,4 +1,4 @@
-.feed-container {
+.feed-results {
     background-color: white;
     padding: 5%;
     margin: 5% auto;
@@ -10,6 +10,18 @@
     justify-content: center;
     align-items: flex-start;
     text-align: center;
+}
+
+p.time-delta{
+    position: absolute;
+    text-align: end;
+    margin-left: 490px;
+    margin-top: -35px;
+}
+
+.user-details{
+    display: flex;
+    justify-content: center;
 }
 
 #feed-results{
@@ -62,6 +74,7 @@
     color: #162f65;
     font-size: 25px;
     font-weight: bold;
-    text-decoration: none; 
+    text-decoration: none;
+    margin-bottom: 20px; 
 }
 
