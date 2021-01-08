@@ -1,7 +1,6 @@
 const express = require('express');
 const csrf = require('csurf');
 const {Op} = require('sequelize')
-// const { search } = require("../../routes/search");
 const { Movie, Review } = require('../db/models')
 
 const router = express.Router();
