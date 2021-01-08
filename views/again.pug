@@ -8,9 +8,11 @@ block content
         each movie in users.Movies
             h1.profileName #{users.userName}
             .infoTitle Joined: #{joined}
+            br
             .space
             h1.profileName #{users.userName} 's Blockbuster Shelves
             a(href = "/bookshelves") #{movie.BlockbusterShelf.status}
+            br
             h1.profileName Recent Updates
             .Main
                 .Content
