@@ -1,19 +1,25 @@
 const express = require('express');
-const csrf = require('csurf');
+const { csrfProtection, asyncHandler } = require('./utils');
 
 const router = express.Router();
-const csrfProtection = csrf({ cookie: true });
 
 const db = require('../db/models');
-
-const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(movieId);
     const year = movie.releaseDate.getFullYear();
-    const rating = movie.voteRating / 2;
-    res.render('movie-profile', { title: 'Movie Profile', movie, year, rating });
+    res.render('movie-profile', { title: 'Movie Profile', movie, year });
+}));
+
+router.post('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
+   const { movieId, rating } = req.body;
+   const review = await db.Review.create({
+       userId: req.session.auth.userId,
+       movieId,
+       rating,
+   })
+   res.json({review});
 }));
 
 module.exports = router;

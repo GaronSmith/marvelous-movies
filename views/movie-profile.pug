@@ -15,6 +15,20 @@ block content
                     option(value="Want to Watch")= "Want to Watch"
                     option(value="Currently Watching")= "Currently Watching"
                     option(value="Watched")= "Watched"
+                div
+                p(class='stars' id=movie.id) 
+                    span Rate this Movie
+                    span(class="far fa-star" id='star-rating_1')     
+                    span(class="far fa-star" id='star-rating_2')    
+                    span(class="far fa-star" id='star-rating_3')    
+                    span(class="far fa-star" id='star-rating_4')    
+                    span(class="far fa-star" id='star-rating_5') 
+
+                form(action="/reviews/create", method="post")
+                    input(type="hidden", name="_csrf" value=token)
+                    input(type="hidden", name="movieId" value=movie.id)
+                    input(type="hidden", name="userId" value=userId) 
+
             div.movieDetails
                 h1 #{movie.title}
                     h2(class="genre") #{movie.genre}
@@ -23,6 +37,14 @@ block content
 
                 h3
                     p= movie.description
-        
-
+    div.reviewProfile
+        div.reviewContainer
+            div.reviewHeader 
+                a.user MovieLover236 
+                    span.user rated it
+                div.reviewDate #{new Date().toLocaleDateString()}
+                div.reviewText 
+                    div.userReview Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+             
+                
 
