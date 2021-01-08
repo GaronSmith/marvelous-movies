@@ -1,5 +1,6 @@
-
-
+body h1 {
+    color:black
+}
 .main-content{
     margin: 0px auto;
     text-align:left;
@@ -9,8 +10,8 @@
     align-content:center
 
 }
-
 .profileName{
+    color:black;
     border-bottom: 1px solid #d8d8d8;
     text-align: center;
     font-style: normal;
@@ -18,7 +19,7 @@
     line-height: 1.3;
     margin: 0;
     margin-bottom: 5px;
-    padding: 4px 0 4px 0;
+    padding: 2px 0 2px 0; 
     top: 0;
     width: 445px;
 }
@@ -26,10 +27,7 @@
    border-bottom: 1px solid #d8d8d8; 
    width:445px;
 }
-/* .Main{
-    padding-bottom: 25px;
-    padding-top: 110px;
-} */
+
 .movieImage{
     height:150px;
     width:auto;
@@ -38,15 +36,44 @@
     display: flex;
     background-color:#d8d8d8;
     box-shadow:3px 3px 3px #d8d8d8;
-    width:470px;
+    width:fit-content;
 }
 .status{
-    padding: 4px;
-    width: 85%;
-    color:yellow;
+    padding: 2px;
+    width: auto;
+    color:black;
     font-size: 12px;
-    white-space: normal;
-    word-wrap: break-word;
-    border-radius: 3px;
+    border-radius: 5px;
     border-style: solid;
+}
+
+.genre {
+    color:black;
+    font-size: 25px;
+    padding-bottom: 8px;
+}
+
+h2 {
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 4px 0px;
+    font-weight: normal;
+}
+
+h3 {
+   border-bottom: 1px solid #ddd; 
+   font-size: 14px;
+   font-weight: normal;
+   line-height: 21px;
+}
+
+p {
+    text-align: left;
+    word-wrap: normal;
+    content: normal;
+}
+
+.rating{
+    color:black;
+    font-size:22px;
 }

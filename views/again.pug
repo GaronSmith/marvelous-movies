@@ -21,3 +21,10 @@ block content
                             option(value="watched")='Want to watch'
                             option(value="previously watched")='Watched'
                             option(value="not interested")='Currently Watching'
+                    .details
+                        h1 #{movie.title}
+                        h2(class="genre") #{movie.genre}
+                        h2 #{year}
+                        h2.rating #{movie.voteRating}
+                        h3
+                        p= movie.description
