@@ -8,18 +8,20 @@ const Op = Sequelize.Op;
 const { User, Movie, Review, sequelize } = require('../db/models');
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
 
+function randomNum(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+};
 
 router.get('/', csrfProtection, asyncHandler(async(req, res, next) => {
   const topMovies = await Movie.findAll({where: { voteRating:{ [Op.gt]: 8 }, voteCount: { [Op.gt]: 2000 } }, order: [['voteRating', 'DESC']], limit: 5});
   const recentReviews = await Review.findAll({ include: [Movie, User], order: [['updatedAt', 'DESC']], limit: 5});
-  function randomNum(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
-  const randomBest = randomNum(880);
+  const maxNum = await Movie.count({ where: { id: { [Op.gt]: 0}}})
+  const randomBest = randomNum(maxNum);
   const bestFilm = await Movie.findByPk(randomBest);
-  res.render('index', { token: req.csrfToken(), topMovies, recentReviews, bestFilm, title: 'Welcome to Marvelous Movies!' });
+  const allMovies = await Movie.findAll();
+  const allGenres = Array.from(allMovies).map(movie => movie.genre);
+  const genres = Array.from(new Set(allGenres)).sort();
+  res.render('index', { token: req.csrfToken(), topMovies, genres, recentReviews, bestFilm, title: 'Welcome to Marvelous Movies!' });
 }));
-
-
 
 module.exports = router;

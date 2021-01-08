@@ -8,25 +8,8 @@ block content
         a.submit(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
         h2 See top Movies by category
         div.bestOfBox2
-          a(href='/movies/genre/Action') Best Action
-          a(href='/movies/genre/Adventure') Best Adventure
-          a(href='/movies/genre/Animation') Best Animation
-          a(href='/movies/genre/Comedy') Best Comedy
-          a(href='/movies/genre/Crime') Best Crime
-          a(href='/movies/genre/Documentary') Best Documentary
-          a(href='/movies/genre/Drama') Best Drama
-          a(href='/movies/genre/Family') Best Family
-          a(href='/movies/genre/Fantasy') Best Fantasy
-          a(href='/movies/genre/History') Best History
-          a(href='/movies/genre/Horror') Best Horror
-          a(href='/movies/genre/Music') Best Music
-          a(href='/movies/genre/Mystery') Best Mystery
-          a(href='/movies/genre/Romance') Best Romance
-          a(href='/movies/genre/ScienceFiction') Best Science Fiction
-          a(href='/movies/genre/TV') Best TV
-          a(href='/movies/genre/Thriller') Best Thriller
-          a(href='/movies/genre/War') Best War
-          a(href='/movies/genre/Western') Best Western
+          each genre in genres
+            a(href=`/movies/genre/${genre}`) Best #{genre}
       div.bookshelfBox
         h2 Top 5 movies
           p.descriptor Check out the top movies!
