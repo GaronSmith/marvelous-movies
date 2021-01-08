@@ -204,14 +204,16 @@ router.get('/', function(req, res, next) {
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser,{
+    const currentUser = req.params.id;
+    const movies = await db.BlockbusterShelf.findAll({
+      where:{userId: currentUser},
       include: {
         model: db.Movie,
       },   
     });
+    const users = await db.User.findByPk(currentUser)
     const joined = users.createdAt.getFullYear()
-     res.render("profile", {users,joined});   
+     res.render("profile", {users,joined, movies});   
   })
 );
 // router.get("/:id")

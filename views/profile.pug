@@ -5,21 +5,21 @@ append head
     title User-Profile
 block content
     .main-content
-        each movie in users.Movies
+        each movie in movies
             h1.profileName #{users.userName}
             .infoTitle Joined: #{joined}
             br
             .space
             h1.profileName #{users.userName} 's Blockbuster Shelves
-            a(href = "/shelf") #{movie.BlockbusterShelf.status}
+            a(href = "/shelf") #{movie.status}
             br
             h1.profileName Recent Updates
             .Main
                 .Content
                     .moviePic
-                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.Movie.imgPath, alt="movie")
                         select(class="status")
-                            option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+                            option(value="movie.BlockbusterShelf.status")=movie.status
                             option(value="watched")='Want to watch'
                             option(value="previously watched")='Watched'
                             option(value="not interested")='Currently Watching'
