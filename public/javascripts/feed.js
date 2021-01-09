@@ -24,7 +24,7 @@ const renderFeed = (json) => {
         userName.innerHTML = status.User.firstName + ' ' + makeSentence(status.status)
         const time = document.createElement('p');
         time.setAttribute('class', 'time-delta');
-        time.innerHTML = makeTime(Math.abs(new Date() - new Date(status.updatedAt)))
+        time.innerHTML = makeTime(Math.abs(new Date() - new Date(status.updatedAt))) + ' ago'
         const title = document.createElement('a');
         title.setAttribute('class', 'movie-title');
         title.setAttribute('href', `/movies/${status.Movie.id}`);

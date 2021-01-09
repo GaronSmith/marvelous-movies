@@ -5,7 +5,7 @@ h1{
 .feed-results {
     background-color: white;
     padding: 5%;
-    margin: 5% auto;
+    margin: 1% auto;
     display: flex;
     flex-direction: column;
     width: 60%;
