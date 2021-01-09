@@ -1,5 +1,5 @@
 body {
-    background-color: #e8c766;
+    background-color:  #e8c766;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h1 {
@@ -7,19 +7,22 @@ h1 {
     font-size: 60px;
     text-align: center;
 }
-h2 {
+h2,
+.h2 {
     color: #162f65;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
-h3 {
+h3,
+.h3 {
     color: #162f65;
     font-size: 16px;
     font-weight:bold;
     padding-bottom: 5px;
     text-align: center;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 form > p {
     color:#3361ac;
@@ -62,15 +65,24 @@ label{
     text-justify: center;
     font-size: 14px;
 }
-.submit{
-   padding: 1em;
+.submit {
+   padding: 5px;
     margin-top: 4px;
+    width: 120px;
 }
-.inputs {
+.inputs,
+textarea {
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+}
+input,
+textarea {
+    padding: 6px;
+    border-radius: 5px;
 }
 .topMovies{
     display: flex;
@@ -87,12 +99,29 @@ label{
     color: #162f65;
 }
 .navbar1 {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row-reverse;
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
+    height: 70px;
+    overflow: hidden;
+}
+.navbar1 a {
+    float: left;
+    text-align: center;
+    padding: 25px;
+    font-size: 20px;
+    margin-top: -5px;
+}
+.navForm,
+.navForm form {
+    float: right;
+    text-align: center;
+    padding: 15px;
+}
+.navbar1 form {
+    float:right;
+    padding-top: 3px;
+    padding-right: 10px;
 }
 .filmTag {
     display: flex;
@@ -121,6 +150,7 @@ label{
     margin: 10px auto;
     border: 1px solid #162f65;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
 }
 .bestOfBox{
     box-sizing: border-box;
@@ -132,6 +162,7 @@ label{
     margin: 10px auto;
     border: 1px solid #162f65;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
 }
 .bestOfBox2{
     display:flex;
@@ -167,4 +198,32 @@ label{
     position: relative;
     color:#162f65;
     text-align:left;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    max-width: 120px;
+}
+.logo2{
+    max-width: 50px;
+    box-shadow: none;
+}
+.home {
+    position: absolute;
+    top: 90px;
+    width: 120px;
+    font-size: 10px;
+    text-align: center;
+}
+.signUp {
+    position: relative;
+    top: -10px;
+    padding: 2px;
+    margin: 2px;
+    font-size: 14px;
+}
+a:hover {
+    color:#e8c766;
+    background-color: #162f65 ;
 }
