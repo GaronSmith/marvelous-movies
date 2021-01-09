@@ -135,6 +135,7 @@ textarea {
     display: flex;
     position: relative;
     width: 70px;
+    max-height: 140px;
     box-shadow: 5px 5px 5px #333;
     border-radius: 3px;
     justify-content: flex-start;
@@ -226,4 +227,9 @@ textarea {
 a:hover {
     color:#e8c766;
     background-color: #162f65 ;
+}
+@media (max-width: 600px) {
+   body {
+    margin: auto;
+   }
 }
