@@ -7,19 +7,22 @@ h1 {
     font-size: 60px;
     text-align: center;
 }
-h2 {
+h2,
+.h2 {
     color: #162f65;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
-h3 {
+h3,
+.h3 {
     color: #162f65;
     font-size: 16px;
     font-weight:bold;
     padding-bottom: 5px;
     text-align: center;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 form > p {
     color:#3361ac;
@@ -63,14 +66,23 @@ label{
     font-size: 14px;
 }
 .submit {
-   padding: 1em;
+   padding: 5px;
     margin-top: 4px;
+    width: 120px;
 }
-.inputs {
+.inputs,
+textarea {
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+}
+input,
+textarea {
+    padding: 6px;
+    border-radius: 5px;
 }
 .topMovies{
     display: flex;
@@ -90,13 +102,15 @@ label{
     border: 1px solid #162f65;
     background-color: white;
     align-items: right;
-    height: 60px;
+    height: 70px;
     overflow: hidden;
 }
 .navbar1 a {
     float: left;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    font-size: 20px;
+    margin-top: -5px;
 }
 .navForm,
 .navForm form {
@@ -108,11 +122,6 @@ label{
     float:right;
     padding-top: 3px;
     padding-right: 10px;
-}
-.navbar1 a:hover {
-    color: white;
-    background-color: #162f65;
-
 }
 .filmTag {
     display: flex;
@@ -141,6 +150,7 @@ label{
     margin: 10px auto;
     border: 1px solid #162f65;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
 }
 .bestOfBox{
     box-sizing: border-box;
@@ -152,6 +162,7 @@ label{
     margin: 10px auto;
     border: 1px solid #162f65;
     border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
 }
 .bestOfBox2{
     display:flex;
@@ -205,10 +216,14 @@ label{
     font-size: 10px;
     text-align: center;
 }
-.signUp{
+.signUp {
     position: relative;
     top: -10px;
     padding: 2px;
     margin: 2px;
     font-size: 14px;
+}
+a:hover {
+    color:#e8c766;
+    background-color: #162f65 ;
 }

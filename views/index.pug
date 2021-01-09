@@ -5,11 +5,12 @@ block content
     //- if !locals.authenticated
     div.bestOfBox
       h2 1st Annual Marvelous Movies Random Movie Generator
-      a.submit(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
+      h3
+        a(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
       h2 See top Movies by category
       div.bestOfBox2
         each genre in genres
-          a(href=`/movies/genre/${genre}`) Best #{genre}
+          a.topGenre(href=`/movies/genre/${genre}`) Best #{genre}
     div.bookshelfBox
       h2 Top 5 movies
         p.descriptor Check out the top movies!
