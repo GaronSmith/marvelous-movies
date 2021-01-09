@@ -51,22 +51,6 @@ body {
     border-style: solid;
 }
 
-p {
-    font-weight: lighter;
-    color: #333;
-}
-
-.stars {
-    flex-direction: column;
-    justify-content: space-around;
-    width: 300px;
-}
-
-.fa-star {
-    color: blue;
-    cursor: pointer;
-}
-
 .movieDetails {
     max-width: 505px;
     margin-right: 0px;
@@ -106,46 +90,4 @@ p {
     text-align: left;
     word-wrap: normal;
     content: normal;
-}
-
-.reviewContainer {
-    display: flex;
-    padding-top: 20px;
-    width: 60%;
-    height: 500px;
-    padding: 40px 40px;
-    margin: auto;
-    background-color: #FFF;
-    border-radius: 5px;
-    border: 1px solid #162F65;
-}
-
-.reviewHeader {
-    margin-top: 10px;
-    height: 25px;
-    width: 100%;
-}
-
-.user {
-    font-size: 14px;
-    text-align: left;
-    color:#333;
-    font-weight: bold;
-}
-
-span.user {
-    font-size: 13px;
-}
-
-.reviewDate {
-    font-size: 14px;
-    text-align: left;
-    color:#333;
-}
-
-.userReview {
-    margin-top: 5px;
-    font-size: 12px;
-    text-align: left;
-    color: #333;
 }

@@ -27,16 +27,4 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     res.render('movie-profile', { title: 'Movie Profile', movie, year });
 }));
 
-router.post('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
-   const { movieId, rating } = req.body;
-   const review = await db.Review.create({
-       userId: req.session.auth.userId,
-       movieId,
-       rating,
-   })
-   res.json({review});
-}));
-
-router.post()
-
 module.exports = router;
