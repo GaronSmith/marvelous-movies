@@ -1,0 +1,31 @@
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.shelves {
+    padding: 2px;
+}
+
+.sectionHeader {
+    
+}
+
+.userShelf {
+    font-size: 14px;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+table {
+    justify-content: center;
+}
+
+td {
+    justify-content: space-around;
+}

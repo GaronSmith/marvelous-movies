@@ -8,8 +8,6 @@ const db = require('../db/models');
 
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
 
-// script (src = '/javascripts/feed.js')
-
 router.get('/status/:uid(\\d+)', asyncHandler(async(req, res) => {
     const wantToWatch = await db.BlockbusterShelf.findAll({
         include: db.Movie,
