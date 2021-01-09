@@ -2,8 +2,13 @@ include utils.pug
 doctype html
 html(lang="en")
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel='stylesheet' href='/stylesheets/index.css')
-        title Login
+        block head
+            title Login
+            link(rel='stylesheet' href='/stylesheets/index.css')
+            meta(charset="UTF-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    body
+        a.logo(href='/')
+            img.logo(src='../images/marvelous-movies-logo.png')
+            p.home Take me back home! <br> I dont want to see my friends yet.
         block content
