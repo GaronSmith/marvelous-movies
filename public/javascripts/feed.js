@@ -64,7 +64,6 @@ const makeSentence = status => {
 const getFeed = async () => {
     const res = await fetch('http://localhost:8080/feed/content');
     const json = await res.json();
-    
     renderFeed(json)
 }
 
