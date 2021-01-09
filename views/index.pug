@@ -2,33 +2,34 @@ extends layout
 block content
   h1.title= title
     p.descriptor See what your friends are watching and rate movies you watch!
-    if !locals.authenticated
-      div.bestOfBox
-        h2 1st Annual Marvelous Movies Random Movie Generator
-        a.submit(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
-        h2 See top Movies by category
-        div.bestOfBox2
-          each genre in genres
-            a(href=`/movies/genre/${genre}`) Best #{genre}
-      div.bookshelfBox
-        h2 Top 5 movies
-          p.descriptor Check out the top movies!
-            each movie in topMovies
-              div.topMovies
-                img.filmTag2(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
-                div.movieInfo2
-                  a(href='/movies/' + movie.id)= movie.title
-                  p Rating: #{movie.voteRating / 2}
-                  p Total Votes: #{movie.voteCount} 
-      div.bookshelfBox
-        h2 Most recently rated
-          p.descriptor These films have people talking! Check them out.
-            each review in recentReviews
-              div.topMovies
-                img.filmTag2(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
-                div.movieInfo2
-                  a(href='/movies/' + review.Movie.id)= review.Movie.title
-                  p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating / 2}
-                  
+    //- if !locals.authenticated
+    div.bestOfBox
+      h2 1st Annual Marvelous Movies Random Movie Generator
+      h3
+        a(href='/movies/' + bestFilm.id) Feeling Lucky?!<br>(click for a random movie)
+      h2 See top Movies by category
+      div.bestOfBox2
+        each genre in genres
+          a.topGenre(href=`/movies/genre/${genre}`) Best #{genre}
+    div.bookshelfBox
+      h2 Top 5 movies
+        p.descriptor Check out the top movies!
+          each movie in topMovies
+            div.topMovies
+              img.filmTag2(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
+              div.movieInfo2
+                a(href='/movies/' + movie.id)= movie.title
+                p Rating: #{movie.voteRating / 2}
+                p Total Votes: #{movie.voteCount} 
+    div.bookshelfBox
+      h2 Most recently rated
+        p.descriptor These films have people talking! Check them out.
+          each review in recentReviews
+            div.topMovies
+              img.filmTag2(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
+              div.movieInfo2
+                a(href='/movies/' + review.Movie.id)= review.Movie.title
+                p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating / 2}
+                
 
 
