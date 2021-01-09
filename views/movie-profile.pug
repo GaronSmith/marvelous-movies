@@ -10,7 +10,11 @@ block content
         div.leftContainer
             div.image-column
                 img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
-                include includes/status
+                select(class="status")
+                    option(value="")= "Add to Shelf"
+                    option(value="Want to Watch")= "Want to Watch"
+                    option(value="Currently Watching")= "Currently Watching"
+                    option(value="Watched")= "Watched"
             div.movieDetails
                 h1 #{movie.title}
                     h2(class="genre") #{movie.genre}
