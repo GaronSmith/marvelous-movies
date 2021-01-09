@@ -49,4 +49,7 @@ router.get('/want/:id', asyncHandler(async(req, res) => {
     res.json({wantToWatch});
 }))
 
+POST route - shelves - UID(req.session.auth)
+MID 
+PUT 
 module.exports = router;

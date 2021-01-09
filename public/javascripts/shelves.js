@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', async() => {
     document.getElementById('want').addEventListener('click', updateShelfStatus(event))
 })
 
+Add event listener to each option
+event.target.parentElement.id - 
+event.target.value - 
+
 
 // const updateShelfStatus = async (event, status) => {
 //     event.preventDefault();    
