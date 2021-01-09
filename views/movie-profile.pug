@@ -3,7 +3,7 @@ extends layout
 append head
 
     link(rel="stylesheet", href="/stylesheets/movie-profile.css")
-    script(src'/javascripts/shelves.js' type='module' defer )
+    script(src='/javascripts/status.js' type='module' defer )
     title Movie Profile
 
 block content
@@ -12,7 +12,7 @@ block content
             div.image-column
                 img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
                 select(id=movie.id class="status")
-                    option(value="")= "Add to Shelf"
+                    option(id=isStatus value="")= "Add to Shelf"
                     option(value="Want to Watch")= "Want to Watch"
                     option(value="Currently Watching")= "Currently Watching"
                     option(value="Watched")= "Watched"

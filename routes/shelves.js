@@ -4,7 +4,7 @@ const db = require('../db/models');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 
-router.use(requireAuth);
+// router.use(requireAuth);
 
 router.get('/want/:uid(\\d+)', asyncHandler(async(req, res) => {
     const wantToWatch = await db.BlockbusterShelf.findOne({
@@ -20,14 +20,25 @@ router.get('/want/:uid(\\d+)', asyncHandler(async(req, res) => {
         });
 }));
 
-router.post('/want/:uid(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
+router.post('/', asyncHandler(async(req, res) => {
     const {movieId,status} = req.body;
     const currentStatus = await db.BlockbusterShelf.create({
         userId: req.session.auth.userId,
         movieId,
         status,
     })
-   res.json({currentStatus});
+    res.json({currentStatus});
+}))
+
+router.put('/', asyncHandler(async(req, res) => {
+    const {movieId,status} = req.body;
+    const statusUpdate = await db.BlockbusterShelf.findOne({
+        where: {
+            userId: req.session.auth.userId,
+            movieId
+        }
+    })
+    await statusUpdate.update({status});
 }))
  
 module.exports = router;
