@@ -1,43 +1,49 @@
-const updateShelfStatus = async (event) => {
-    event.preventDefault();
-        try {
-            const res = await fetch(`http://localhost:8080/shelves/${event.target.id}`)
-            const json = await res.json();
-            console.log(json);
-        } catch (err) {
-            console.log(err);
+const checkStatus = async (event) => {
+    const statuses = document.getElementsByTagName('option');
+    Array.from(statuses).forEach(async status => {
+        const movieId = movie.id
+        const res = await fetch(`http://localhost:8080/shelves/${event.target.id}`);
+
+        const { status } = await res.json();
+        if (status) {
+                    
         }
+    })
 }
 
-document.addEventListener('DOMContentLoaded', async() => {
-    document.getElementById('want').addEventListener('click', updateShelfStatus(event))
-})
-
-Add event listener to each option
-event.target.parentElement.id - 
-event.target.value - 
-
-
-// const updateShelfStatus = async (event, status) => {
-//     event.preventDefault();    
-//     if (status.value) {
-//         const body = { status };
-//         try {
-//             const res = await fetch('http://localhost:8080/shelves/status', {
-//                 method: 'POST',
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify(body),
-//             })
-//             const json = await res.json()
-//             renderStatus(json)
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }
-// }
-
-// const renderStatus = async () => {
-
-// }
+const renderStatus = async (event) => {
+    const movieId = parseInt(event.target.parentElement.id);
+    const status = parseInt(event.target.value);
+    const body = { movieId, status };
+    if (document.getElementById('want')) {
+        try {
+            const res = await fetch(`http://localhost:8080/shelves/${event.target.id}`, {
+                method: "PUT",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            checkShelfStatus()
+        } catch (err) {
+            console.log(err)
+        }
+    } else {
+        try {
+            const res = await fetch(`http://localhost:8080/shelves/${event.target.id}`, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            checkShelfStatus()
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}
+export {
+    checkStatus,
+    renderStatus
+}

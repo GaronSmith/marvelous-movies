@@ -3,7 +3,6 @@ extends layout
 append head
 
     link(rel="stylesheet", href="/stylesheets/movie-profile.css")
-    script(src = "/javascripts/feed.js")
     title Blockbuster Shelves
 
 block content
@@ -11,11 +10,11 @@ block content
         div.shelves 
             div.sectionHeader Blockbuster Shelves
                 div.userShelf
-                    a(id='want' href="/wantToWatch") Want to Watch
+                    a(id='want' href="/want") Want to Watch
                 div.userShelf 
-                    a(id='current' href="/currentlyWatching") Currently Watching
+                    a(id='current' href="/current") Currently Watching
                 div.userShelf  
-                    a(id='finished' href="/watched") Watched
+                    a(id='watched' href="/watched") Watched
     div.rightColumn 
         table
             thead

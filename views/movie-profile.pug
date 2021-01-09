@@ -3,6 +3,7 @@ extends layout
 append head
 
     link(rel="stylesheet", href="/stylesheets/movie-profile.css")
+    script(src'/javascripts/shelves.js' type='module' defer )
     title Movie Profile
 
 block content
@@ -19,7 +20,7 @@ block content
                 h1 #{movie.title}
                     h2(class="genre") #{movie.genre}
                     h2 #{year}
-                    h2 #{movie.voteRating / 2}
+                    h2 #{movie.voteRating / 2} / 5
                 h3
                     p= movie.description
              
