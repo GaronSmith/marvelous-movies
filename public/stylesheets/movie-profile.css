@@ -85,8 +85,80 @@ h3 {
    line-height: 21px;
 }
 
-p {
+.description {
     text-align: left;
     word-wrap: normal;
     content: normal;
+}
+
+.reviewContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5px;
+    margin: 5% auto;
+    width: 60%;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+}
+
+.reviewHeader {
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 5px;
+    width: 95%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #333;
+    font-size: 24px;
+    line-height: 1.25;
+    border-bottom: 1px solid #ddd;
+}
+
+button {
+    margin-top: 5px;
+    margin-right: 5px;
+    border-width: 0px;
+    float: right;
+    padding: 4px;
+    width: 18%;
+    background-color: #162f65;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 3px;
+    border-style: solid;
+}
+
+.reviewBoxes {
+    text-align: left;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
+    color: #162f65;
+}
+
+p.username {
+   text-align: left;
+   font-size: 14px;
+   font-weight: bold;
+   color: #162f65;
+   height: fit-content;
+}
+
+p.rating {
+    text-align: left;
+    color: #162f65;
+    font-size: 16px;
+    height: fit-content;
+    
+}
+
+p.comment {
+    text-align: left;
+    color: #162f65;
+    font-size: 14px;
+    height: fit-content;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
 }

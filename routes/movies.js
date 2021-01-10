@@ -5,8 +5,11 @@ const { Op } = require('sequelize');
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
 const db = require('../db/models');
+const { requireAuth } = require('../auth');
 
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
+
+router.use(requireAuth);
 
 function toProperCase(word) {
     let letters = word.split('');
@@ -20,7 +23,7 @@ router.get('/genre/:id', csrfProtection, asyncHandler(async(req, res)=>{
     res.render('top-movies', { token: req.csrfToken(), topMovies, genre });
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(movieId);
     const status = await db.BlockbusterShelf.findOne({
@@ -31,7 +34,13 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
     const isStatus = status ? 'exists' : null;
     const year = movie.releaseDate.getFullYear();
-    res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year });
+    const reviews = await db.Review.findAll({
+        include: 
+        [db.Movie, db.User], 
+        order: [['updatedAt', 'DESC']], 
+        limit: 4,
+    });
+    res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year, reviews });
 }));
 
 module.exports = router;

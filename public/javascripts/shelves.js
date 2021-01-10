@@ -1,10 +1,11 @@
 const renderStatus = async (event, value) => {
+    if (!value) return;
     const movieId = parseInt(event.target.id);
     const status = value;
     const body = { movieId, status };
     if (document.getElementById('exists')) {
         try {
-            const res = await fetch(`/shelves`, {
+            const res = await fetch('/shelves', {
                 method: "PUT",
                 body: JSON.stringify(body),
                 headers: {
@@ -16,7 +17,7 @@ const renderStatus = async (event, value) => {
         }
     } else {
         try {
-            const res = await fetch(`/shelves`, {
+            const res = await fetch('/shelves', {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {

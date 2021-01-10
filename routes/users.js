@@ -204,13 +204,13 @@ router.get(
       include: [Movie]    
     })
     const Watched = await BlockbusterShelf.count({
-      where: { userId: currentUser, status: 'watched' },
+      where: { userId: currentUser, status: 'Watched' },
     });
     const currentlyWatching = await BlockbusterShelf.count({
       where: { userId: currentUser, status: "Currently Watching" },
     });
     const wantToWatch = await BlockbusterShelf.count({
-      where: { userId: currentUser, status: "Want to watch" },
+      where: { userId: currentUser, status: "Want to Watch" },
     });
     
     
