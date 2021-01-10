@@ -3,7 +3,7 @@ extends layout
 append head
 
     link(rel="stylesheet", href="/stylesheets/movie-profile.css")
-    title Movie-Profile
+    title Movie Profile
 
 block content
     div.profile
@@ -19,9 +19,9 @@ block content
                 h1 #{movie.title}
                     h2(class="genre") #{movie.genre}
                     h2 #{year}
-                    h2 #{movie.voteRating}
-
+                    h2 #{movie.voteRating / 2}
                 h3
                     p= movie.description
-
+             
+                
 

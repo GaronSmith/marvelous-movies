@@ -4,7 +4,7 @@ const searchInput = async (value) => {
     if(value.length){
         const body = { value };
         try {
-            const res = await fetch('http://localhost:8080/search/results', {
+            const res = await fetch('/search/results', {
                 method: 'POST',
                 body: JSON.stringify(body),
                 headers: {
