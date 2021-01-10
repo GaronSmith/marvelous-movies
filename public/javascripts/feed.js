@@ -1,8 +1,7 @@
-
-const renderFeed = (json) => {
+const renderFeed = (arr) => {
     const feedAnchor = document.getElementById('feed-results')
-
-    json.forEach(status => {
+    
+    arr.forEach(status => {
         const divResult = document.createElement('div');
         divResult.setAttribute('class', 'result-container');
         const divPoster = document.createElement('div');
@@ -11,7 +10,7 @@ const renderFeed = (json) => {
         divMovie.setAttribute('class', 'movie-items');
         const divUser = document.createElement('div');
         divUser.setAttribute('class', 'user-details');
-        divUser.setAttribute('id', status.User.id)
+        divUser.setAttribute('id', status.userId)
         const divContainer = document.createElement('div');
         divContainer.setAttribute('class', 'total')
         const divOverview = document.createElement('div');
@@ -20,8 +19,12 @@ const renderFeed = (json) => {
         res.setAttribute('class', 'feed-results')
         const userName = document.createElement('a');
         userName.setAttribute('class', 'user-name');
-        userName.setAttribute('href', `/users/${status.User.id}`)
-        userName.innerHTML = status.User.firstName + ' ' + makeSentence(status.status)
+        userName.setAttribute('href', `/users/${status.userId}`)
+        userName.innerHTML = status.userName + ' ' + makeSentence(status.status)
+        const unFollowButton = document.createElement('button');
+        unFollowButton.setAttribute('class', 'unfollow-btn');
+        unFollowButton.setAttribute('id', `unfollow_${status.userId}`)
+        unFollowButton.innerHTML = 'Unfollow'
         const time = document.createElement('p');
         time.setAttribute('class', 'time-delta');
         time.innerHTML = makeTime(Math.abs(new Date() - new Date(status.updatedAt))) + ' ago'
@@ -43,6 +46,7 @@ const renderFeed = (json) => {
         res.append(divContainer);
         divContainer.appendChild(divUser);
         divContainer.appendChild(divResult);
+        divUser.appendChild(unFollowButton)
         divUser.appendChild(userName)
         divUser.appendChild(time)
         divResult.appendChild(divPoster);
@@ -65,6 +69,7 @@ const getFeed = async () => {
     const res = await fetch('http://localhost:8080/feed/content');
     const json = await res.json();
     renderFeed(json)
+
 }
 
 const makeTime = milliseconds => {
@@ -80,8 +85,27 @@ const makeTime = milliseconds => {
     }
 }
 
+const unfollow = async (event) =>{
+    event.preventDefault()
+    
+    const id = event.target.id.split('_')[1];
+    try{
+        const res = await fetch(`http://localhost:8080/feed/follow/${id}/delete`, {
+            method: 'DELETE',
+        })
+        getFeed()
+    }catch (err){
+        console.log(err)
+    }
+
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
-  getFeed()
+    await getFeed()
+    Array.from(document.getElementsByClassName('unfollow-btn')).forEach(button => {
+      button.addEventListener('click', async () =>{
+         await unfollow(event)
+        })
+  })
 
 })
