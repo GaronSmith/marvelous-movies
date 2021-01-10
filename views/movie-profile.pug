@@ -9,10 +9,11 @@ append head
 block content
     div.profile
         div.leftContainer
-            div.image-column
+            div.image-column(id=isStatus)
                 img(class="movie-poster" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
                 select(id=movie.id class="status")
-                    option(id=isStatus value="Want to Watch")= "Want to Watch"
+                    option(value="")= "Add to Shelf"
+                    option(value="Want to Watch")= "Want to Watch"
                     option(value="Currently Watching")= "Currently Watching"
                     option(value="Watched")= "Watched"
             div.movieDetails
@@ -21,7 +22,16 @@ block content
                     h2 #{year}
                     h2 #{movie.voteRating / 2} / 5
                 h3
-                    p= movie.description
+                    p(class="description")= movie.description
+        div.reviewContainer
+            div.reviewHeader Reviews
+                button(id=movie.id type="submit") Create Review
+            div.reviewBoxes
+                each review in reviews
+                    p(class="username") #{review.User.userName} 
+                    p(class="rating") #{review.Movie.voteRating / 2} / 5 
+                    p(class="comment") #{review.comment}
+
              
                 
 

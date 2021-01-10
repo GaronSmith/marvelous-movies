@@ -4,9 +4,9 @@ const db = require('../db/models');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 
-// router.use(requireAuth);
+router.use(requireAuth);
 
-router.get('/', asyncHandler(async(req, res) => {
+router.get('/', csrfProtection, asyncHandler(async(req, res) => {
     const wantToWatch = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
@@ -14,7 +14,7 @@ router.get('/', asyncHandler(async(req, res) => {
             status: 'Want to Watch',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('wantToWatch', { 
         title: 'Blockbuster Shelf', 
         wantToWatch,
         });
@@ -26,7 +26,7 @@ router.get('/', asyncHandler(async(req, res) => {
             status: 'Currently Watching',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('currentlyWatching', { 
         title: 'Blockbuster Shelf', 
         currentlyWatch,
         });
@@ -38,7 +38,7 @@ router.get('/', asyncHandler(async(req, res) => {
             status: 'Watched',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('watched', { 
         title: 'Blockbuster Shelf', 
         watched,
         });
