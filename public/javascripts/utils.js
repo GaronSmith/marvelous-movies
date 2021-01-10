@@ -2,7 +2,7 @@ const checkRating = async () => {
     const movies = document.getElementsByClassName('stars');
     Array.from(movies).forEach(async movie => {
         const movieId = movie.id
-        const res = await fetch(`http://localhost:8080/reviews/rating/${movieId}`);
+        const res = await fetch(`/reviews/rating/${movieId}`);
 
         const { rating } = await res.json();
         if (rating) {
@@ -28,7 +28,7 @@ const rateMovie = async (event) => {
     const body = { movieId, rating }
     if (document.getElementById(`movie-${movieId}-star-rating_1`).classList.contains('fas')) {
         try {
-            const res = await fetch(`http://localhost:8080/reviews/rating/${movieId}`, {
+            const res = await fetch(`/reviews/rating/${movieId}`, {
                 method: "PUT",
                 body: JSON.stringify(body),
                 headers: {
@@ -41,7 +41,7 @@ const rateMovie = async (event) => {
         }
     } else {
         try {
-            const res = await fetch(`http://localhost:8080/reviews/rating/${movieId}`, {
+            const res = await fetch(`/reviews/rating/${movieId}`, {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {
