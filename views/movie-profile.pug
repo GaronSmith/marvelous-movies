@@ -23,10 +23,12 @@ block content
                 h3
                     p(class="description")= movie.description
         div.reviewContainer
-            div.reviewHeader
+            div.reviewHeader Reviews
+                button(type="submit") Create Review
+            div.reviewBoxes
                 each review in reviews
-                    p(class="review") #{review.User.userName} 
-                    p(class="rating") #{review.Review.rating / 2} / 5 
+                    p(class="username") #{review.User.userName} 
+                    p(class="rating") #{review.Movie.voteRating / 2} / 5 
                     p(class="comment") #{review.comment}
 
              

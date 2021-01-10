@@ -34,14 +34,11 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
     const isStatus = status ? 'exists' : null;
     const year = movie.releaseDate.getFullYear();
-    const reviews = await db.Review.findAll({ 
+    const reviews = await db.Review.findAll({
         include: 
         [db.Movie, db.User], 
         order: [['updatedAt', 'DESC']], 
         limit: 4,
-        where: {
-            movieId,
-        }
     });
     res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year, reviews });
 }));
