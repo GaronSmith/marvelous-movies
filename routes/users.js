@@ -2,10 +2,9 @@ const express = require('express');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const {check, validationResult} = require('express-validator'); 
+const { User, Movie, Review,BlockbusterShelf, sequelize } = require("../db/models");
 
-const {User} = require('../db/models')
-const {loginUser, logoutUser } = require('../auth');
-const db = require('../db/models');
+const {loginUser, logoutUser, requireAuth } = require('../auth');
 
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
@@ -196,25 +195,76 @@ router.post(
   })
 );
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond ith a resource');
-});
 
 router.get(
-  "/:id(\\d+)",
+  "/:id(\\d+)",requireAuth,
   asyncHandler(async (req, res) => {
     const currentUser = req.params.id;
-    const movies = await db.BlockbusterShelf.findAll({
-      where:{userId: currentUser},
-      include: {
-        model: db.Movie,
-      },   
+    const users = await User.findByPk(currentUser, {
+      include: [Movie]    
+    })
+    const Watched = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: 'watched' },
     });
-    const users = await db.User.findByPk(currentUser)
-    const joined = users.createdAt.getFullYear()
-     res.render("profile", {users,joined, movies});   
+    const currentlyWatching = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: "Currently Watching" },
+    });
+    const wantToWatch = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: "Want to watch" },
+    });
+    
+    
+    
+    const joined = users.createdAt.getFullYear();
+    res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch});
   })
 );
-// router.get("/:id")
+
+
+router.get(
+  "/:id(\\d+)/shelves",requireAuth,
+  asyncHandler(async (req, res) => {
+    const currentUser = req.params.id;
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
+    });
+  
+    res.render("shelf",{ users });
+   
+  })
+);
+
+router.get(
+  "/:id(\\d+)/shelves/watched",requireAuth,
+  asyncHandler(async (req, res) => {
+    const currentUser = req.params.id;
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
+    });
+    res.render("watched", { users});
+  })
+);
+
+router.get(
+  "/:id(\\d+)/shelves/wantToWatch",requireAuth,
+  asyncHandler(async (req, res) => {
+    const currentUser = req.params.id;
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
+    });
+    res.render("wantToWatch", { users });
+  })
+);
+
+router.get(
+  "/:id(\\d+)/shelves/currentlyWatching",requireAuth,
+  asyncHandler(async (req, res) => {
+    const currentUser = req.params.id;
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
+    });
+    res.render("currentlyWatching", { users });
+  })
+);
+
 module.exports = router;
