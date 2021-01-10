@@ -12,7 +12,7 @@ module.exports = {
     };
 
     const users = await User.count({ where: { id: { [Op.gt]: 0 }}});
-    console.log(randomNum(users))
+  
     const movies = await Movie.count({ where: { id: { [Op.gt]: 0 }}} );
 
     const reviews = [];
@@ -21,7 +21,7 @@ module.exports = {
       const newReview = {
         userId: randomNum(users),
         movieId: randomNum(movies),
-        rating: randomNum(10),
+        rating: randomNum(5),
         comment: faker.commerce.productDescription(),
         createdAt: new Date(),
         updatedAt: new Date()
