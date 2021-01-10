@@ -11,7 +11,7 @@ block content
          each movie in users.Movies
            .space
               if movie.BlockbusterShelf.status ==='watched' 
-                a(href='/users/' +user.id + '/shelves/watched' ) #{status}
+                a(href='/users/' +user.id + '/shelves/watched' ) #{movie.BlockbusterShelf.status}
 
               if movie.BlockbusterShelf.status ==='Want to watch' 
                 a(href='/users/' +user.id + '/shelves/wantToWatch' ) #{movie.BlockbusterShelf.status}

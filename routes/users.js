@@ -2,10 +2,9 @@ const express = require('express');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const {check, validationResult} = require('express-validator'); 
+const { User, Movie, Review,BlockbusterShelf, sequelize } = require("../db/models");
 
-const {User} = require('../db/models')
 const {loginUser, logoutUser } = require('../auth');
-const db = require('../db/models');
 
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
@@ -197,9 +196,9 @@ router.post(
 );
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond ith a resource');
-});
+// router.get('/', function(req, res, next) {
+//   res.send('respond ith a resource');
+// });
 
 // router.get(
 //   "/:id(\\d+)",
@@ -223,26 +222,31 @@ router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
-      include: {
-        model: db.Movie,
-        
-      },
+    const watched = 'watched'
+    const users = await User.findByPk(currentUser, {
+      include: [Movie]    
+    })
+    const Watched = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: watched },
     });
     
     const joined = users.createdAt.getFullYear();
-    res.render("profile", { users, joined,countStatus});
-    //res.json({users})
+    //res.render("profile", { users, joined});
+    res.json({Watched})
   })
 );
+
+
+
+
+
+
 router.get(
   "/:id(\\d+)/shelves",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
-      include: {
-        model: db.Movie,
-      },
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
     });
     res.render("shelf", { users, joined });
    
@@ -253,10 +257,8 @@ router.get(
   "/:id(\\d+)/shelves/watched",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
-      include: {
-        model: db.Movie,
-        }
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
     });
     res.render("watched", { users});
   })
@@ -266,10 +268,8 @@ router.get(
   "/:id(\\d+)/shelves/wantToWatch",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
-      include: {
-        model: db.Movie,
-      },
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
     });
     res.render("wantToWatch", { users });
   })
@@ -279,10 +279,8 @@ router.get(
   "/:id(\\d+)/shelves/currentlyWatching",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const users = await db.User.findByPk(currentUser, {
-      include: {
-        model: db.Movie,
-      },
+    const users = await User.findByPk(currentUser, {
+      include: [Movie],
     });
     res.render("currentlyWatching", { users });
   })
