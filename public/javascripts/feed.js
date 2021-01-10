@@ -94,20 +94,23 @@ const unfollow = async (event) =>{
             method: 'DELETE',
         })
         await getFeed()
+        addEventUnfollow()
     }catch (err){
         console.log(err)
     }
     
     
 }
+const addEventUnfollow = () => {
+    Array.from(document.getElementsByClassName('unfollow-btn')).forEach(button => {
+        button.addEventListener('click', async () => {
+            await unfollow(event)
+        })
+    })
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
     await getFeed()
-    Array.from(document.getElementsByClassName('unfollow-btn')).forEach(button => {
-      button.addEventListener('click', async () =>{
-         await unfollow(event)
-        // await getFeed()
-        })
-  })
+    addEventUnfollow()
 
 })
