@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const {check, validationResult} = require('express-validator'); 
 const { User, Movie, Review,BlockbusterShelf, sequelize } = require("../db/models");
 
-const {loginUser, logoutUser } = require('../auth');
+const {loginUser, logoutUser, requireAuth } = require('../auth');
 
 const router = express.Router();
 const csrfProtection = csrf({ cookie: true });
@@ -195,33 +195,11 @@ router.post(
   })
 );
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond ith a resource');
-// });
-
-// router.get(
-//   "/:id(\\d+)",
-//   asyncHandler(async (req, res) => {
-//     const currentUser = req.params.id;
-//     const movies = await db.BlockbusterShelf.findAll({
-//       where:{userId: currentUser},
-//       include: {
-//         model: db.Movie,
-//       },   
-//     });
-//     const users = await db.User.findByPk(currentUser)
-//     const joined = users.createdAt.getFullYear()
-//      res.render("profile", {users,joined, movies});
-//     //res.json({movies,users})   
-//   })
-// );
-//while above code works this will allow anyone with the link to view the user profile
 
 router.get(
-  "/:id(\\d+)",
+  "/:id(\\d+)",requireAuth,
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = req.params.id;
     const users = await User.findByPk(currentUser, {
       include: [Movie]    
     })
@@ -238,19 +216,14 @@ router.get(
     
     const joined = users.createdAt.getFullYear();
     res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch});
-    //res.json({Watched})
   })
 );
 
 
-
-
-
-
 router.get(
-  "/:id(\\d+)/shelves",
+  "/:id(\\d+)/shelves",requireAuth,
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = req.params.id;
     const users = await User.findByPk(currentUser, {
       include: [Movie],
     });
@@ -260,7 +233,7 @@ router.get(
 );
 
 router.get(
-  "/:id(\\d+)/shelves/watched",
+  "/:id(\\d+)/shelves/watched",requireAuth,
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
     const users = await User.findByPk(currentUser, {
@@ -271,7 +244,7 @@ router.get(
 );
 
 router.get(
-  "/:id(\\d+)/shelves/wantToWatch",
+  "/:id(\\d+)/shelves/wantToWatch",requireAuth,
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
     const users = await User.findByPk(currentUser, {
@@ -282,7 +255,7 @@ router.get(
 );
 
 router.get(
-  "/:id(\\d+)/shelves/currentlyWatching",
+  "/:id(\\d+)/shelves/currentlyWatching",requireAuth,
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
     const users = await User.findByPk(currentUser, {
