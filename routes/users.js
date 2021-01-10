@@ -245,9 +245,49 @@ router.get(
     });
     const joined = users.createdAt.getFullYear();
     res.render("shelf", { users, joined });
-    //res.json({ users });
+   
   })
 );
 
-// router.get("/:id")
+router.get(
+  "/:id(\\d+)/shelves/watched",
+  asyncHandler(async (req, res) => {
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
+      include: {
+        model: db.Movie,
+        }
+    });
+    const shelf = await db.BlockbusterShelf.findAll({
+      where: {
+        status: "watched",
+      },
+    });
+    const joined = users.createdAt.getFullYear();
+    res.render("shelf", { users, joined,shelf });
+    //res.json({shelf})
+  })
+);
+router.get(
+  "/:id(\\d+)/shelves/:status",
+  asyncHandler(async (req, res) => {
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
+      include: {
+        model: db.Movie,
+      },
+    });
+    const shelf = await db.BlockbusterShelf.findAll({
+      where: {
+        status: "watched",
+      },
+    });
+    const joined = users.createdAt.getFullYear();
+    res.render("shelf", { users, joined, shelf });
+    //res.json({shelf})
+  })
+);
+
+
+
 module.exports = router;

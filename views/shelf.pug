@@ -15,11 +15,12 @@ block content
             th Rating
         tbody
             each movie in users.Movies
-                tr
-                    td 
-                        img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-                    td #{movie.title}   
-                    td #{year}  
-                    td #{movie.genre}
-                    td #{movie.description}    
-                    td #{movie.voteRating} 
+                if movie.BlockbusterShelf.status ==='watched' 
+                    tr
+                        td 
+                            img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        td #{movie.title}   
+                        td #{year}  
+                        td #{movie.genre}
+                        td #{movie.description}    
+                        td #{movie.voteRating}
