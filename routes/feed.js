@@ -56,17 +56,13 @@ router.delete('/follow/:id/delete', asyncHandler(async (req,res) => {
 }))
 
 router.get('/follow/:uid(\\d+)', asyncHandler( async (req,res, next) => {
-    const isFollowing = db.Follow.findOne({
+    const isFollowing = await db.Follow.findOne({
         where:{
             userId: req.session.auth.userId,
             followId: req.params.uid
         }
     })
-    if(isFollowing){
-        res.json(isFollow)
-    } else {
-        res.json('false')
-    }
+   res.json(isFollowing)
 }))
 
 

@@ -1,14 +1,31 @@
-const checkIfFollowing = async (event) => {
-    const res = await fetch(`http://localhost:8080/feed/follow/${event.target.id}`)
+const checkIfFollowing = async () => {
+   const button = document.getElementsByClassName('follow-btn')[0] 
+   const res = await fetch(`/feed/follow/${button.id}`)
     const json = await res.json(res)
-    console.log(json)
+    
+    if(json != null){
+       button.innerHTML = 'unfollow'
+       button.classList.add('class', 'unfollow')
+    } else {
+       button.innerHTML = 'follow'
+       button.classList.add('class', 'follow')
+    }
+    
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-   document.getElementsByClassName('follow-btn')[0].addEventListener('click', event => {
-    //    event.preventDefault()
-       checkIfFollowing(event)
-    // console.log(event.target.id)
+   checkIfFollowing()
+   const button = document.getElementsByClassName('follow-btn')[0]
+   button.addEventListener('click', async (event) => {
+      const classArr = Array.from(event.target.classList)
+      if(classArr.includes('unfollow')){
+         const res = await fetch(`/feed/follow/${button.id}/delete`, {
+            method: 'DELETE'
+         })
+         checkIfFollowing()
+      } else if (classArr.includes('unfollow')){
+         console.log('follow')
+      }
    })
-
+   
 })
