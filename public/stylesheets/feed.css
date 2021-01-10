@@ -1,0 +1,90 @@
+
+h1{
+    margin-top: 15px;
+}
+.feed-results {
+    background-color: white;
+    padding: 5%;
+    margin: 1% auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+}
+.unfollow-btn{
+    position:relative;
+    border-radius: 4px;
+    border: 1px solid #162f65;
+    max-height: 23px;
+    margin-bottom: -6px;
+    margin-right: 20px;
+}
+p.time-delta{
+    position: absolute;
+    text-align: end;
+    margin-top: -35px;
+}
+
+.user-details{
+    display: flex;
+    justify-content: center;
+}
+
+#feed-results{
+    margin-top: 15px;
+    list-style-type: none;
+}
+
+.result-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container{
+    flex-direction: column;
+    justify-content: left;
+    width: 60%;
+    height: 80%;
+    text-align: center;
+    margin: 5.5px 20px 10px 0
+}
+
+.movie-poster {
+    text-align: center;
+    max-width: 60%;
+    max-height: 100%;
+    margin: 0 auto 10px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    border: 0;
+}
+
+.details-container{
+    max-width: 40%;
+    margin-right: 0px; 
+    text-align: start;
+}
+.movie-genre{
+    margin-top: 10px;
+    text-align: start;
+}
+
+.movie-title{
+    color: #162f65;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.user-name{
+    color: #162f65;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px; 
+}
+

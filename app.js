@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 const reviewsRouter = require('./routes/reviews');
 const moviesRouter = require('./routes/movies');
 const searchRouter = require('./routes/search');
+const feedRouter = require('./routes/feed')
 const blockbusterShelfRouter = require('./routes/shelves');
 const csrf = require('csurf');
 const csrfProtection = csrf({cookie: true});
@@ -54,8 +55,8 @@ app.use(
   app.use('/movies', moviesRouter);
   app.use('/search', searchRouter);
   app.use('/shelves', blockbusterShelfRouter);
+  app.use('/feed', feedRouter); 
 
-  
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
