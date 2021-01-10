@@ -55,5 +55,9 @@ router.delete('/follow/:id/delete', asyncHandler(async (req,res) => {
    res.status(200).json('deleted')
 }))
 
+router.get('/follow', asyncHandler( async (req,res, next) => {
+    
+}))
+
 
 module.exports = router

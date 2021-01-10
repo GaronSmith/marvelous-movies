@@ -164,6 +164,8 @@ const makeTime = milliseconds => {
         return `${Math.round(milliseconds / 86400000)} d`
     }
 }
+
+
 export {
     checkRating,
     rateMovie,
