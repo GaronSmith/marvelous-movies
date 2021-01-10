@@ -12,6 +12,7 @@ module.exports = {
 
     const users = await User.count({ where: { id: { [Op.gt]: 0 } } });
     const followers = []
+
     for(let i = 0; i < 30; i++ ){
       const demoFollows = {
         userId: 1,
@@ -21,16 +22,18 @@ module.exports = {
       }
       followers.push(demoFollows)
     }
-    for (let j = 0; j < 30; j++) {
-        const front = randomNum(20)
-        const back = randomNum(20)+ 20
+    for (let j = 2; j < 20; j++) {
+      let follower = randomNum(users)
+      if(follower !== j){
         const follows = {
-          userId: front,
-          followId: back,
+          userId: j,
+          followId: follower,
           createdAt: new Date(),
           updatedAt: new Date()
         }
         followers.push(follows)
+      }
+  
     }
     
       return queryInterface.bulkInsert('Follows', followers, {});

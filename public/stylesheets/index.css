@@ -134,7 +134,7 @@ textarea {
 .filmTag2 {
     display: flex;
     position: relative;
-    width: 70px;
+    width: 80px;
     max-height: 140px;
     box-shadow: 5px 5px 5px #333;
     border-radius: 3px;
@@ -196,9 +196,18 @@ textarea {
 .movieInfo2{
     flex-direction: column;
     margin-left: 25px;
+    margin-bottom: 30px;
     position: relative;
     color:#162f65;
     text-align:left;
+}
+.movieTitle{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.ending {
+    margin-bottom: 20px;
+    font-size: 12px;
 }
 .logo{
     position: absolute;
@@ -231,5 +240,14 @@ a:hover {
 @media (max-width: 600px) {
    body {
     margin: auto;
+   }
+   img{
+       max-width:fit-content;
+   }
+   form{
+       max-width: fit-content;
+   }
+   div {
+       max-width: fit-content;
    }
 }
