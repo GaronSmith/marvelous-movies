@@ -14,10 +14,10 @@ function toProperCase(word) {
     return letters.join('');
 };
 
-router.get('/genre/:id', asyncHandler(async(req, res)=>{
+router.get('/genre/:id', csrfProtection, asyncHandler(async(req, res)=>{
     const genre = toProperCase(req.params.id);
     const topMovies = await Movie.findAll({ where: {genre}, limit: 25, order: [['voteRating', 'DESC']] });
-    res.render('top-movies', { topMovies, genre });
+    res.render('top-movies', { token: req.csrfToken(), topMovies, genre });
 }));
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
