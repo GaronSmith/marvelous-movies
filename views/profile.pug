@@ -22,21 +22,22 @@ block content
 
 
        h1.profileName Recent Updates
-        each movie in users.Movies
-            br
-            .Main
-                .Content
-                    .moviePic
-                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-                        select(class="status")
-                            option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
-                            option(value="watched")='Want to watch'
-                            option(value="previously watched")='Watched'
-                            option(value="not interested")='Currently Watching'
-                    .details
-                        h1 #{movie.title}
-                        h2(class="genre") #{movie.genre}
-                        h2 #{year}
-                        h2.rating #{movie.voteRating}
-                        h3
-                        p= movie.description
+        .allInfo
+          each movie in users.Movies
+              br
+              .Main
+                  .Content
+                      .moviePic
+                          img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                          select(class="status")
+                              option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+                              option(value="watched")='Want to watch'
+                              option(value="previously watched")='Watched'
+                              option(value="not interested")='Currently Watching'
+                      .details
+                          h1 #{movie.title}
+                          h2(class="genre") #{movie.genre}
+                          h2 #{year}
+                          h2.rating #{movie.voteRating}
+                          h3
+                          p= movie.description

@@ -226,7 +226,7 @@ router.get(
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,
-        limit:5
+      
       },
     });
     
