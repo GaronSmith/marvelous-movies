@@ -4,7 +4,7 @@ const db = require('../db/models');
 const router = express.Router();
 const { requireAuth } = require('../auth');
 
-// router.use(requireAuth);
+router.use(requireAuth);
 
 router.get('/', asyncHandler(async(req, res) => {
     const initialStatus = await db.BlockbusterShelf.findOne({

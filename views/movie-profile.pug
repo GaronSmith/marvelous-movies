@@ -25,7 +25,7 @@ block content
         div.reviewContainer
             div.reviewHeader
                 each review in reviews
-                    p(class="review") #{review.User.userName} <br> #{review.User.rating / 2} / 5 <br> #{review.comment}
+                    p(class="review") #{review.User.userName} <br> #{review.Review.rating / 2} / 5 <br> #{review.comment}
 
              
                 

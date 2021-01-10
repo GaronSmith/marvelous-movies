@@ -5,8 +5,11 @@ const { Op } = require('sequelize');
 const csrf = require('csurf');
 const csrfProtection = csrf({ cookie: true });
 const db = require('../db/models');
+const { requireAuth } = require('../auth');
 
 const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
+
+router.use(requireAuth);
 
 function toProperCase(word) {
     let letters = word.split('');
