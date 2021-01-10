@@ -231,8 +231,8 @@ router.get(
     });
     
     const joined = users.createdAt.getFullYear();
-    //res.render("profile", { users, joined});
-    res.json({Watched})
+    res.render("profile", { users, joined,Watched});
+    //res.json({Watched})
   })
 );
 
