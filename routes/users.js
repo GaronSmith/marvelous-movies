@@ -237,7 +237,7 @@ router.get(
 router.get(
   "/:id(\\d+)/shelves",
   asyncHandler(async (req, res) => {
-    const currentUser = await parseInt(req.session.auth.userId);
+    const currentUser = req.session.auth.userId;
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,

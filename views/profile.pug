@@ -10,7 +10,17 @@ block content
        h1.profileName #{users.userName} 's Blockbuster Shelves
          each movie in users.Movies
            .space
-              a(href='/users/' +user.id + '/shelves' ) #{movie.BlockbusterShelf.status}
+              if movie.BlockbusterShelf.status ==='watched' 
+                a(href='/users/' +user.id + '/shelves/watched' ) #{movie.BlockbusterShelf.status}
+
+              if movie.BlockbusterShelf.status ==='Want to watch' 
+                a(href='/users/' +user.id + '/shelves' ) #{movie.BlockbusterShelf.status}
+
+              if movie.BlockbusterShelf.status ==='Currently Watching' 
+                a(href='/users/' +user.id + '/shelves/currentlyWatching' ) #{movie.BlockbusterShelf.status}  
+
+
+
        h1.profileName Recent Updates
         each movie in users.Movies
             br
