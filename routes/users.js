@@ -222,16 +222,22 @@ router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    const watched = 'watched'
     const users = await User.findByPk(currentUser, {
       include: [Movie]    
     })
     const Watched = await BlockbusterShelf.count({
-      where: { userId: currentUser, status: watched },
+      where: { userId: currentUser, status: 'watched' },
+    });
+    const currentlyWatching = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: "Currently Watching" },
+    });
+    const wantToWatch = await BlockbusterShelf.count({
+      where: { userId: currentUser, status: "Want to watch" },
     });
     
+    
     const joined = users.createdAt.getFullYear();
-    res.render("profile", { users, joined,Watched});
+    res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch});
     //res.json({Watched})
   })
 );

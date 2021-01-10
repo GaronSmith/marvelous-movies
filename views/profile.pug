@@ -14,10 +14,10 @@ block content
                 a(href='/users/' +user.id + '/shelves/watched' ) Watched (#{Watched})
 
               if movie.BlockbusterShelf.status ==='Want to watch' 
-                a(href='/users/' +user.id + '/shelves/wantToWatch' ) #{movie.BlockbusterShelf.status}
+                a(href='/users/' +user.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
 
               if movie.BlockbusterShelf.status ==='Currently Watching' 
-                a(href='/users/' +user.id + '/shelves/currentlyWatching' ) #{movie.BlockbusterShelf.status}  
+                a(href='/users/' +user.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
 
 
 
