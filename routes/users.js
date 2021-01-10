@@ -223,20 +223,21 @@ router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
+    console.log(currentUser)
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,
       },
     });
     const joined = users.createdAt.getFullYear();
-    //res.render("profile", { users, joined });
-    res.json({users})
+    res.render("profile", { users, joined });
+    //res.json({users})
   })
 );
 router.get(
   "/:id(\\d+)/shelves",
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = await parseInt(req.session.auth.userId);
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,

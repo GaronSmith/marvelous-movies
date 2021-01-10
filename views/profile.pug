@@ -11,7 +11,7 @@ block content
             br
             .space
             h1.profileName #{users.userName} 's Blockbuster Shelves
-            a(href = "/shelf") #{movie.BlockbusterShelf.status}
+            a(href='/users/' +user.id + '/shelves' ) #{movie.BlockbusterShelf.status}
             br
             h1.profileName Recent Updates
             .Main
