@@ -1,0 +1,28 @@
+extends layout
+
+append head
+
+    link(rel="stylesheet", href="/stylesheets/movie-profile.css")
+    title Blockbuster Shelves
+
+block content
+    div.leftColumn 
+        div.shelves 
+            div.sectionHeader Blockbuster Shelves
+                div.userShelf
+                    a(id='want' href="/wantToWatch") Want to Watch
+                div.userShelf 
+                    a(href="/currentlyWatching") Currently Watching
+                div.userShelf  
+                    a(href="/watched") Watched
+    div.rightColumn 
+        table
+            thead
+                tbody
+                    tr
+                        td Movie Poster
+                        td Movie Title
+                        td Movie Rating
+                        td Movie Year
+                        
+
