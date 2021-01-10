@@ -10,12 +10,13 @@ body {
 
 .leftContainer {
     display: flex;
-    width: 470px;
+    width: 60%;
     padding: 40px 40px;
     margin: auto;
     text-align: left;
     background-color: #FFF;
     border-radius: 5px;
+    border: 1px solid #162F65;
 }
 .image-column {
     flex-direction: column;
@@ -50,7 +51,7 @@ body {
 }
 
 .movieDetails {
-    max-width: 300px;
+    max-width: 505px;
     margin-right: 0px;
 }
 
