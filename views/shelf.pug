@@ -1,9 +1,9 @@
 extends layout
 
 append head
-    link(rel="stylesheet", href="/stylesheets/shelf.css")
-    
-    title Blockbuster Shelf
+     link(rel="stylesheet", href="/stylesheets/shelf.css")
+     link(rel="stylesheet", href="/stylesheets/profile.css")
+     title Blockbuster Shelf
 block content
     table(style='width:100%', border='1')
         thead: tr
@@ -17,10 +17,9 @@ block content
             each movie in users.Movies
                 tr
                     td 
-                        img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
                     td #{movie.title}   
                     td #{year}  
                     td #{movie.genre}
-                    td #{year}  
-                    td #{movie.description}  
+                    td #{movie.description}    
                     td #{movie.voteRating} 
