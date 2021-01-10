@@ -8,7 +8,7 @@ const csrfProtection = csrf({ cookie: true });
 
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
-router.get('/', asyncHandler( async (req,res,next) => {
+router.get('/', csrfProtection, asyncHandler( async (req,res,next) => {
     res.render('search')
 }))
 
