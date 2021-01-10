@@ -15,8 +15,32 @@ router.get('/', asyncHandler(async(req, res) => {
         }
     });
     res.render('blockbuster-shelf', { 
-        title: 'Blockbuster Shelves', 
+        title: 'Blockbuster Shelf', 
         wantToWatch,
+        });
+
+    const currentlyWatch = await db.BlockbusterShelf.findOne({
+        include: db.Movie,
+        where: {
+            userId: req.session.auth.userId,
+            status: 'Currently Watching',
+        }
+    });
+    res.render('blockbuster-shelf', { 
+        title: 'Blockbuster Shelf', 
+        currentlyWatch,
+        });
+
+    const watched = await db.BlockbusterShelf.findOne({
+        include: db.Movie,
+        where: {
+            userId: req.session.auth.userId,
+            status: 'Watched',
+        }
+    });
+    res.render('blockbuster-shelf', { 
+        title: 'Blockbuster Shelf', 
+        watched,
         });
 }));
 
