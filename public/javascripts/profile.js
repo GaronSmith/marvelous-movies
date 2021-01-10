@@ -23,8 +23,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             method: 'DELETE'
          })
          checkIfFollowing()
-      } else if (classArr.includes('unfollow')){
-         console.log('follow')
+      } else if (classArr.includes('follow')){
+         const body = button.id
+         try {
+            const res = await fetch('/feed/follow/new', {
+               method:'POST',
+               body: JSON.stringify(body),
+               headers: {
+                  "Content-Type": "application/json"
+               }
+            })
+            checkIfFollowing()
+         } catch (error) {
+            console.log(error)
+         }
       }
    })
    

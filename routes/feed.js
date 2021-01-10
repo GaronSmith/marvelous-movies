@@ -55,6 +55,15 @@ router.delete('/follow/:id/delete', asyncHandler(async (req,res) => {
    res.status(200).json('deleted')
 }))
 
+router.post('/follow/new', asyncHandler( async (req,res) => {
+    console.log(req.body)
+    // const newFollow = await db.Follow.create({
+    //     userId: req.session.auth.userId,
+    //     followId: req.body.body
+    // })
+    // res.json(newFollow)
+}))
+
 router.get('/follow/:uid(\\d+)', asyncHandler( async (req,res, next) => {
     const isFollowing = await db.Follow.findOne({
         where:{
