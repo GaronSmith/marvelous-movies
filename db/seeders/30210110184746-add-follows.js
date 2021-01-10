@@ -13,10 +13,11 @@ module.exports = {
     const users = await User.count({ where: { id: { [Op.gt]: 0 } } });
     const followers = []
 
-    for(let i = 0; i < 30; i++ ){
+    for(let i = 2; i < 32; i++ ){
+      const demo = 1
       const demoFollows = {
-        userId: 1,
-        followId: randomNum(users),
+        userId: demo,
+        followId: i,
         createdAt: new Date(),
         updatedAt: new Date()
       }
