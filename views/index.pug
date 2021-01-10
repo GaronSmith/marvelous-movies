@@ -19,7 +19,7 @@ block content
               img.filmTag2(src="https://image.tmdb.org/t/p/original" + movie.imgPath)
               div.movieInfo2
                 a(href='/movies/' + movie.id)= movie.title
-                p Rating: #{movie.voteRating / 2}
+                p Rating: #{movie.voteRating / 2} / 5
                 p Total Votes: #{movie.voteCount} 
     div.bookshelfBox
       h2 Most recently rated
@@ -28,8 +28,10 @@ block content
             div.topMovies
               img.filmTag2(src="https://image.tmdb.org/t/p/original" + review.Movie.imgPath)
               div.movieInfo2
-                a(href='/movies/' + review.Movie.id)= review.Movie.title
-                p Most Recent Review: #{review.comment} <br> User: #{review.User.userName} <br> Rating: #{review.Movie.voteRating / 2}
+                a.movieTitle(href='/movies/' + review.Movie.id)= review.Movie.title
+                p Most Recent Review: #{review.comment} 
+                p Rating: #{review.rating} /5
+                a.ending(href='/users/' + review.User.id) User: #{review.User.userName} 
                 
 
 
