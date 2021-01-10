@@ -15,6 +15,7 @@ module.exports = {
     const movies = await Movie.count({ where: { id: { [Op.gt]: 0 } } });
 
     const status = [
+      "",
       "Want to Watch",
       "Currently Watching",
       "Watched"
@@ -25,7 +26,7 @@ module.exports = {
       const newShelf = {
         userId: randomNum(users),
         movieId: randomNum(movies),
-        status: status[randomNum(2)],
+        status: status[randomNum(3)],
         createdAt: new Date(),
         updatedAt: new Date()
       }

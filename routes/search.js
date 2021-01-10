@@ -9,7 +9,7 @@ const csrfProtection = csrf({ cookie: true });
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 router.get('/', csrfProtection, asyncHandler( async (req,res,next) => {
-    res.render('search')
+    res.render('search', { token: req.csrfToken()})
 }))
 
 router.post('/results', asyncHandler( async (req,res,next) => {
