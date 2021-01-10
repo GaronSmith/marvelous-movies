@@ -9,9 +9,9 @@ block content
       .infoTitle Joined: #{joined}
        h1.profileName #{users.userName} 's Blockbuster Shelves
         .space
-          a(href='/users/' +user.id + '/shelves/watched' ) Watched (#{Watched})
-          a(href='/users/' +user.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
-          a(href='/users/' +user.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
+          a(href='/users/' +users.id + '/shelves/watched' ) Watched (#{Watched})
+          a(href='/users/' +users.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
+          a(href='/users/' +users.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
        h1.profileName Recent Updates
         .allInfo
           each movie in users.Movies

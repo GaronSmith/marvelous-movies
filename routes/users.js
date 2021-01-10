@@ -235,7 +235,7 @@ router.get(
 router.get(
   "/:id(\\d+)/shelves/watched",requireAuth,
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = req.params.id;
     const users = await User.findByPk(currentUser, {
       include: [Movie],
     });
@@ -246,7 +246,7 @@ router.get(
 router.get(
   "/:id(\\d+)/shelves/wantToWatch",requireAuth,
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = req.params.id;
     const users = await User.findByPk(currentUser, {
       include: [Movie],
     });
@@ -257,7 +257,7 @@ router.get(
 router.get(
   "/:id(\\d+)/shelves/currentlyWatching",requireAuth,
   asyncHandler(async (req, res) => {
-    const currentUser = req.session.auth.userId;
+    const currentUser = req.params.id;
     const users = await User.findByPk(currentUser, {
       include: [Movie],
     });
