@@ -85,8 +85,33 @@ h3 {
    line-height: 21px;
 }
 
-p {
+.description {
     text-align: left;
     word-wrap: normal;
     content: normal;
+}
+
+.reviewContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 5px;
+    margin: 5% auto;
+    width: 60%;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+}
+
+.review {
+    text-align: left;
+    flex-direction: column;
+    margin-left: 25px;
+    padding-bottom: 5px;
+    position: relative;
+    color: #162f65;
+    border-bottom: 1px solid #ddd;
+}
+
+p.review {
+    line-height: 1.5;
 }

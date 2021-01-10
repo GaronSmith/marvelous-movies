@@ -21,7 +21,12 @@ block content
                     h2 #{year}
                     h2 #{movie.voteRating / 2} / 5
                 h3
-                    p= movie.description
+                    p(class="description")= movie.description
+        div.reviewContainer
+            div.reviewHeader
+                each review in reviews
+                    p(class="review") #{review.User.userName} <br> #{review.Movie.voteRating / 2} / 5 <br> #{review.comment}
+
              
                 
 

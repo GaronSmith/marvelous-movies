@@ -31,7 +31,12 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     })
     const isStatus = status ? 'exists' : null;
     const year = movie.releaseDate.getFullYear();
-    res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year });
+    const reviews = await db.Review.findAll({ 
+        include: 
+        [db.Movie, db.User], 
+        order: [['updatedAt', 'DESC']], 
+        limit: 7 });
+    res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year, reviews });
 }));
 
 module.exports = router;

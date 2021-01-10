@@ -7,7 +7,7 @@ const { requireAuth } = require('../auth');
 // router.use(requireAuth);
 
 router.get('/', asyncHandler(async(req, res) => {
-    const wantToWatch = await db.BlockbusterShelf.findOne({
+    const initialStatus = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
             userId: req.session.auth.userId,
@@ -16,7 +16,7 @@ router.get('/', asyncHandler(async(req, res) => {
     });
     res.render('blockbuster-shelf', { 
         title: 'Blockbuster Shelves', 
-        wantToWatch,
+        initialStatus,
         });
 }));
 
