@@ -1,0 +1,25 @@
+extends layout
+
+append head
+     link(rel="stylesheet", href="/stylesheets/shelf.css")
+     link(rel="stylesheet", href="/stylesheets/profile.css")
+     title Blockbuster Shelf
+block content
+    table.content
+        thead: tr
+            th cover
+            th Title
+            th Year
+            th genre
+            th Description
+            th Rating
+        tbody
+            each movie in users.Movies 
+                    tr
+                        td 
+                            img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                        td #{movie.title}   
+                        td #{year}  
+                        td #{movie.genre}
+                        td #{movie.description}    
+                        td #{movie.voteRating}

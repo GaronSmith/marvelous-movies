@@ -23,8 +23,15 @@ router.get('/genre/:id', asyncHandler(async(req, res)=>{
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(movieId);
+    const status = await db.BlockbusterShelf.findOne({
+        where: {
+            userId: req.session.auth.userId,
+            movieId,  
+        }
+    })
+    const isStatus = status ? 'exists' : null;
     const year = movie.releaseDate.getFullYear();
-    res.render('movie-profile', { title: 'Movie Profile', movie, year });
+    res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year });
 }));
 
 module.exports = router;

@@ -1,39 +1,33 @@
-const updateShelfStatus = async (event) => {
-    event.preventDefault();
+const renderStatus = async (event, value) => {
+    const movieId = parseInt(event.target.id);
+    const status = value;
+    const body = { movieId, status };
+    if (document.getElementById('exists')) {
         try {
-            const res = await fetch(`http://localhost:8080/shelves/${event.target.id}`)
-            const json = await res.json();
-            console.log(json);
+            const res = await fetch(`/shelves`, {
+                method: "PUT",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
         } catch (err) {
-            console.log(err);
+            console.log(err)
         }
+    } else {
+        try {
+            const res = await fetch(`/shelves`, {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }
-
-document.addEventListener('DOMContentLoaded', async() => {
-    document.getElementById('want').addEventListener('click', updateShelfStatus(event))
-})
-
-
-// const updateShelfStatus = async (event, status) => {
-//     event.preventDefault();    
-//     if (status.value) {
-//         const body = { status };
-//         try {
-//             const res = await fetch('http://localhost:8080/shelves/status', {
-//                 method: 'POST',
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify(body),
-//             })
-//             const json = await res.json()
-//             renderStatus(json)
-//         } catch (err) {
-//             console.log(err)
-//         }
-//     }
-// }
-
-// const renderStatus = async () => {
-
-// }
+export {
+    renderStatus
+}
