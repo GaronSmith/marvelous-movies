@@ -243,7 +243,6 @@ router.get(
         model: db.Movie,
       },
     });
-    const joined = users.createdAt.getFullYear();
     res.render("shelf", { users, joined });
    
   })
@@ -258,18 +257,12 @@ router.get(
         model: db.Movie,
         }
     });
-    const shelf = await db.BlockbusterShelf.findAll({
-      where: {
-        status: "watched",
-      },
-    });
-    const joined = users.createdAt.getFullYear();
-    res.render("shelf", { users, joined,shelf });
-    //res.json({shelf})
+    res.render("watched", { users});
   })
 );
+
 router.get(
-  "/:id(\\d+)/shelves/:status",
+  "/:id(\\d+)/shelves/wantToWatch",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
     const users = await db.User.findByPk(currentUser, {
@@ -277,16 +270,26 @@ router.get(
         model: db.Movie,
       },
     });
-    const shelf = await db.BlockbusterShelf.findAll({
-      where: {
-        status: "watched",
-      },
-    });
-    const joined = users.createdAt.getFullYear();
-    res.render("shelf", { users, joined, shelf });
-    //res.json({shelf})
+    res.render("wantToWatch", { users });
   })
 );
+
+router.get(
+  "/:id(\\d+)/shelves/currentlyWatching",
+  asyncHandler(async (req, res) => {
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
+      include: {
+        model: db.Movie,
+      },
+    });
+    res.render("currentlyWatching", { users });
+  })
+);
+
+
+
+
 
 
 
