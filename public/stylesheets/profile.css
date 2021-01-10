@@ -82,3 +82,8 @@ p {
     color:black;
     font-size:22px;
 }
+.allInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

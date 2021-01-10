@@ -226,12 +226,12 @@ router.get(
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,
-      
+        
       },
     });
     
     const joined = users.createdAt.getFullYear();
-    res.render("profile", { users, joined});
+    res.render("profile", { users, joined,countStatus});
     //res.json({users})
   })
 );
