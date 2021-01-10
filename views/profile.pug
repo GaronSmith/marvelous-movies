@@ -2,12 +2,14 @@ extends layout
 
 append head
     link(rel="stylesheet", href="/stylesheets/profile.css")
+    script(src='/javascripts/profile.js' type='module' defer)
     title User-Profile
 block content
     .main-content
         each movie in movies
             h1.profileName #{users.userName}
             .infoTitle Joined: #{joined}
+            div(id='follow-btn')
             br
             .space
             h1.profileName #{users.userName} 's Blockbuster Shelves
