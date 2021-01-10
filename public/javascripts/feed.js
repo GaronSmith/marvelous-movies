@@ -86,18 +86,19 @@ const makeTime = milliseconds => {
 }
 
 const unfollow = async (event) =>{
-    event.preventDefault()
-    
+    // event.preventDefault()
+    document.getElementById('feed-results').innerHTML = ''
     const id = event.target.id.split('_')[1];
     try{
         const res = await fetch(`http://localhost:8080/feed/follow/${id}/delete`, {
             method: 'DELETE',
         })
-        getFeed()
+        await getFeed()
     }catch (err){
         console.log(err)
     }
-
+    
+    
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     Array.from(document.getElementsByClassName('unfollow-btn')).forEach(button => {
       button.addEventListener('click', async () =>{
          await unfollow(event)
+        // await getFeed()
         })
   })
 

@@ -52,7 +52,7 @@ router.delete('/follow/:id/delete', asyncHandler(async (req,res) => {
         }
     })
 
-   
+   res.status(200).json('deleted')
 }))
 
 module.exports = router

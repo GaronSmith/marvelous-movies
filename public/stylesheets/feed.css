@@ -15,7 +15,14 @@ h1{
     align-items: flex-start;
     text-align: center;
 }
-
+.unfollow-btn{
+    position:relative;
+    border-radius: 4px;
+    border: 1px solid #162f65;
+    max-height: 23px;
+    margin-bottom: -6px;
+    margin-right: 20px;
+}
 p.time-delta{
     position: absolute;
     text-align: end;
