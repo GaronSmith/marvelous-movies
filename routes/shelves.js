@@ -6,7 +6,7 @@ const { requireAuth } = require('../auth');
 
 // router.use(requireAuth);
 
-router.get('/want/:uid(\\d+)', asyncHandler(async(req, res) => {
+router.get('/', asyncHandler(async(req, res) => {
     const wantToWatch = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
