@@ -1,0 +1,17 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/review.css")
+  link(rel="stylesheet" href="/stylesheets/search.css")
+  link(rel='stylesheet' href='/stylesheets/index.css')
+  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+  script(src="https://kit.fontawesome.com/e16810bf81.js" crossorigin="anonymous")
+  script(src='/javascripts/search.js' type='module')
+  
+
+block content
+    div(id='search__container')
+      h1(id='movie-search') Movie Search
+      input(type="text", id='searchBar', placeholder='search here!')
+      ul(id='search-results')

@@ -5,7 +5,8 @@ append head
   link(rel="stylesheet" href="/stylesheets/review.css")
   link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
   script(src="https://kit.fontawesome.com/e16810bf81.js" crossorigin="anonymous")
-  script(src='/javascripts/rating.js')
+  script(src='/javascripts/rating.js' type='module' defer )
+  
   
 
 block content
@@ -15,11 +16,11 @@ block content
             img(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="")
         div
         p(class='stars' id=movie.id) Review
-            span(class="far fa-star" id='star-rating_1')     
-            span(class="far fa-star" id='star-rating_2')    
-            span(class="far fa-star" id='star-rating_3')    
-            span(class="far fa-star" id='star-rating_4')    
-            span(class="far fa-star" id='star-rating_5')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_1')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_2')     
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_3')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_4')    
+            span(class="far fa-star" id='movie-'+ movie.id+'-star-rating_5')    
 
         form(action="/reviews/create", method="post")
             input(type="hidden", name="_csrf" value=token)

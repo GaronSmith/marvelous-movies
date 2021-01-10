@@ -1,29 +1,38 @@
-h1 {
-    color: #555555;
-}
 body {
-    background-color: #e8c766;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    background-color:  #e8c766;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-h2 {
+h1 {
+    color: #162f65;
+    font-size: 60px;
+    text-align: center;
+}
+h2,
+.h2 {
     color: #162f65;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+}
+h3,
+.h3 {
+    color: #162f65;
+    font-size: 16px;
+    font-weight:bold;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 form > p {
     color:#3361ac;
     font-size: 14px;
 }
-h3 {
-    color: #162f65;
-    font-size: 16px;
-    font-weight:bold;
-    padding-bottom: 1em;
-}
+.form, 
 .container{
     background-color: white;
     padding: 5%;
-    margin: 5% 10%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -32,7 +41,6 @@ h3 {
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 label{
     color:#162f65;
@@ -56,16 +64,166 @@ label{
     list-style-type: none;
     text-justify: center;
     font-size: 14px;
-   
 }
-
-.submit{
-   padding: 1em;
+.submit {
+   padding: 5px;
     margin-top: 4px;
+    width: 120px;
 }
-.inputs {
+.inputs,
+textarea {
     display:flex;
     flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    padding: 6px;
+    border-radius: 5px;
+}
+input,
+textarea {
+    padding: 6px;
+    border-radius: 5px;
+}
+.topMovies{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: auto;
+    padding: 5px;
+}
+.descriptor {
+    font-size: 14px;
+    text-align: center;
     justify-content: center;
     width: 100%;
+    color: #162f65;
+}
+.navbar1 {
+    border: 1px solid #162f65;
+    background-color: white;
+    align-items: right;
+    height: 70px;
+    overflow: hidden;
+}
+.navbar1 a {
+    float: left;
+    text-align: center;
+    padding: 25px;
+    font-size: 20px;
+    margin-top: -5px;
+}
+.navForm,
+.navForm form {
+    float: right;
+    text-align: center;
+    padding: 15px;
+}
+.navbar1 form {
+    float:right;
+    padding-top: 3px;
+    padding-right: 10px;
+}
+.filmTag {
+    display: flex;
+    width: 120px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin-left: 2px;
+}
+.filmTag2 {
+    display: flex;
+    position: relative;
+    width: 70px;
+    box-shadow: 5px 5px 5px #333;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin-left: 2px;
+}
+.bookshelfBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 625px;
+    background-color: white;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
+}
+.bestOfBox{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 625px;
+    background-color: white;
+    padding: 15px;
+    margin: 10px auto;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 2px #333;
+}
+.bestOfBox2{
+    display:flex;
+    flex-flow: column wrap;
+    height: 135px;
+}
+.bestOfBox3{
+    display:flex;
+    flex-flow: column;
+    height: auto;
+    width: 600px;
+}
+.movieInfo{
+    flex-direction: column;
+    margin-left: 200px;
+    position: absolute;
+    color:#162f65;
+    text-align:left;
+}
+.movieDesc{
+    position: relative;
+    font-size: 14px;
+    text-align: left;
+    color: #162f65;
+    left: -50px;
+    max-width: 440px;
+    max-height: 80px;
+    overflow: scroll;
+}
+.movieInfo2{
+    flex-direction: column;
+    margin-left: 25px;
+    position: relative;
+    color:#162f65;
+    text-align:left;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    max-width: 120px;
+}
+.logo2{
+    max-width: 50px;
+    box-shadow: none;
+}
+.home {
+    position: absolute;
+    top: 90px;
+    width: 120px;
+    font-size: 10px;
+    text-align: center;
+}
+.signUp {
+    position: relative;
+    top: -10px;
+    padding: 2px;
+    margin: 2px;
+    font-size: 14px;
+}
+a:hover {
+    color:#e8c766;
+    background-color: #162f65 ;
 }
