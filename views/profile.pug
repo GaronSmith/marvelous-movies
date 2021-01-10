@@ -9,8 +9,8 @@ block content
         each movie in movies
             h1.profileName #{users.userName}
             .infoTitle Joined: #{joined}
-            div(id='follow-btn')
-                button(type='submit' ) test 
+            div(class='follow-btn' ) 
+                button(type='submit' id=users.id) test 
             br
             .space
             h1.profileName #{users.userName} 's Blockbuster Shelves
