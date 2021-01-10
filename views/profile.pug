@@ -5,15 +5,15 @@ append head
     title User-Profile
 block content
     .main-content
+      h1.profileName #{users.userName}
+      .infoTitle Joined: #{joined}
+       h1.profileName #{users.userName} 's Blockbuster Shelves
+         each movie in users.Movies
+           .space
+              a(href='/users/' +user.id + '/shelves' ) #{movie.BlockbusterShelf.status}
+       h1.profileName Recent Updates
         each movie in users.Movies
-            h1.profileName #{users.userName}
-            .infoTitle Joined: #{joined}
             br
-            .space
-            h1.profileName #{users.userName} 's Blockbuster Shelves
-            a(href='/users/' +user.id + '/shelves' ) #{movie.BlockbusterShelf.status}
-            br
-            h1.profileName Recent Updates
             .Main
                 .Content
                     .moviePic
