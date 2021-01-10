@@ -223,14 +223,15 @@ router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
     const currentUser = req.session.auth.userId;
-    console.log(currentUser)
     const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,
+        limit:5
       },
     });
+    
     const joined = users.createdAt.getFullYear();
-    res.render("profile", { users, joined });
+    res.render("profile", { users, joined});
     //res.json({users})
   })
 );
