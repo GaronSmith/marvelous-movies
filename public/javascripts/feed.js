@@ -86,7 +86,6 @@ const makeTime = milliseconds => {
 }
 
 const unfollow = async (event) =>{
-    // event.preventDefault()
     document.getElementById('feed-results').innerHTML = ''
     const id = event.target.id.split('_')[1];
     try{

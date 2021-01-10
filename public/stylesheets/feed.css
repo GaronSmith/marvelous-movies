@@ -26,7 +26,6 @@ h1{
 p.time-delta{
     position: absolute;
     text-align: end;
-    /* margin-left: 490px; */
     margin-top: -35px;
 }
 
