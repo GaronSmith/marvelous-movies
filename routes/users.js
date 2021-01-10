@@ -214,6 +214,7 @@ router.get(
     });
     
     
+    
     const joined = users.createdAt.getFullYear();
     res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch});
   })
@@ -227,7 +228,8 @@ router.get(
     const users = await User.findByPk(currentUser, {
       include: [Movie],
     });
-    res.render("shelf", { users, joined });
+  
+    res.render("shelf",{ users });
    
   })
 );

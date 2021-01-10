@@ -14,8 +14,7 @@ block content
             th Description
             th Rating
         tbody
-            each movie in users.Movies
-                if movie.BlockbusterShelf.status ==='Currently Watching' 
+            each movie in users.Movies 
                     tr
                         td 
                             img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
