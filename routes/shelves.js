@@ -1,54 +1,68 @@
 const express = require('express');
-const router = express.Router();
-const { Movie } = require('../db/models');
-const { Op } = require('sequelize');
-const csrf = require('csurf');
-const csrfProtection = csrf({ cookie: true });
+const { asyncHandler, csrfProtection } = require('./utils')
 const db = require('../db/models');
+const router = express.Router();
+const { requireAuth } = require('../auth');
 
-const asyncHandler = handler => (req, res, next) => handler(req, res, next).catch(next);
+// router.use(requireAuth);
 
-// script (src = '/javascripts/feed.js')
-
-router.get('/status/:uid(\\d+)', asyncHandler(async(req, res) => {
-    const wantToWatch = await db.BlockbusterShelf.findAll({
+router.get('/', asyncHandler(async(req, res) => {
+    const wantToWatch = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
-            userId: req.params.uid,
+            userId: req.session.auth.userId,
             status: 'Want to Watch',
         }
     });
-    const currentlyWatching = await db.BlockbusterShelf.findAll({
+    res.render('blockbuster-shelf', { 
+        title: 'Blockbuster Shelf', 
+        wantToWatch,
+        });
+
+    const currentlyWatch = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
-            userId: req.params.uid,
+            userId: req.session.auth.userId,
             status: 'Currently Watching',
         }
     });
-    const watched = await db.BlockbusterShelf.findAll({
+    res.render('blockbuster-shelf', { 
+        title: 'Blockbuster Shelf', 
+        currentlyWatch,
+        });
+
+    const watched = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
-            userId: req.params.uid,
+            userId: req.session.auth.userId,
             status: 'Watched',
         }
     });
-    // res.json({ wantToWatch});
     res.render('blockbuster-shelf', { 
-        title: 'Blockbuster Shelves', 
-        wantToWatch, 
-        currentlyWatching, 
-        watched });
+        title: 'Blockbuster Shelf', 
+        watched,
+        });
+}));
+
+router.post('/', asyncHandler(async(req, res) => {
+    const {movieId,status} = req.body;
+    const currentStatus = await db.BlockbusterShelf.create({
+        userId: req.session.auth.userId,
+        movieId,
+        status,
+    })
+    res.json({currentStatus});
 }))
 
-router.get('/want/:id', asyncHandler(async(req, res) => {
-    const wantToWatch = await db.BlockbusterShelf.findAll({
-        include: db.Movie,
+router.put('/', asyncHandler(async(req, res) => {
+    const {movieId,status} = req.body;
+    const statusUpdate = await db.BlockbusterShelf.findOne({
         where: {
-            userId: req.params.id,
-            status: 'Want to Watch',
+            userId: req.session.auth.userId,
+            movieId
         }
     })
-    res.json({wantToWatch});
+    await statusUpdate.update({status});
 }))
-
+ 
 module.exports = router;
