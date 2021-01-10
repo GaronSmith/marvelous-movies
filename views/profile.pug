@@ -2,31 +2,36 @@ extends layout
 
 append head
     link(rel="stylesheet", href="/stylesheets/profile.css")
+    link(rel="stylesheet", href="index.css")
     title User-Profile
 block content
     .main-content
-        each movie in movies
-            h1.profileName #{users.userName}
-            .infoTitle Joined: #{joined}
-            br
-            .space
-            h1.profileName #{users.userName} 's Blockbuster Shelves
-            a(href = "/shelves") #{movie.status}
-            br
-            h1.profileName Recent Updates
-            .Main
-                .Content
-                    .moviePic
-                        img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.Movie.imgPath, alt="movie")
-                        select(class="status")
-                            option(value="movie.BlockbusterShelf.status")=movie.status
-                            option(value="watched")='Want to Watch'
-                            option(value="previously watched")='Watched'
-                            option(value="not interested")='Currently Watching'
-                    .details
-                        h1 #{movie.title}
-                        h2(class="genre") #{movie.genre}
-                        h2 #{year}
-                        h2.rating #{movie.voteRating / 2}
-                        h3
-                        p= movie.description
+      h1 #{users.userName}
+      button(id='users.id' class='follow-btn') Follow
+      .container  
+        .infoTitle Joined: #{joined}
+        h1.profileName #{users.userName} 's Blockbuster Shelves
+          .space
+            a(href='/users/' +users.id + '/shelves/watched' ) Watched (#{Watched})
+            a(href='/users/' +users.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
+            a(href='/users/' +users.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
+        h1.profileName Recent Updates
+          .allInfo
+            each movie in users.Movies
+                br
+                .Main
+                    .Content
+                        .moviePic
+                            img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                            select(class="status")
+                                option(value="movie.BlockbusterShelf.status")=movie.BlockbusterShelf.status
+                                option(value="watched")='Want to watch'
+                                option(value="previously watched")='Watched'
+                                option(value="not interested")='Currently Watching'
+                        .details
+                            h1 #{movie.title}
+                            h2(class="genre") #{movie.genre}
+                            h2 #{year}
+                            h2.rating #{movie.voteRating/2} out of 5
+                            h3
+                            p= movie.description
