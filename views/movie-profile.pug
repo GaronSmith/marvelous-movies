@@ -29,7 +29,7 @@ block content
             div.reviewBoxes
                 each review in reviews
                     p(class="username") #{review.User.userName} 
-                    p(class="rating") #{review.Movie.voteRating / 2} / 5 
+                    p(class="rating") #{review.rating} / 5 
                     p(class="comment") #{review.comment}
 
              
