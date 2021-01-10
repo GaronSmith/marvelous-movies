@@ -6,15 +6,15 @@ const { requireAuth } = require('../auth');
 
 router.use(requireAuth);
 
-router.get('/', asyncHandler(async(req, res) => {
-    const initialStatus = await db.BlockbusterShelf.findOne({
+router.get('/', csrfProtection, asyncHandler(async(req, res) => {
+    const wantToWatch = await db.BlockbusterShelf.findOne({
         include: db.Movie,
         where: {
             userId: req.session.auth.userId,
             status: 'Want to Watch',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('wantToWatch', { 
         title: 'Blockbuster Shelf', 
         wantToWatch,
         });
@@ -26,7 +26,7 @@ router.get('/', asyncHandler(async(req, res) => {
             status: 'Currently Watching',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('currentlyWatching', { 
         title: 'Blockbuster Shelf', 
         currentlyWatch,
         });
@@ -38,7 +38,7 @@ router.get('/', asyncHandler(async(req, res) => {
             status: 'Watched',
         }
     });
-    res.render('blockbuster-shelf', { 
+    res.render('watched', { 
         title: 'Blockbuster Shelf', 
         watched,
         });

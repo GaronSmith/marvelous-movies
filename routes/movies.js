@@ -23,7 +23,7 @@ router.get('/genre/:id', asyncHandler(async(req, res)=>{
     res.render('top-movies', { topMovies, genre });
 }));
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await db.Movie.findByPk(movieId);
     const status = await db.BlockbusterShelf.findOne({
