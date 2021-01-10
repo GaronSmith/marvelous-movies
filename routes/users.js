@@ -201,20 +201,52 @@ router.get('/', function(req, res, next) {
   res.send('respond ith a resource');
 });
 
+// router.get(
+//   "/:id(\\d+)",
+//   asyncHandler(async (req, res) => {
+//     const currentUser = req.params.id;
+//     const movies = await db.BlockbusterShelf.findAll({
+//       where:{userId: currentUser},
+//       include: {
+//         model: db.Movie,
+//       },   
+//     });
+//     const users = await db.User.findByPk(currentUser)
+//     const joined = users.createdAt.getFullYear()
+//      res.render("profile", {users,joined, movies});
+//     //res.json({movies,users})   
+//   })
+// );
+//while above code works this will allow anyone with the link to view the user profile
+
 router.get(
   "/:id(\\d+)",
   asyncHandler(async (req, res) => {
-    const currentUser = req.params.id;
-    const movies = await db.BlockbusterShelf.findAll({
-      where:{userId: currentUser},
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
       include: {
         model: db.Movie,
-      },   
+      },
     });
-    const users = await db.User.findByPk(currentUser)
-    const joined = users.createdAt.getFullYear()
-     res.render("profile", {users,joined, movies});   
+    const joined = users.createdAt.getFullYear();
+    //res.render("profile", { users, joined });
+    res.json({users})
   })
 );
+router.get(
+  "/:id(\\d+)/shelves",
+  asyncHandler(async (req, res) => {
+    const currentUser = req.session.auth.userId;
+    const users = await db.User.findByPk(currentUser, {
+      include: {
+        model: db.Movie,
+      },
+    });
+    const joined = users.createdAt.getFullYear();
+    res.render("shelf", { users, joined });
+    //res.json({ users });
+  })
+);
+
 // router.get("/:id")
 module.exports = router;
