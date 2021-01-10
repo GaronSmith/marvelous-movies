@@ -102,7 +102,7 @@ h3 {
     border-radius: 5px;
 }
 
-.review {
+.reviewHeader {
     text-align: left;
     flex-direction: column;
     margin-left: 25px;
@@ -113,5 +113,13 @@ h3 {
 }
 
 p.review {
-    line-height: 1.5;
+    
+}
+
+p.rating {
+
+}
+
+p.comment {
+
 }

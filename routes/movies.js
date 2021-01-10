@@ -38,7 +38,11 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
         include: 
         [db.Movie, db.User], 
         order: [['updatedAt', 'DESC']], 
-        limit: 7 });
+        limit: 4,
+        where: {
+            movieId,
+        }
+    });
     res.render('movie-profile', { title: 'Movie Profile', movie, isStatus, year, reviews });
 }));
 
