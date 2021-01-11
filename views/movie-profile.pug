@@ -25,11 +25,11 @@ block content
                     p(class="description")= movie.description
         div.reviewContainer
             div.reviewHeader Reviews
-                button(id=movie.id type="submit") Create Review
+                button(id=movie.id type="submit" onclick=`location.href= '/reviews/create/${movie.id}'`) Create Review
             div.reviewBoxes
                 each review in reviews
                     p(class="username") #{review.User.userName} 
-                    p(class="rating") #{review.Movie.voteRating / 2} / 5 
+                    p(class="rating") #{review.rating} / 5 
                     p(class="comment") #{review.comment}
 
              

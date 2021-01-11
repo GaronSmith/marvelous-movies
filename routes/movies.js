@@ -35,6 +35,7 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async(req, res) => {
     const isStatus = status ? 'exists' : null;
     const year = movie.releaseDate.getFullYear();
     const reviews = await db.Review.findAll({
+        where:{movieId},
         include: 
         [db.Movie, db.User], 
         order: [['updatedAt', 'DESC']], 
