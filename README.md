@@ -4,22 +4,45 @@
 ***
 ## Developing
 ### To run this application locally, you'll need to:
+* Get a free API Key at [The Movie Database](https://www.themoviedb.org/)
 
-* git clone this repo
+* Clone the repo
+   ```sh
+   git clone https://github.com/GaronSmith/marvelous-movies
+   ```
+
 * cd into the local repo
-* npm install to install the dependencies
+   ```sh
+    cd marvelous-movies
+    ```
+* Install NPM packages
+   ```sh
+   npm install
+   ```
 * Create a .env file based on the .env.example file included in the repo with your own values
+
 * Create a user on your local machine with the username and password specified in your .env file in PostgreSQL
-* Run npx dotenv sequelize db:create to create the database
-** If the sequelize module is not found, try running npx dotenv sequelize-cli db:create and replace sequelize with sequelize-cli for the rest of these commands
-* Run npx dotenv sequelize db:migrate to run the migrations
-* Run npx dotenv sequelize db:seed:all to seed the database
-* Finally, start the development server with npm start. The scripts in the package.json should do the work. You'll see the local address you can use show up in the terminal.
+
+
+* Create the database
+  ```sh
+    npx dotenv sequelize db:create
+    ```
+ * If the sequelize module is not found, try running ``npx dotenv sequelize-cli db:create`` and replace sequelize with sequelize-cli for the rest of these commands
+* Run the migrations
+  ```
+  npx dotenv sequelize db:migrate
+  ```
+* Seed the database
+  ```
+  npx dotenv sequelize db:seed:all
+  ```
+* Finally, start the development server with `npm start`. The scripts in the package.json should do the work. You'll see the local address you can use show up in the terminal.
 *** 
 ## Click the live link!
-* https://marvelous-movies.herokuapp.com/
+  [Marvelous Movies](https://marvelous-movies.herokuapp.com/)
 ## Check out our Wiki Docs
-* https://github.com/GaronSmith/marvelous-movies/wiki
+[Wiki Docs](https://github.com/GaronSmith/marvelous-movies/wiki)
 ***
 ## Technologies Used
 * Pug.js
@@ -34,14 +57,16 @@
 ***
 ## Some of the impressive features!
 * Users are able to:
-** create an account
-** View top movies
-** Rate/Review movies
-** follow and unfollow friends
-** Add movies to a watch list to share with your friends
-** See what your friends are wanting to watch on your user feed
-** View movies based on recent reviews and the top ratings
-** Search for movies by title
+* create an account
+* View top movies
+* Rate/Review movies
+* follow and unfollow friends
+* Add movies to a watch list to share with your friends
+* See what your friends are wanting to watch on your user feed
+* View movies based on recent reviews and the top ratings
+* Search for movies by title
+
+
 
 
 ## Some of the challenges that we face(&how we solved them!):
