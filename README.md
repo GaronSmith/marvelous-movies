@@ -66,6 +66,8 @@
 * View movies based on recent reviews and the top ratings
 * Search for movies by title
 
+![search](https://user-images.githubusercontent.com/67882384/104206244-48e91c00-53fd-11eb-8b5a-76ca3be32223.gif)
+
 
 
 
@@ -76,6 +78,7 @@
 
 ## Code snippets of some of our features
 ### feed/content route to retrieve the recent shelf updates of users that you follow
+
 ```
 router.get('/content', asyncHandler(async (req, res, next) => {
     let user = await db.User.findByPk(req.session.auth.userId,{
@@ -107,6 +110,7 @@ router.get('/content', asyncHandler(async (req, res, next) => {
     res.json(arrayUpdates)
 }))
 ```
+
 
 ### What the feature does
 * screenshot of code
