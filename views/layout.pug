@@ -13,6 +13,7 @@ html
       a(href='/search') Search
       if locals.authenticated
         a(href='/users/' + user.id) Profile
+        a(href='/feed/') Feed
         div.navForm Welcome, #{user.userName}!
           form(action='/users/logout' method='post')
             button(type='submit') logout
