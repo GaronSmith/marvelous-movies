@@ -50,7 +50,7 @@
 *
 
 ## Code snippets of some of our features
-### What the feature does
+### feed/content route to retrieve the recent shelf updates of users that you follow
 ```
 router.get('/content', asyncHandler(async (req, res, next) => {
     let user = await db.User.findByPk(req.session.auth.userId,{
@@ -82,7 +82,7 @@ router.get('/content', asyncHandler(async (req, res, next) => {
     res.json(arrayUpdates)
 }))
 ```
-* screenshot of application
+
 ### What the feature does
 * screenshot of code
 * screenshot of application
