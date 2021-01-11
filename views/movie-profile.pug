@@ -25,7 +25,7 @@ block content
                     p(class="description")= movie.description
         div.reviewContainer
             div.reviewHeader Reviews
-                button(id=movie.id type="submit") Create Review
+                button(id=movie.id class="createRev" type="submit") Create Review
             div.reviewBoxes
                 each review in reviews
                     p(class="username") #{review.User.userName} 
