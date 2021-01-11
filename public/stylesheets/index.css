@@ -251,3 +251,18 @@ a:hover {
        max-width: fit-content;
    }
 }
+.bioPhoto{
+    position: relative;
+    top: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #333;
+    max-height: 100px;
+    max-width: 100px;
+    justify-content: center;
+    
+}
+.bio {
+    position: relative;
+    top: -80px;
+    max-height: 100px;
+}
