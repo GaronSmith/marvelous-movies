@@ -216,7 +216,7 @@ router.get(
     
     
     const joined = users.createdAt.getFullYear();
-    res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch});
+    res.render("profile", { users, joined,Watched,currentlyWatching,wantToWatch})
   })
 );
 

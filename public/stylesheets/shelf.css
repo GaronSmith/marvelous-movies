@@ -2,6 +2,7 @@
     border-collapse: collapse; 
     margin: 28px 0;
     min-width: 400px;
+    text-align: center; 
 }
 .content thead tr{
     background-color: #162f65;
@@ -11,6 +12,8 @@
 .content td{
 padding:15px 15px;
 }
+
+
 .content tbody tr{
     border-bottom: 2px solid black ;
 }

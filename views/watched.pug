@@ -9,7 +9,6 @@ block content
         thead: tr
             th Cover
             th Title
-            th Year
             th Genre
             th Description
             th Rating
@@ -19,8 +18,7 @@ block content
                     tr
                         td 
                             img.movieImage(src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-                        td #{movie.title}   
-                        td #{year}  
+                        td #{movie.title}     
                         td #{movie.genre}
                         td #{movie.description}    
                         td #{movie.voteRating}
