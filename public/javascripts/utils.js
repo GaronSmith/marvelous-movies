@@ -59,7 +59,7 @@ const unfollow = async (event) => {
     document.getElementById('feed-results').innerHTML = ''
     const id = event.target.id.split('_')[1];
     try {
-        const res = await fetch(`http://localhost:8080/feed/follow/${id}/delete`, {
+        const res = await fetch(`/feed/follow/${id}/delete`, {
             method: 'DELETE',
         })
         await getFeed()
@@ -146,7 +146,7 @@ const makeSentence = status => {
 }
 
 const getFeed = async () => {
-    const res = await fetch('http://localhost:8080/feed/content');
+    const res = await fetch('/feed/content');
     const json = await res.json();
     renderFeed(json)
 
