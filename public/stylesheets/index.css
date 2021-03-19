@@ -1,6 +1,6 @@
 body {
     background-color:  #e8c766;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Asap', sans-serif;
 }
 h1 {
     color: #162f65;
@@ -105,7 +105,7 @@ textarea {
     height: 70px;
     overflow: hidden;
 }
-.navbar1 a {
+.navbar1>a {
     float: left;
     text-align: center;
     padding: 25px;
@@ -168,6 +168,8 @@ textarea {
 .bestOfBox2{
     display:flex;
     flex-flow: column wrap;
+    /* justify-content: center; */
+    align-items: center;
     height: 135px;
 }
 .bestOfBox3{
@@ -225,6 +227,7 @@ textarea {
     width: 120px;
     font-size: 10px;
     text-align: center;
+    color:#162f65
 }
 .signUp {
     position: relative;
@@ -235,7 +238,9 @@ textarea {
 }
 a:hover {
     color:#e8c766;
-    background-color: #162f65 ;
+    background-color: #162f65;
+    width:fit-content;
+    /* justify-content: center; */
 }
 @media (max-width: 600px) {
    body {
@@ -250,4 +255,32 @@ a:hover {
    div {
        max-width: fit-content;
    }
+}
+.bioPhoto{
+    position: relative;
+    top: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #333;
+    max-height: 100px;
+    max-width: 100px;
+    justify-content: center;
+    
+}
+.bio {
+    position: relative;
+    top: -80px;
+    max-height: 100px;
+}
+button {
+    color: white;
+    background-color: #162f65;
+    border-radius: .5rem;
+    padding: 2px;
+    margin: .5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+button:hover {
+    background-color: #e8c766;
+    color:#162f65;
 }
