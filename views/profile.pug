@@ -25,7 +25,7 @@ block content
                         .moviePic
                             img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
                         .details
-                            h1 #{movie.title}
+                            a(href='/movies/' + movie.id)=  movie.title
                             h2(class="genre") #{movie.genre}
                             h2 #{year}
                             h2.rating #{movie.voteRating/2} out of 5
