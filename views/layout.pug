@@ -15,7 +15,7 @@ html
       a(href='/')
         img.logo2(src='/images/marvelous-movies-logo.png')
       a(href='/search') Search
-      a(href='/about') About
+      //- a(href='/about') About
       if locals.authenticated
         a(href='/users/' + user.id) Profile
         a(href='/feed/') Feed
