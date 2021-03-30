@@ -2,10 +2,15 @@
     border-collapse: collapse; 
     margin: 28px 0;
     min-width: 400px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
 }
 .content thead tr{
     background-color: #162f65;
     color:white;
+}
+
+.content tbody tr {
+    background-color: white;
 }
 .content th,
 .content td{
