@@ -3,6 +3,8 @@ doctype html
 html
   head
       block head
+        link(href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet")
+        script(src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js")
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/index.css')
@@ -13,7 +15,7 @@ html
       a(href='/')
         img.logo2(src='/images/marvelous-movies-logo.png')
       a(href='/search') Search
-      a(href='/about') About
+      //- a(href='/about') About
       if locals.authenticated
         a(href='/users/' + user.id) Profile
         a(href='/feed/') Feed
@@ -30,3 +32,4 @@ html
           input(name='password' type='password' placeholder='Password')
           button.submit(type='submit') Login
     block content
+    include includes/footer.pug
