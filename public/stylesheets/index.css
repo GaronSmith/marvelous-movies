@@ -251,3 +251,43 @@ a:hover {
        max-width: fit-content;
    }
 }
+.link {
+    max-width: 2rem;
+    padding: 4px;
+}
+.footer {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #162f65;
+    justify-content: center;
+    padding: .5rem
+}
+.personal{
+    display: flex;
+    margin-left: 1rem;
+    align-content: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.team {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+}
+.profilePic {
+    max-width: 5rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.links {
+    display: flex;
+    align-self: center;
+}
+.name {
+    font-size: 1rem;
+    max-width: min-content;
+    padding: 0rem 1rem 0rem 1rem;
+}
