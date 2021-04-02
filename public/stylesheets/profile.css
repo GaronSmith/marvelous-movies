@@ -107,11 +107,25 @@ p {
     color:black;
     font-size:22px;
 }
-.allInfo{
+/* .allInfo{
    display:flex;
     flex-wrap:wrap;
     flex-direction:row;
     justify-content:flex-start;
     align-items:stretch;
     background-color: blue;
+} */
+.Content{
+    display: block;
+    margin: auto;
+    width: 33%;
+   
+}
+.row{
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 0
 }
