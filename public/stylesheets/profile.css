@@ -61,12 +61,10 @@ a{
     width:auto;
 }
 .Content{
-    display: flex;
-    flex-direction: row;
-     background-color:red;
-    box-shadow:3px 3px 3px #d8d8d8;
-    width:fit-content;
-    padding:20px;
+    display: block;
+    margin: auto;
+    width: 33%;
+
 }
 .status{
     padding: 2px;
@@ -115,17 +113,15 @@ p {
     align-items:stretch;
     background-color: blue;
 } */
-.Content{
+/* .Content{
     display: block;
     margin: auto;
-    width: 33%;
-   
-}
+    width: 50%;
+    height:50%
+    
+} */
 .row{
-    display: flex;
-    margin: 0 auto;
-    width: 100%;
-    flex-direction: row;
+    display:flex;
+    flex-direction:row;
     flex-wrap: wrap;
-    flex-basis: 0
 }
