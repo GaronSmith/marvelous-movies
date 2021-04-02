@@ -33,8 +33,6 @@ background-color: blue; /* Green */
     margin: 10px auto;
     text-align:left;
     width:970px;
-    display: flex;
-    flex-direction: column;
     align-content:center
 }
 .profileName{
@@ -64,7 +62,8 @@ a{
 }
 .Content{
     display: flex;
-    background-color:#d8d8d8;
+    flex-direction: row;
+     background-color:red;
     box-shadow:3px 3px 3px #d8d8d8;
     width:fit-content;
     padding:20px;
@@ -109,7 +108,10 @@ p {
     font-size:22px;
 }
 .allInfo{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+   display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:stretch;
+    background-color: blue;
 }
