@@ -62,7 +62,7 @@ a{
 }
 .Content{
     display: block;
-    margin: auto;
+    margin:0px;
     width: 33%;
 
 }
