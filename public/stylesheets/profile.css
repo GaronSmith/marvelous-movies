@@ -64,7 +64,6 @@ a{
     display: block;
     margin:0px;
     width: 33%;
-
 }
 .status{
     padding: 2px;
@@ -105,21 +104,7 @@ p {
     color:black;
     font-size:22px;
 }
-/* .allInfo{
-   display:flex;
-    flex-wrap:wrap;
-    flex-direction:row;
-    justify-content:flex-start;
-    align-items:stretch;
-    background-color: blue;
-} */
-/* .Content{
-    display: block;
-    margin: auto;
-    width: 50%;
-    height:50%
-    
-} */
+
 .row{
     display:flex;
     flex-direction:row;

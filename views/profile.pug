@@ -17,6 +17,7 @@ block content
             a(href='/users/' +users.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
             a(href='/users/' +users.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
         h1.profileName Recent Updates
+        br
         .contain
           .row
             each movie in users.Movies
