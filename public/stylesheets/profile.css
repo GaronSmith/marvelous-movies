@@ -62,7 +62,7 @@ a{
 }
 .Content{
     display: block;
-    margin:0px;
+    padding:50px;
     width: 33%;
 }
 .status{
@@ -109,4 +109,19 @@ p {
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
+}
+
+.profile{
+   
+    background-color: white;
+    padding: 5%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    border: 1px solid #162f65;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
