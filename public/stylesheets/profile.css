@@ -62,6 +62,7 @@ a{
     width: 33%;
     background-color:#d8d8d8;
     box-shadow:3px 3px 3px #d8d8d8;
+
 }
 .status{
     padding: 2px;
@@ -107,4 +108,13 @@ p {
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .Content{
+      display: flex;
+    background-color:#d8d8d8;
+    box-shadow:3px 3px 3px #d8d8d8;
+    width:100%;
+    padding:20px;
+  }
 }
