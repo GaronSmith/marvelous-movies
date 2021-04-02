@@ -6,10 +6,9 @@ append head
     script(src='/javascripts/profile.js' type='module' defer)
     title User-Profile
 block content
-    .main-content
       h1 #{users.userName}
       button(id=users.id class='follow-btn') Follow
-      .profile  
+      .container  
         .infoTitle Joined: #{joined}
         h1.profileName #{users.userName} 's Blockbuster Shelves
           .space
@@ -17,7 +16,6 @@ block content
             a(href='/users/' +users.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
             a(href='/users/' +users.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
         h1.profileName Recent Updates
-        br
         .contain
           .row
             each movie in users.Movies

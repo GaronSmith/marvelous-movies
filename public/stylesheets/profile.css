@@ -29,12 +29,7 @@ background-color: blue; /* Green */
     font-size: 18px;;
 
 }
-.main-content{
-    margin: 10px auto;
-    text-align:left;
-    width:970px;
-    align-content:center
-}
+
 .profileName{
     color:black;
     border-bottom: 1px solid #d8d8d8;
@@ -62,8 +57,10 @@ a{
 }
 .Content{
     display: block;
-    padding:50px;
+    padding:20px;
     width: 33%;
+    background-color:#d8d8d8;
+    box-shadow:3px 3px 3px #d8d8d8;
 }
 .status{
     padding: 2px;
@@ -109,19 +106,4 @@ p {
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
-}
-
-.profile{
-   
-    background-color: white;
-    padding: 5%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    border: 1px solid #162f65;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
