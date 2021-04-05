@@ -29,14 +29,7 @@ background-color: blue; /* Green */
     font-size: 18px;;
 
 }
-.main-content{
-    margin: 10px auto;
-    text-align:left;
-    width:970px;
-    display: flex;
-    flex-direction: column;
-    align-content:center
-}
+
 .profileName{
     color:black;
     border-bottom: 1px solid #d8d8d8;
@@ -55,7 +48,7 @@ background-color: blue; /* Green */
    width:445px;
 }
 a{
-    margin:5px;
+    margin:10px;
 }
 
 .movieImage{
@@ -63,11 +56,13 @@ a{
     width:auto;
 }
 .Content{
-    display: flex;
+    display: block;
+    padding:20px;
+    margin:0px;
+    width: 33%;
     background-color:#d8d8d8;
     box-shadow:3px 3px 3px #d8d8d8;
-    width:fit-content;
-    padding:20px;
+
 }
 .status{
     padding: 2px;
@@ -108,8 +103,18 @@ p {
     color:black;
     font-size:22px;
 }
-.allInfo{
-    display: flex;
-    flex-direction: row;
+
+.row{
+    display:flex;
+    flex-direction:row;
     flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .Content{
+      display: flex;
+    background-color:#d8d8d8;
+    box-shadow:3px 3px 3px #d8d8d8;
+    width:100%;
+    padding:20px;
+  }
 }

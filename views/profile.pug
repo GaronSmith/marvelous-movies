@@ -6,7 +6,6 @@ append head
     script(src='/javascripts/profile.js' type='module' defer)
     title User-Profile
 block content
-    .main-content
       h1 #{users.userName}
       button(id=users.id class='follow-btn') Follow
       .container  
@@ -17,17 +16,16 @@ block content
             a(href='/users/' +users.id + '/shelves/wantToWatch' ) Want to watch (#{wantToWatch})
             a(href='/users/' +users.id + '/shelves/currentlyWatching' ) Currently Watching (#{currentlyWatching})
         h1.profileName Recent Updates
-          .allInfo
+        .contain
+          .row
             each movie in users.Movies
-                br
-                .Main
-                    .Content
-                        .moviePic
-                            img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
-                        .details
-                            a(href='/movies/' + movie.id)=  movie.title
-                            h2(class="genre") #{movie.genre}
-                            h2 #{year}
-                            h2.rating #{movie.voteRating/2} out of 5
-                            h3
-                            p= movie.description
+                .Content
+                  .moviePic
+                    img(class="movieImage" src="https://image.tmdb.org/t/p/original" + movie.imgPath, alt="movie")
+                  .details
+                    a(href='/movies/' + movie.id)=  movie.title
+                    h2(class="genre") #{movie.genre}
+                    h2 #{year}
+                    h2.rating #{movie.voteRating/2} out of 5
+                    h3
+                    p.hello= movie.description
