@@ -28,8 +28,6 @@ html
         form(action='/users/login' method='post') 
           h2.h2 Not new? Hurry Sign in to see your friends!
           input(type='hidden' name='_csrf' value=token)
-          input(name='email' type='email' placeholder='Email Address')
-          input(name='password' type='password' placeholder='Password')
           button.submit(type='submit') Login
     block content
     include includes/footer.pug
