@@ -1,3 +1,8 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+
+
 # Marvelous Movies
 ## What is it? 
 ### Marvelous Movies is a clone of GoodReads with a movie twist. The application will allow you to sign up/login, see your friends activities, rate/review movies, add movies to your blockbuster shelf, browse films by genre(sorted by rating), and generate a random movie to put on your watch list!!
@@ -118,3 +123,14 @@ router.get('/content', asyncHandler(async (req, res, next) => {
 ### What the feature does
 * screenshot of code
 * screenshot of application
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/GaronSmith/marvelous-movies.svg?style=for-the-badge
+[contributors-url]: https://github.com/GaronSmith/marvelous-movies/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/GaronSmith/marvelous-movies.svg?style=for-the-badge
+[forks-url]: https://github.com/GaronSmith/marvelous-movies/network/members
+[stars-shield]: https://img.shields.io/github/stars/GaronSmith/marvelous-movies.svg?style=for-the-badge
+[stars-url]: https://github.com/GaronSmith/marvelous-movies/stargazers
+
+
+
